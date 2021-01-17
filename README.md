@@ -1,0 +1,1 @@
+- Notes are in /admin/meetings
