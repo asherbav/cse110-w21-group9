@@ -1,0 +1,44 @@
+# Team 9 - 01/17/21
+
+- Goal - Start early and work on:
+  - Group Contract
+  - Group Video
+  - Group Page (Wiki)
+- Members Present:
+  - Alex, Eswar, Gary
+- Members Absent:
+  - Asher, Dat, Lucy, Trevor, Yuriy
+- Meeting Logistics
+  - Start: 4:00 PM PST
+  - End: 5:00 PM PST
+  - Location: Zoom
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - First kickoff meeting completed last Friday (01/15/21)
+  - Project GitHub Repo was created at: https://github.com/Pootisplank/cse110-w21-group9
+    - **Team members need to send their GitHub usernames or email to Alex to be added.**
+  - _Group Contract_ was created using a template from the Canvas Assignment page. Draft done on Google Docs for real time collaboration and will be moved to the repo once finished.
+    - Link: https://docs.google.com/document/d/1-R2fKI9CAeF4On2wwUguBhZoMQH2ERdL8g45EtR2QGA/edit?usp=sharing
+    - **All members need to fill out their info in the contract and individually sign/submit for the Canvas Assignment.**
+  - An outline of the _Group Page_ was created on the GitHub Wiki of the project repository.
+    - Done in HTML
+    - **All members need to write introductions and include a link to their GitHub User Page (On GitHub Pages, not your GitHub profile).**
+    - Still a WIP, need to add theme/brand/personality
+  - Group Video (2.5 min max)
+    - 20-30 second clips of each team member introducing themselves.
+    - May include group intro with everyone on the screen.
+    - Everyone individually records their clips then sends them to someone for editing.
+    - May do something more creative if anyone has ideas.
+  - Almost all work is preliminary and will be discussed in more detail during the full team meeting on Monday (01/18/20)
+- Future Agenda
+  - Unresolved Topics from Current Meeting: None
+  - Go over Group Contract with entire team.
+    - Fill out member info and signatures.
+    - Revise contract.
+  - Go over Group Page (Wiki) with entire team.
+    - Fill out introductions
+    - Add to theme/design
+  - Go over Group Video
+    - Decide concrete plan for the video.
+    - Decide who will be the editor.
+  - Plan/Discuss Group Bonding Event
