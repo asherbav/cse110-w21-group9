@@ -1,0 +1,35 @@
+# Team 9 - 01/18/21
+
+- Goal - Complete Group Work due Wednesday 1/20/21
+  - Group Contract
+  - Group Video
+  - Group Page (Wiki)
+- Members Present:
+  - Alex, Dat, Eswar, Gary, Lucy, Trevor, Yuriy
+- Members Absent:
+  - Asher
+- Meeting Logistics
+  - Start: 4:00 PM PST
+  - End: 5:10 PM PST
+  - Location: Zoom
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Submitted Group Bonding Event and Group Kickoff to Canvas
+  - Group Contract
+    - All members must make a copy of the Group Contract, sign at the bottom, and upload to the GitHub repo in the admin/misc folder.
+    - Canvas Submission: Screenshot of misc folder showing all signed contract files.
+    - Missing: Asher
+  - Group Video
+    - Everyone films a 15-20 second video introducing themselves.
+    - Send clips to Gary by uploading to Google Drive by end of Tuesday: https://drive.google.com/drive/u/1/folders/1WgHpgUdK95nqXzxdB1FG5WDgtw7yZAvU
+  - Group Page (GitHub Wiki)
+    - All members write a small bio and include a link to their GitHub User Page and a head shot.
+      - How to include a image in GitHub Wiki: http://mikehadlow.blogspot.com/2014/03/how-to-add-images-to-github-wiki.html
+    - Missing Bio: Asher, Alex
+    - Missing GitHub User Page: Asher, Alex, Trevor
+  - Future Agenda (To-Do):
+    - Touch-up GitHub Wiki with theme/team name/logo
+    - Send Group Video clips to Gary
+    - Submit Group Contract to Canvas
+    - Submit Group Page and Video to Canvas
+    - Plan for next meeting
