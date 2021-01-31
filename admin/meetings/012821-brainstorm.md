@@ -1,0 +1,27 @@
+# Team 9 - 01/28/21
+
+- Goal: Brainstorm ideas for the pomodoro timer
+- Members Present: Asher, Alex, Eswar, Gary, Trevor
+- Members Absent: Dat, Lucy, Yuriy
+- Meeting Logistics
+  - Started: 1:30 PM
+  - Ended: 3:30 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Brainstormed key ideas on miro board
+    - https://miro.com/app/board/o9J_lWzIaWg=/
+  - Trevor began a prototype on Figma
+    - https://www.figma.com/file/ceCeHboMGkzRx95bISfTmG/Browser-Frames
+  - Team members can start creating prototypes which we will look through to find features we want in the final product
+  - Looked through several existing pomodoro timers online:
+    - https://pomofocus.io/
+    - https://tomato-timer.com/
+    - http://www.tomatotimers.com/
+  - Discussed some color schemes:
+    - Red/Green accents but don't use red as a main color
+- Unresolved Topics: None
+- Future Agenda
+  - Create a task list as a team
+  - Work breakdown structure
+  - Decide roles for team members
+  - Begin design process
