@@ -1,0 +1,51 @@
+# Team 9 - 2/1/21
+
+- Goal - Talk about current project status and plans for the future.
+- Members Present: Alex, Asher, Dat, Eswar, Gary, Lucy, Trevor
+- Members Absent: Yuriy
+- Meeting Logistics
+  - Start: 3:00 PM
+  - End: 5:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Discuss Stand-ups
+    - Remind everyone to do their stand-ups in the slack channel every day.
+    - Everyone needs to make a habit of completing them even if nothing was done for the class that day.
+  - Review Miro brainstorming notes and refine design features.
+    - `/specs/essential_features.pdf`
+    - or Miro Board: https://miro.com/app/board/o9J_lWzIaWg=/
+  - Discuss User Stories/Types/Personas
+    - Start as soon as possible.
+    - Everyone needs to complete at least one distinct user profile.
+    - Due Friday 02/05/21
+  - ADR and Diagramming
+    - Start creating an ADR and make at least one per week.
+    - Current Ideas:
+      - Simple design choices to complete essential features first
+      - Modern theme and simple color scheme
+        - e.g. Facebook, Twitter, etc.
+      - Power Rangers timer sound
+  - Work Breakdown Structure
+    - Asher will create a draft and contact everyone for feedback and to assist with more specific breakdown.
+  - Minimum Viable Product (MVP)
+    - Alex will finish this before the next meeting.
+  - Design Meeting - Length: 1 Hour
+    - Planned a meeting to go over prototypes and discuss features for a final design.
+    - Includes all designers
+    - Alex, Asher, Eswar, Gary, Lucy, Trevor
+    - Likely will be scheduled for Tuesday/Wednesday
+  - Mandatory Meeting Feedback
+    - All members will send Asher feedback about today's meeting and any future meetings.
+    - How did you feel about the meeting?
+    - Do you think anything should be or could be improved?
+    - Are we headed in the right direction?
+    - Any general thoughts/questions so we can gauge how the team is doing and improve future meetings.
+- Unresolved Topics: None
+- Future Agenda
+  - Mandatory meeting feedback
+  - Mandatory meeting proposals due before next meeting
+  - Mandatory daily stand-ups
+  - Complete MVP/WBS by Alex and Asher
+  - Discuss design choices
+  - Assign tasks through WBS
+  - Assess progress through MVT checklist
