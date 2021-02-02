@@ -45,6 +45,8 @@
       - Task status dropdown
       - Start task button
   - Responsive support for desktop to mobile screens [Table solution?](https://medium.com/allenhwkim/mobile-friendly-table-b0cb066dbc0e)
+  - Started creating issues/project board
+  - Page communication
 - Unresolved Topics
   - Transfer miro board to scope - Asher
   - Development Policies - Trevor
