@@ -41,7 +41,7 @@
       - Task
       - Distraction Count
       - Pomo count
-      - Estimate count
+      - Pomo Estimate count
       - Task status dropdown
       - Start task button
   - Responsive support for desktop to mobile screens [Table solution?](https://medium.com/allenhwkim/mobile-friendly-table-b0cb066dbc0e)
