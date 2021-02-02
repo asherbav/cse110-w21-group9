@@ -37,6 +37,17 @@
     - Make task management be the home page
     - Show break timer on task management page (in the corner or something)
   - Settled on two page layout
-  - Responsive support for desktop to mobile screens
+    - Columns:
+      - Task
+      - Distraction Count
+      - Pomo count
+      - Estimate count
+      - Task status dropdown
+      - Start task button
+  - Responsive support for desktop to mobile screens [Table solution?](https://medium.com/allenhwkim/mobile-friendly-table-b0cb066dbc0e)
 - Unresolved Topics
+  - Transfer miro board to scope - Asher
+  - Development Policies - Trevor
+  - JS Version ADR - Trevor
+  - 
 - Future Agenda
