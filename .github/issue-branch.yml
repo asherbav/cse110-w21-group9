@@ -1,0 +1,10 @@
+branches:
+  - label: question
+    skip: true
+  - label: invalid
+    skip: true
+  - label: wontfix
+    skip: true
+  - label: duplicate
+    skip: true
+commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
