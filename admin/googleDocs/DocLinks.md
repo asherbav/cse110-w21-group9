@@ -9,3 +9,5 @@
 # [1/30 Topics (Interest Matrix, Standups)](https://docs.google.com/document/d/1n7fTjOJ58OlBZyKOLE32hKvmJDQIBwU8GiiRyJ13a_I/edit?usp=sharing)
 
 # [2/1 Topics (MSCW, User Stories, Diagramming, WBS)](https://docs.google.com/document/d/15joEdx28tPXOEgX7EhAQfnl7-ZMXj6mf2Y455jKdwlk/edit?usp=sharing)
+
+# [Miro Brainstorming Board](https://miro.com/app/board/o9J_lWzIaWg=/)
