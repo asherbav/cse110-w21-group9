@@ -1,6 +1,6 @@
 # Minimal Viable Process
 
-### Process: Team
+## Process: Team
 
 - [ ] Team Formation
   - [ ] Introduction
@@ -14,7 +14,7 @@
   - [ ] Evaluating Progress
   - [ ] Handling Conflict
 
-### Process: Design, Plan, Execute
+## Process: Design, Plan, Execute
 
 - [ ] Brainstorming
   - [ ] Miro
@@ -31,7 +31,7 @@
     - [ ] Detailed Draft before coding
       - [ ] High Fidelity Prototype
 
-### Execution: Tech
+## Execution: Tech
 
 - [ ] Tooling
   - [ ] Do we have a slate of clear tools?
