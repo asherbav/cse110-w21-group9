@@ -1,3 +1,5 @@
+# Minimal Viable Process
+
 ### Process: Team
 
 - [ ] Team Formation
