@@ -1,0 +1,99 @@
+# Minimal Viable Process
+
+## Process: Team
+
+- [ ] Team Formation
+  - [ ] Introduction
+  - [ ] Values Definition
+- [ ] Sprint Process
+  - [ ] Daily Stand-ups
+  - [ ] Meetings
+  - [ ] Ad hoc communication
+- [ ] Team Maintenance
+  - [ ] Keeping Cohesion Up
+  - [ ] Evaluating Progress
+  - [ ] Handling Conflict
+
+## Process: Design, Plan, Execute
+
+- [ ] Brainstorming
+  - [ ] Miro
+  - [ ] Draw.io
+- [ ] Artifacts
+  - [ ] Architectural Decision Records (ADR)
+  - [ ] Personas/User Stories
+  - [ ] Vision/Overview Diagram
+  - [ ] Planning
+    - [ ] Rough Drafts
+      - [ ] Fat Marker Sketches
+      - [ ] Wireframes
+      - [ ] Flow Diagrams
+    - [ ] Detailed Draft before coding
+      - [ ] High Fidelity Prototype
+
+## Execution: Tech
+
+- [ ] Tooling
+  - [ ] Do we have a slate of clear tools?
+  - [ ] Environment Setup
+- [ ] Coding
+  - [ ] Where and how many repositories will we have?
+  - [ ] How do we organize our repo(s)
+    - [ ] Repository guidelines
+    - [ ] How to contribute guides
+    - [ ] Rigorous guidelines?
+  - [ ] Main branch protection rules
+  - [ ] Development policy
+    - [ ] Feature branches (vs) Forks
+    - [ ] Merging policy
+  - [ ] Proper commit style
+  - [ ] How often is code being committed?
+  - [ ] Code Reviews
+- [ ] Documentation
+  - [ ] Storage area for documentation
+  - [ ] Architecture Diagrams
+    - [ ] UML/C4/Event Modeling/Ad hoc
+  - [ ] Internal Documentation
+    - [ ] Form
+      - [ ] Private Wiki
+      - [ ] Private Web Site(s)
+    - [ ] Covers
+      - [ ] Technical Decisions (ADR)
+      - [ ] Processes (How to push a build)
+      - [ ] Logistics and Management (Notes, etc.)
+- [ ] Building
+  - [ ] CI Pipeline
+    - [ ] Is it working on every pull request?
+  - [ ] Pipeline Bare Minimum Steps
+    - [ ] Linter/Style Guide Enforcer
+    - [ ] Test Coverage Checker
+    - [ ] Build or Bundle of Code
+    - [ ] Optimization of Code or Assets
+    - [ ] Code Quality checker (eg. CodeClimate)
+    - [ ] Unit Tests Harness
+    - [ ] End-To-End / Integration Test Harness
+    - [ ] Packaging and Pushing to Delivery Location
+  - [ ] Easy way to fire off the pipeline?
+- [ ] Testing
+  - [ ] Do we have a test plan or at least test goals?
+  - [ ] What kind of tests do we have?
+    - [ ] Unit Tests
+    - [ ] Integration Tests
+    - [ ] End to End Tests
+    - [ ] User Acceptance Tests
+  - [ ] Who is writing the tests?
+    - [ ] Coders testing or separate testers
+  - [ ] How much testing do we have?
+    - [ ] Code coverage metrics?
+  - [ ] How often are tests run and to what level of detail?
+    - [ ] How do tests relate to operations?
+- [ ] Operating
+  - [ ] Operating Plan
+    - [ ] SLA, checklisting, escalation, etc.
+    - [ ] Monitoring the health of our system
+    - [ ] Monitoring the health of our team
+    - [ ] The system informs ongoing changes to software
+    - [ ] DevOps - Analytics, Error Trace, etc.
+      - [ ] Maintenance Mode
+      - [ ] Staging Servers
+    - [ ] Road Map
