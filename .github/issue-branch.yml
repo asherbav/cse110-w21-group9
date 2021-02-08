@@ -7,4 +7,5 @@ branches:
     skip: true
   - label: duplicate
     skip: true
-commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
+commentMessage: 'Branch [${branchName}](https://github.com/trvrsalom/cse110-w21-group9/tree/${branchName}) created for issue: ${issue.title}'
+
