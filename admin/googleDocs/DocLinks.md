@@ -11,3 +11,7 @@
 # [2/1 Topics (MSCW, User Stories, Diagramming, WBS)](https://docs.google.com/document/d/15joEdx28tPXOEgX7EhAQfnl7-ZMXj6mf2Y455jKdwlk/edit?usp=sharing)
 
 # [Miro Brainstorming Board](https://miro.com/app/board/o9J_lWzIaWg=/)
+
+# [2/5 Topics(Starting Pitch, CI/CD)](https://docs.google.com/document/d/1mWwP3E9k4CUcvAOoA_9DNCw-oV9FFi97uAiMdtcaFB4/edit)
+
+# [Starting Pitch Slides](https://docs.google.com/presentation/d/1i0_81LPEEkmYGFVJ1ctAFhZTATtb3zV7qluhbBql_qw/edit#slide=id.gbb523416b0_3_0)
