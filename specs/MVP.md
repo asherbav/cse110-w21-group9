@@ -2,13 +2,13 @@
 
 ## Process: Team
 
-- [ ] Team Formation
-  - [ ] Introduction
-  - [ ] Values Definition
-- [ ] Sprint Process
-  - [ ] Daily Stand-ups
-  - [ ] Meetings
-  - [ ] Ad hoc communication
+- [x] Team Formation
+  - [x] Introduction
+  - [x] Values Definition
+- [x] Sprint Process
+  - [x] Daily Stand-ups
+  - [x] Meetings
+  - [x] Ad hoc communication
 - [ ] Team Maintenance
   - [ ] Keeping Cohesion Up
   - [ ] Evaluating Progress
@@ -16,20 +16,20 @@
 
 ## Process: Design, Plan, Execute
 
-- [ ] Brainstorming
-  - [ ] Miro
-  - [ ] Draw.io
+- [x] Brainstorming
+  - [x] Miro
+  - [x] Draw.io
 - [ ] Artifacts
   - [ ] Architectural Decision Records (ADR)
-  - [ ] Personas/User Stories
-  - [ ] Vision/Overview Diagram
+  - [x] Personas/User Stories
+  - [x] Vision/Overview Diagram
   - [ ] Planning
-    - [ ] Rough Drafts
-      - [ ] Fat Marker Sketches
-      - [ ] Wireframes
-      - [ ] Flow Diagrams
-    - [ ] Detailed Draft before coding
-      - [ ] High Fidelity Prototype
+    - [x] Rough Drafts
+      - [x] Fat Marker Sketches
+      - [x] Wireframes
+      - [x] Flow Diagrams
+    - [x] Detailed Draft before coding
+      - [x] High Fidelity Prototype
 
 ## Execution: Tech
 
@@ -37,35 +37,35 @@
   - [ ] Do we have a slate of clear tools?
   - [ ] Environment Setup
 - [ ] Coding
-  - [ ] Where and how many repositories will we have?
+  - [x] Where and how many repositories will we have?
   - [ ] How do we organize our repo(s)
-    - [ ] Repository guidelines
-    - [ ] How to contribute guides
-    - [ ] Rigorous guidelines?
-  - [ ] Main branch protection rules
-  - [ ] Development policy
-    - [ ] Feature branches (vs) Forks
-    - [ ] Merging policy
+    - [x] Repository guidelines
+    - [x] How to contribute guides
+    - [x] Rigorous guidelines?
+  - [x] Main branch protection rules
+  - [x] Development policy
+    - [x] Feature branches (vs) Forks
+    - [x] Merging policy
   - [ ] Proper commit style
   - [ ] How often is code being committed?
-  - [ ] Code Reviews
+  - [x] Code Reviews
 - [ ] Documentation
-  - [ ] Storage area for documentation
+  - [x] Storage area for documentation
   - [ ] Architecture Diagrams
     - [ ] UML/C4/Event Modeling/Ad hoc
   - [ ] Internal Documentation
-    - [ ] Form
-      - [ ] Private Wiki
-      - [ ] Private Web Site(s)
+    - [x] Form
+      - [x] Private Wiki
+      - [x] Private Web Site(s)
     - [ ] Covers
       - [ ] Technical Decisions (ADR)
       - [ ] Processes (How to push a build)
-      - [ ] Logistics and Management (Notes, etc.)
+      - [x] Logistics and Management (Notes, etc.)
 - [ ] Building
   - [ ] CI Pipeline
-    - [ ] Is it working on every pull request?
+    - [x] Is it working on every pull request?
   - [ ] Pipeline Bare Minimum Steps
-    - [ ] Linter/Style Guide Enforcer
+    - [x] Linter/Style Guide Enforcer
     - [ ] Test Coverage Checker
     - [ ] Build or Bundle of Code
     - [ ] Optimization of Code or Assets
@@ -73,7 +73,7 @@
     - [ ] Unit Tests Harness
     - [ ] End-To-End / Integration Test Harness
     - [ ] Packaging and Pushing to Delivery Location
-  - [ ] Easy way to fire off the pipeline?
+  - [x] Easy way to fire off the pipeline?
 - [ ] Testing
   - [ ] Do we have a test plan or at least test goals?
   - [ ] What kind of tests do we have?
