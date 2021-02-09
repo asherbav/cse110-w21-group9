@@ -12,7 +12,9 @@ We want to record which version of JavaScript we decided to use for our Pomodoro
 
 ## Decision Outcome
 
-Chosen option: , because
+Chosen option: ES6, because 
 
-* Reason 1
-* Reason 2
+* higher performance
+* let and const variables added
+* less time-consuming object manipulation
+* browsers version support is not a big issue (from 2016)
