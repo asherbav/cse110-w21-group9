@@ -11,7 +11,6 @@
   - Went through Starting Pitch components from the _Shape Up_ book.
     - Problem, Appetite, Solution, Rabbit Holes, No-Gos
   - Each of us worked on the slides which were then submitted to Sasya for evaluation. Starting pitch located:
-    - https://docs.google.com/presentation/d/1i0_81LPEEkmYGFVJ1ctAFhZTATtb3zV7qluhbBql_qw/edit#slide=id.gbb523416b0_8_0
     - `/specs/starting-pitch.pdf`
 - Unresolved Topics
 - Future Agenda
