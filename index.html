@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Task Scheduler</title>
+</head>
+
+<body>
+<header>
+    <h1>PomoTimer</h1>
+</header>
+
+<main>
+    <section>
+        <table>
+          <tr>
+            <th>Remove Task</th>
+            <th>Task Name</th>
+            <th>Task Description/Notes</th>
+            <th>Estimated Pomos</th>
+            <th>Actual Pomos</th>
+            <th>Number of Distractions</th>
+            <th>Session Status</th>
+            <th>Start Session</th>
+          </tr>
+            
+          <tr>
+            <td> <button type="button">Remove</button> </td>
+            <td>Task 1</td>
+            <td>Complete HTML Pages</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>  
+                <select name="task_status" id="task_status">
+                    <option value="not_started">Not Started</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </td>
+            <td> <button type="button">Start</button> </td>
+          </tr>
+            
+          <tr>
+            <td> <button type="button">Remove</button> </td>
+            <td>Task 2</td>
+            <td>Complete HTML Pages</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>  
+                <select name="task_status" id="task_status">
+                    <option value="not_started">Not Started</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </td>
+            <td> <button type="button">Start</button> </td>
+          </tr>
+            
+          <tr>
+            <td> <button type="button">Remove</button> </td>
+            <td>Task 3</td>
+            <td>Complete HTML Pages</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>  
+                <select name="task_status" id="task_status">
+                    <option value="not_started">Not Started</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </td>
+            <td> <button type="button">Start</button> </td>
+          </tr>
+        </table>
+    </section>
+    
+    <section>
+        <form>
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" name="taskName">
+            <label for="taskDescription">Task Description:</label>
+            <input type="text" id="taskDescription" name="taskDescription">
+            <label for="est">Estimated Pomos:</label>
+            <input type="text" id="est" name="est">
+            <button type="button">Add Task</button>
+        </form>
+    </section>
+</main>
+    
+<footer>
+    <p>Created by Team Powell Rangers</p>
+</footer>
+    
+</body>
+
+</html>
