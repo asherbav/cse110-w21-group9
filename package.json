@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --ci --json --outputFile=cse110-w21-group9/jest.results.json"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
