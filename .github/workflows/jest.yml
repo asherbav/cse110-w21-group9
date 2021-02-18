@@ -1,6 +1,6 @@
 name: JS Testing
 
-on: [push, pull-requests]
+on: [push, pull_requests]
 
 jobs:
   build:
