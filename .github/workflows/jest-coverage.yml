@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: raulanatol/jest-coverage-comment-action@v1.0.0
+        uses: raulanatol/jest-coverage-comment-action@v1.0.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           jest-command: 'npm run jest-ci'
