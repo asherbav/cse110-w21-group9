@@ -13,9 +13,9 @@ jobs:
       uses: stefanoeb/jest-action@1.0.3
       with:
         jestArgs: --coverage
-    - name: Jest Coverage
-      uses: vebr/jest-lcov-reporter@v0.2.0
+    - name: Coverage
+      uses: ziishaned/jest-reporter-action@v0.1.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        lcov-file: ./coverage/lcov.info
+        test-command: "npx jest --coverage"
 
