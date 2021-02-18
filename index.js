@@ -111,3 +111,26 @@ function setPomoTimer(time) {
 	document.getElementById('timerPomo').innerHTML = time;
 }
 
+
+try {
+	// If we are running in a test environment
+	module.exports = {
+		SHORT_BREAK_DURATION: SHORT_BREAK_DURATION,
+		LONG_BREAK_EVERY: LONG_BREAK_EVERY,
+		LONG_BREAK_DURATION: LONG_BREAK_DURATION,
+		WORK_DURATION: WORK_DURATION,
+		UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
+		time: time,
+		timerEnd: timerEnd,
+		getTimeString: getTimeString,
+		startPomoTimer: startPomoTimer,
+		finishBreak: finishBreak,
+		startLongBreakTimer: startLongBreakTimer,
+		startShortBreakTimer: startShortBreakTimer,
+		refreshBreakTimer: refreshBreakTimer,
+		finishPomo: finishPomo,
+	};
+}
+catch(err) {
+	// Do nothing
+}
