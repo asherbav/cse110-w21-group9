@@ -14,7 +14,7 @@ jobs:
       with:
         jestArgs: --coverage
     - name: Coverage
-      uses: ziishaned/jest-reporter-action@d4e536e
+      uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         test-command: "npx jest --coverage"
