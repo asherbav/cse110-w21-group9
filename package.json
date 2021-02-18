@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --ci --json --outputFile=jest.results.json"
   },
   "repository": {
     "type": "git",
