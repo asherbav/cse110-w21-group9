@@ -5,10 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: raulanatol/jest-coverage-comment-action@v1.0.6
+      - name: Jest Coverage
+        id: jcov
+        uses: ziishaned/jest-reporter-action@v0.0.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          jest-command: 'npm run jest-ci'
-          working-directory: 'packages/my-package'
+          test-command: "npx jest --coverage"
