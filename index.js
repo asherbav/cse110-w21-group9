@@ -104,10 +104,10 @@ function startLongBreakTimer() {
 }
 
 function setBreakTimer(time) {
-	document.getElementById('timerBreak').innerHTML = time;
+	document.getElementById('break-timer').innerHTML = time;
 }
 
 function setPomoTimer(time) {
-	document.getElementById('timerPomo').innerHTML = time;
+	document.getElementById('pomo-timer').innerHTML = time;
 }
 
