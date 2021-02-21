@@ -1,5 +1,7 @@
 # Choose a JavaScript Version
 
+* Status: Accepted
+
 ## Context and Problem Statement
 
 We want to record which version of JavaScript we decided to use for our Pomodoro web app.
