@@ -1,0 +1,22 @@
+# Choose Maximum (and Minimum) Pomo Estimate
+
+* Status: Accepted
+
+## Context and Problem Statement
+
+We want to record how the range of pomos the user can estimate.
+
+## Considered Options
+
+* 1-4 pomos
+* 1-10 pomos
+* 1-15 pomos
+
+## Decision Outcome
+
+Chosen option: 1-4 pomos, because
+
+* 4 pomos should be enough for one task
+* a 10 pomo task should be broken into smaller subtasks 
+* same reasoning for 15 pomos
+* minimum 1 pomo to avoid 0 pomo task / user error
