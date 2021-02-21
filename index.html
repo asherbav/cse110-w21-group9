@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Home Task Scheduler</title>
     <!--Change title with JS-->
@@ -15,17 +14,17 @@
     <main>
         <div class="main-page" id="main-page">
             <section>
-                <table>
+                <table id='table'>
                     <tr>
                         <th>Remove Task</th>
-                        <th>Task Description/Notes</th>
+                        <th>Task</th>
                         <th>Estimated Pomos</th>
                         <th>Actual Pomos</th>
                         <th>Number of Distractions</th>
                         <th>Session Status</th>
                         <th>Start Session</th>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td> <button type="button" class="remove-btn">Remove</button> </td>
                         <td>Task 1</td>
                         <td>2</td>
@@ -40,7 +39,6 @@
                         <td> <button type="button" class="start-btn">Start</button> </td>
                     </tr>
 
-                    <!--Filler table rows underneath -->
                     <tr>
                         <td> <button type="button" class="remove-btn">Remove</button> </td>
                         <td>Task 2</td>
@@ -70,7 +68,7 @@
                         </td>
                         <td> <button type="button" class="start-btn">Start</button> </td>
                     </tr>
-                    <!--End of filler table rows-->
+                    -->
 
                 </table>
             </section>
@@ -81,7 +79,7 @@
                     <input type="text" name="task-description" class="task-description" id="task-description">
                     <label for="estimate">Estimated Pomos:</label>
                     <input type="text" name="estimate" class="estimate" id="estimate">
-                    <button type="button" class="add-btn" id="add-btn">Add Task</button>
+                    <button type="button" class="add-btn" id="add-btn" onclick="addTask()">Add Task</button>
                 </form>
             </section>
         </div>

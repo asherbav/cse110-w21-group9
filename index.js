@@ -152,3 +152,87 @@ function finishSession() {
 function updatePomo()  {
 
 }
+
+/**
+ * Called when user presses add task button.
+ * Adds task to the table
+ */
+function addTask() {
+	let table = document.getElementById('table');
+
+	//Inputs
+	let inputEstimate = document.getElementById('estimate');
+	let inputDesc = document.getElementById('task-description');
+
+	//Row Container
+	let row = document.createElement('tr');
+
+	//Column Containers
+	let removeBtn = document.createElement('td');
+	let desc = document.createElement('td');
+	let estimate = document.createElement('td');
+	let actual = document.createElement('td');
+	let distract = document.createElement('td');
+	let sessionStatus = document.createElement('td');
+	let start = document.createElement('td');
+	
+	//Column Content
+	let btnCont = document.createElement('button');
+	btnCont.innerHTML = 'Remove';
+	btnCont.className = 'remove-btn';
+	btnCont.addEventListener('click', function () {
+		row.style.display = 'none';
+	});
+		
+	let descCont = document.createElement('p');
+	descCont.innerHTML = inputDesc.value;
+
+	let estCont = document.createElement('p');
+	estCont.innerHTML = inputEstimate.value;
+
+	let actualCont = document.createElement('p');
+	actualCont.innerHTML = "0";
+
+	let distractCont = document.createElement('p');
+	distractCont.innerHTML = "0";
+
+	let sessionCont = document.createElement('select');
+	let firstOption = document.createElement('option');
+	firstOption.value = 'incomplete';
+	firstOption.innerHTML = 'Incomplete';
+	let secondOption = document.createElement('option');
+	secondOption.value = 'complete';
+	secondOption.innerHTML = 'Complete';
+	sessionCont.appendChild(firstOption);
+	sessionCont.appendChild(secondOption);
+
+	
+
+	let startCont = document.createElement('button');
+	startCont.innerHTML = 'Start';
+	startCont.addEventListener('click', startPomo('1'));
+
+	//Appending Column Content to Columns
+	removeBtn.appendChild(btnCont);
+	desc.appendChild(descCont);
+	estimate.appendChild(estCont);
+	actual.appendChild(actualCont);
+	distract.appendChild(distractCont);
+	sessionStatus.appendChild(sessionCont);
+	start.appendChild(startCont);
+
+	//Appending Columns to Rows
+	row.appendChild(removeBtn);
+	row.appendChild(desc);
+	row.appendChild(estimate);
+	row.appendChild(actual);
+	row.appendChild(distract);
+	row.appendChild(sessionStatus);
+	row.appendChild(start);
+
+	table.appendChild(row);
+
+	//Clears values
+	inputDesc.value = '';
+	inputEstimate.value = '';
+}
