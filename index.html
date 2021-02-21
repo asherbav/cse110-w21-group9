@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Home Task Scheduler</title>
     <!--Change title with JS-->
@@ -15,17 +14,18 @@
     <main>
         <div class="main-page" id="main-page">
             <section>
-                <table>
+                <p id="break-timer"></p>
+                <table id="table">
                     <tr>
                         <th>Remove Task</th>
-                        <th>Task Description/Notes</th>
+                        <th>Task</th>
                         <th>Estimated Pomos</th>
                         <th>Actual Pomos</th>
                         <th>Number of Distractions</th>
                         <th>Session Status</th>
                         <th>Start Session</th>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td> <button type="button" class="remove-btn">Remove</button> </td>
                         <td>Task 1</td>
                         <td>2</td>
@@ -39,8 +39,6 @@
                         </td>
                         <td> <button type="button" class="start-btn">Start</button> </td>
                     </tr>
-
-                    <!--Filler table rows underneath -->
                     <tr>
                         <td> <button type="button" class="remove-btn">Remove</button> </td>
                         <td>Task 2</td>
@@ -55,7 +53,6 @@
                         </td>
                         <td> <button type="button" class="start-btn">Start</button> </td>
                     </tr>
-
                     <tr>
                         <td> <button type="button" class="remove-btn">Remove</button> </td>
                         <td>Task 3</td>
@@ -70,7 +67,7 @@
                         </td>
                         <td> <button type="button" class="start-btn">Start</button> </td>
                     </tr>
-                    <!--End of filler table rows-->
+                    -->
 
                 </table>
             </section>
@@ -81,12 +78,12 @@
                     <input type="text" name="task-description" class="task-description" id="task-description">
                     <label for="estimate">Estimated Pomos:</label>
                     <input type="text" name="estimate" class="estimate" id="estimate">
-                    <button type="button" class="add-btn" id="add-btn">Add Task</button>
+                    <button type="button" class="add-btn" id="add-btn" onclick="addTask()">Add Task</button>
                 </form>
             </section>
         </div>
 
-        <div class="timer-page" id="timer-page" style="display: block;">
+        <div class="timer-page" id="timer-page" style="display: none;">
             <section>
                 <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
             </section>
@@ -96,8 +93,8 @@
             </section>
 
             <section>
-                <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
-                <button type="button" class="distract-btn" id="distract-btn">Log Distraction</button>
+                <button type="button" class="cancel-btn" id="cancel-btn" onclick="cancelPomo()">Cancel</button>
+                <button type="button" class="distract-btn" id="distract-btn" onclick="logDistraction(currentPomoID)">Log Distraction</button>
             </section>
         </div>
     </main>
