@@ -9,6 +9,73 @@ const LONG_BREAK_EVERY = 4;
 let time, timerEnd, ID;
 let breakCount = 0;
 
+const SESSION_STATUS = {
+    incomplete: 0,
+    complete: 1,
+    deleted: 2
+};
+
+let pomoData = [];
+/*
+{
+    taskName: "task name",
+ 	estimatedPomos: number,
+	actualPomos: number,
+    distractions, 
+	sessionStatus: one of:
+        SESSION_STATUS.incomplete,
+        SESSION_STATUS.complete,
+        SESSION_STATUS.deleted
+}
+*/
+let currentPomoID = -1;
+
+/**
+ * Function to create a pomodoro
+ */
+function createPomodoro(taskName, estimatedPomos) {
+	let pomo = {
+        "id": pomoData.length,
+        "taskName": taskName,
+        "estimatedPomos": estimatedPomos,
+        "actualPomos": 0,
+        "distractions": 0,
+        "sessionStatus": SESSION_STATUS.incomplete
+    };
+    pomoData.push(pomo);
+    return pomo.id;
+}
+
+/**
+ * Log the distractions for the currently running pomo
+ */
+function logDistraction(pomoId) {
+	pomoData[pomoId].distractions++;
+}
+
+function setName(pomoId, pomoName) {
+	pomoData[pomoId].taskName = pomoName;
+}
+
+function setStatus(pomoId, pomoStatus) {
+	pomoData[pomoId].sessionStatus = pomoStatus;
+}
+
+function getPomo() {
+    return pomoData;
+}
+
+function getPomoById(pomoId) {
+    return pomoData[pomoId];
+}
+
+function getCurrentPomoId() {
+    return currentPomoID;
+}
+
+function setPomo(pomoId){
+    currentPomoID = pomoId;
+}
 
 /**
  * Called by the timer when the break is complete
@@ -235,4 +302,27 @@ function addTask() {
 	//Clears values
 	inputDesc.value = '';
 	inputEstimate.value = '';
+}
+
+try {
+	// If we are running in a test environment
+	module.exports = {
+		SHORT_BREAK_DURATION: SHORT_BREAK_DURATION,
+		LONG_BREAK_EVERY: LONG_BREAK_EVERY,
+		LONG_BREAK_DURATION: LONG_BREAK_DURATION,
+		WORK_DURATION: WORK_DURATION,
+		UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
+		time: time,
+		timerEnd: timerEnd,
+		getTimeString: getTimeString,
+		startPomoTimer: startPomoTimer,
+		finishBreak: finishBreak,
+		startLongBreakTimer: startLongBreakTimer,
+		startShortBreakTimer: startShortBreakTimer,
+		refreshBreakTimer: refreshBreakTimer,
+		finishPomo: finishPomo,
+	};
+}
+catch(err) {
+	// Do nothing
 }
