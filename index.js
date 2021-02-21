@@ -9,6 +9,73 @@ const LONG_BREAK_EVERY = 4;
 let time, timerEnd;
 let breakCount = 0;
 
+const SESSION_STATUS = {
+    incomplete: 0,
+    complete: 1,
+    deleted: 2
+};
+
+let pomoData = [];
+/*
+{
+    taskName: "task name",
+ 	estimatedPomos: number,
+	actualPomos: number,
+    distractions, 
+	sessionStatus: one of:
+        SESSION_STATUS.incomplete,
+        SESSION_STATUS.complete,
+        SESSION_STATUS.deleted
+}
+*/
+let currentPomoID = -1;
+
+/**
+ * Function to create a pomodoro
+ */
+function createPomodoro(taskName, estimatedPomos) {
+	let pomo = {
+        "id": pomoData.length,
+        "taskName": taskName,
+        "estimatedPomos": estimatedPomos,
+        "actualPomos": 0,
+        "distractions": 0,
+        "sessionStatus": SESSION_STATUS.incomplete
+    };
+    pomoData.push(pomo);
+    return pomo.id;
+}
+
+/**
+ * Log the distractions for the currently running pomo
+ */
+function logDistraction(pomoId) {
+	pomoData[pomoId].distractions++;
+}
+
+function setName(pomoId, pomoName) {
+	pomoData[pomoId].taskName = pomoName;
+}
+
+function setStatus(pomoId, pomoStatus) {
+	pomoData[pomoId].sessionStatus = pomoStatus;
+}
+
+function getPomo() {
+    return pomoData;
+}
+
+function getPomo(pomoId) {
+    return pomoData[pomoId];
+}
+
+function getCurrentPomoId() {
+    return currentPomoID;
+}
+
+function setPomo(pomoId){
+    currentPomoID = pomoId;
+}
 
 /**
  * Called by the timer when the break is complete
