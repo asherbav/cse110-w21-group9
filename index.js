@@ -65,7 +65,7 @@ function getPomo() {
     return pomoData;
 }
 
-function getPomo(pomoId) {
+function getPomoById(pomoId) {
     return pomoData[pomoId];
 }
 
