@@ -6,7 +6,7 @@ const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
 
-let time, timerEnd;
+let time, timerEnd, ID;
 let breakCount = 0;
 
 
@@ -111,3 +111,44 @@ function setPomoTimer(time) {
 	document.getElementById('pomo-timer').innerHTML = time;
 }
 
+/**
+ * Set pomodoro id
+ * @param {The unique ID for the pomodoro} pomoId 
+ */
+function setCurrentPomo(pomoId) {
+	ID = pomoId;
+}
+
+/**
+ * Returns pomodoro id variable
+ */
+function getCurrentPomo() {
+	return ID;
+}
+
+/**
+ * Called when user presses start pomo, loads that pomo and goes to the timer page
+ */
+function startPomo(pomoId) {
+	let mainpage = document.getElementById('main-page');
+	let timerpage = document.getElementById('timer-page');
+	mainpage.style.display = 'none';
+	timerpage.style.display = 'block';
+	setCurrentPomo(pomoId);
+	startPomoTimer();
+}
+
+/**
+ * Called when the user presses finish session on the table
+ */
+function finishSession() {
+
+}
+
+/**
+ * Called whenever the user updates something about the pomodoro (status, changes description, etc) and handles it
+ * Is this for localStorage?
+ */
+function updatePomo()  {
+
+}
