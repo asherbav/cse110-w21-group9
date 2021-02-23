@@ -23,3 +23,13 @@
   - Our own project most likely won't impact anyone
 - Engagement
   - Not everyone speaking up during meetings
+- Start
+  - Focussing more on documentation and testing requirements
+  - More rigid structure of development and write cleaner code
+  - Start earlier on work rather than leave the bulk for the end of the sprint
+  - Complete the MVP and add our diagrams to the repo
+  - Do more team check-ins
+- Stop
+  - Filling out when2meet late
+  - Having last minute meetings and schedule them earlier
+  -
