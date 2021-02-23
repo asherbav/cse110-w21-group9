@@ -1,0 +1,24 @@
+# Choose Coding Conventions/Styles
+
+* Status: Accepted
+
+## Context and Problem Statement
+
+We want to record which what coding conventions to use to maintain uniform and consistent code.
+
+## Considered Options
+
+* camelCase
+* PascalCase
+* snake_case
+* classes for CSS styling
+* id's for JS interactions
+
+## Decision Outcome
+
+Chosen option: camelCase, classes for CSS styling, and id's for JS, because
+
+* majority of us use camelCase the most
+* can use CSS class selector 
+* elements in the same class should generally have the same style
+* can get element by ID in JS for ease in adding interations with specific elements
