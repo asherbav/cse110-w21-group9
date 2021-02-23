@@ -1,0 +1,25 @@
+# Team 9 - 02/22/21
+
+- Goal
+- Members Present: Everyone
+- Members Absent:
+- Meeting Logistics
+  - Start: 3:00 PM
+  - End:
+- Clarity
+  - Meeting announcements were often on the day of
+  - Need more understanding of GitHub/Git
+  - Fixes: People should fill out when2meets earlier
+- Autonomy
+  - Project is too structured for everyone to be self-governing
+  - Need reviews on pull requests before merging
+- Mastery
+  - Most of the coding for the project was already practice/learned from labs
+- Meaning
+  - Just a group project for a class
+  - Not extremely enticing/exciting
+- Impact
+  - Just a timer
+  - Our own project most likely won't impact anyone
+- Engagement
+  - Not everyone speaking up during meetings
