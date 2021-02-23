@@ -35,3 +35,15 @@
       - Discord audio channels with screen sharing
       - Gary worked as driver who shared his screen
       - VSCode Live Sharing
+  - Code Coverage Testing
+    ![Code Coverage](img/code-coverage-testing.png)
+  - Group Collaboration on Discord
+    ![Discord Collaboration](img/group-collab-discord.png)
+  - Unit Test Library
+    ![Jest Testing](img/jest-testing-library.png)
+  - HTML for Task Page
+    ![Task HTML](img/task-page.png)
+  - HTML for Timer Page
+    ![Timer HTML](img/timer-page.png)
+  - VSCode Live Coding
+    ![VSCode Live](img/vs-code-live.png)
