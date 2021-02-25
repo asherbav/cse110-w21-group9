@@ -1,7 +1,7 @@
 // Time in milliseconds
-const SHORT_BREAK_DURATION = 5 * 1000;
-const LONG_BREAK_DURATION = 10 * 1000;
-const WORK_DURATION = 3 * 1000;
+const SHORT_BREAK_DURATION = 1 * 1000;
+const LONG_BREAK_DURATION = 1 * 1000;
+const WORK_DURATION = 1 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -16,7 +16,8 @@ let cancelTimerFlag = 0;
 const SESSION_STATUS = {
 	incomplete: 0,
 	complete: 1,
-	deleted: 2
+	deleted: 2,
+	inprogress: 3
 };
 
 let pomoData = [];
@@ -88,7 +89,12 @@ function setPomo(pomoId) {
 function finishBreak() {
 	console.warn("Break finished");
 	alert('Break over');
-	enableStarts();
+	let buttons = document.getElementsByTagName("button");
+	for(let i = 0; i < buttons.length; i++) {
+		let button = buttons[i];
+		button.disabled = false;
+	}
+	updateTable();
 }
 
 /**
@@ -177,7 +183,12 @@ function startShortBreakTimer() {
 	time = Date.now();
 	timerEnd = time + SHORT_BREAK_DURATION;
 	setTimeout(refreshBreakTimer, UPDATE_TIMER_EVERY);
-	disableStarts();
+	updateTable(true);
+	let buttons = document.getElementsByTagName("button");
+	for(let i = 0; i < buttons.length; i++) {
+		let button = buttons[i];
+		button.setAttribute('disabled', 'disabled')
+	}
 }
 
 /**
@@ -187,21 +198,7 @@ function startLongBreakTimer() {
 	time = Date.now();
 	timerEnd = time + LONG_BREAK_DURATION;
 	setTimeout(refreshBreakTimer, UPDATE_TIMER_EVERY);
-	disableStarts();
-}
-
-function disableStarts() {
-	let buttons = document.getElementsByClassName('start-btn');
-	for (let i = 0; i< buttons.length; i++){
-		buttons[i].disabled = true;
-	}
-}
-
-function enableStarts() {
-	let buttons = document.getElementsByClassName('start-btn');
-	for (let i = 0; i< buttons.length; i++){
-		buttons[i].disabled = false;
-	}
+	updateTable(true);
 }
 
 function setBreakTimer(time) {
@@ -228,6 +225,15 @@ function getCurrentPomo() {
 }
 
 /**
+ * Sets a task as finished
+ */
+function finishTask(pomoID) {
+	pomoData[pomoID].sessionStatus = SESSION_STATUS.complete;
+	setCurrentPomo(-1);
+	updateTable();
+}
+
+/**
  * Called when user presses start pomo, loads that pomo and goes to the timer page
  */
 function startPomo(pomoId) {
@@ -235,19 +241,14 @@ function startPomo(pomoId) {
 	let timerpage = document.getElementById('timer-page');
 	mainpage.style.display = 'none';
 	timerpage.style.display = 'block';
+	pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
+	setPomo(pomoId);
 	setCurrentPomo(pomoId);
 	let desc = document.getElementById('task');
 	desc.innerHTML = getPomoById(pomoId).taskName;
 	startPomoTimer();
 	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
 	getPomoById(pomoId).actualPomos++;
-}
-
-/**
- * Called when the user presses finish session on the table
- */
-function finishSession() {
-
 }
 
 /**
@@ -260,14 +261,24 @@ function updatePomo() {
 /**
  * Redraw table
  */
-function updateTable() {
+function updateTable(disableAllStarts = false) {
 	let table = document.getElementById('table');
-	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Number of Distractions</th><th>Session Status</th><th>Start Session</th></tr>';
+	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Number of Distractions</th><th>Session Status</th><th>Start Session</th><th>Finish Task</th></tr>';
 
+	let done = [];
+	let notDone = [];
+	let inprogress = [];
+	for(let i = 0; i < pomoData.length; i++) {
+		if(pomoData[i].sessionStatus == SESSION_STATUS.inprogress)
+			inprogress.push(pomoData[i]);
+		else if(pomoData[i].sessionStatus == SESSION_STATUS.incomplete)
+			notDone.push(pomoData[i]);
+		else if(pomoData[i].sessionStatus == SESSION_STATUS.complete)
+			done.push(pomoData[i]);
+	}
+
+	toDraw = inprogress.concat(notDone).concat(done);
 	for (let i = 0; i < pomoData.length; i++) {
-		if (pomoData[i].sessionStatus == SESSION_STATUS.deleted){
-			continue;
-		}
 		//Row Container
 		let row = document.createElement('tr');
 
@@ -279,45 +290,66 @@ function updateTable() {
 		let distract = document.createElement('td');
 		let sessionStatus = document.createElement('td');
 		let start = document.createElement('td');
+		let fin = document.createElement('td');
 
 		//Column Content
 		let btnCont = document.createElement('button');
 		btnCont.innerHTML = 'Remove';
 		btnCont.className = 'remove-btn';
 		btnCont.addEventListener('click', function () {
-			pomoData[i].sessionStatus = SESSION_STATUS.deleted;
+			toDraw[i].sessionStatus = SESSION_STATUS.deleted;
 			updateTable();
 		});
+		if(toDraw[i] != undefined && toDraw[i].sessionStatus == SESSION_STATUS.inprogress) {
+			btnCont.setAttribute('disabled', 'disabled');
+		}
 
 		let descCont = document.createElement('p');
-		descCont.innerHTML = pomoData[i].taskName;
+		descCont.innerHTML = toDraw[i].taskName;
 
 		let estCont = document.createElement('p');
-		estCont.innerHTML = pomoData[i].estimatedPomos;
+		estCont.innerHTML = toDraw[i].estimatedPomos;
 
 		let actualCont = document.createElement('p');
-		actualCont.innerHTML = pomoData[i].actualPomos;
+		actualCont.innerHTML = toDraw[i].actualPomos;
 
 		let distractCont = document.createElement('p');
-		distractCont.innerHTML = pomoData[i].distractions;
+		distractCont.innerHTML = toDraw[i].distractions;
 
-		let sessionCont = document.createElement('select');
-		let firstOption = document.createElement('option');
-		firstOption.value = 'incomplete';
-		firstOption.innerHTML = 'Incomplete';
-		let secondOption = document.createElement('option');
-		secondOption.value = 'complete';
-		secondOption.innerHTML = 'Complete';
-		sessionCont.appendChild(firstOption);
-		sessionCont.appendChild(secondOption);
+		let sessionCont = document.createElement('p');
+		switch(toDraw[i].sessionStatus) {
+			case SESSION_STATUS.incomplete:
+				sessionCont.innerHTML = "Not Started";
+				sessionCont.className = "status-not-started";
+				break;
+			case SESSION_STATUS.inprogress:
+				sessionCont.innerHTML = "In Progress";
+				sessionCont.className = "status-in-progress";
+				break;
+			case SESSION_STATUS.complete:
+				sessionCont.innerHTML = "Complete";
+				sessionCont.className = "status-complete";
+		}
 
-		let newID = pomoData[i].id;
+		let newID = toDraw[i].id;
 
 		let startCont = document.createElement('button');
 		startCont.className = 'start-btn';
-		startCont.id = newID;
+		startCont.id = "start-btn-" + newID;
 		startCont.innerHTML = 'Start';
-		startCont.setAttribute('onclick', 'startPomo(' + startCont.id + ')');
+		startCont.setAttribute('onclick', 'startPomo(' + newID + ')');
+		if((currentPomoID >= 0 && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
+			startCont.setAttribute('disabled', 'disabled');
+		}
+
+		let finCont = document.createElement('button');
+		finCont.className = 'finish-btn';
+		finCont.id = "finish-btn-" + newID;
+		finCont.innerHTML = 'Finish';
+		finCont.setAttribute('onclick', 'finishTask(' + newID + ')');
+		if((currentPomoID >= 0 && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
+			finCont.setAttribute('disabled', 'disabled');
+		}
 
 		//Appending Column Content to Columns
 		removeBtn.appendChild(btnCont);
@@ -327,6 +359,7 @@ function updateTable() {
 		distract.appendChild(distractCont);
 		sessionStatus.appendChild(sessionCont);
 		start.appendChild(startCont);
+		fin.appendChild(finCont);
 
 		//Appending Columns to Rows
 		row.appendChild(removeBtn);
@@ -336,6 +369,7 @@ function updateTable() {
 		row.appendChild(distract);
 		row.appendChild(sessionStatus);
 		row.appendChild(start);
+		row.appendChild(fin);
 
 		table.appendChild(row);
 	}
@@ -352,81 +386,16 @@ function addTask() {
 	let inputEstimate = document.getElementById('estimate');
 	let inputDesc = document.getElementById('task-description');
 
-	// //Row Container
-	// let row = document.createElement('tr');
-
-	// //Column Containers
-	// let removeBtn = document.createElement('td');
-	// let desc = document.createElement('td');
-	// let estimate = document.createElement('td');
-	// let actual = document.createElement('td');
-	// let distract = document.createElement('td');
-	// let sessionStatus = document.createElement('td');
-	// let start = document.createElement('td');
-
-	// //Column Content
-	// let btnCont = document.createElement('button');
-	// btnCont.innerHTML = 'Remove';
-	// btnCont.className = 'remove-btn';
-	// btnCont.addEventListener('click', function () {
-	// 	row.style.display = 'none';
-	// });
-
-	// let descCont = document.createElement('p');
-	// descCont.innerHTML = inputDesc.value;
-
-	// let estCont = document.createElement('p');
-	// estCont.innerHTML = inputEstimate.value;
-
-	// let actualCont = document.createElement('p');
-	// actualCont.innerHTML = "0";
-
-	// let distractCont = document.createElement('p');
-	// distractCont.innerHTML = "0";
-
-	// let sessionCont = document.createElement('select');
-	// let firstOption = document.createElement('option');
-	// firstOption.value = 'incomplete';
-	// firstOption.innerHTML = 'Incomplete';
-	// let secondOption = document.createElement('option');
-	// secondOption.value = 'complete';
-	// secondOption.innerHTML = 'Complete';
-	// sessionCont.appendChild(firstOption);
-	// sessionCont.appendChild(secondOption);
-
-	// let newID = createPomodoro(inputDesc.value, inputEstimate.value);
-
-	// let startCont = document.createElement('button');
-	// startCont.id = newID;
-	// startCont.innerHTML = 'Start';
-	// startCont.setAttribute('onclick', 'startPomo(' + startCont.id + ')');
-
-	// //Appending Column Content to Columns
-	// removeBtn.appendChild(btnCont);
-	// desc.appendChild(descCont);
-	// estimate.appendChild(estCont);
-	// actual.appendChild(actualCont);
-	// distract.appendChild(distractCont);
-	// sessionStatus.appendChild(sessionCont);
-	// start.appendChild(startCont);
-
-	// //Appending Columns to Rows
-	// row.appendChild(removeBtn);
-	// row.appendChild(desc);
-	// row.appendChild(estimate);
-	// row.appendChild(actual);
-	// row.appendChild(distract);
-	// row.appendChild(sessionStatus);
-	// row.appendChild(start);
-
-	// table.appendChild(row);
-
 	// //Clears values
 	let newID = createPomodoro(inputDesc.value, inputEstimate.value);
 	updateTable();
 	inputDesc.value = '';
 	inputEstimate.value = '';
 }
+
+window.onload = function() {
+	updateTable();
+};
 
 try {
 	// If we are running in a test environment
