@@ -11,11 +11,11 @@
         <header>
             <h1>PomoTimer</h1>
         </header>
+        <p id="break-timer" class="break-timer" style="display: none">25:00</p>
     </section>
 
     <main>
         <div class="main-page" id="main-page">
-            <p id="break-timer" class="main-page-item" style="display: none;"></p>
 
             <table id="table" class="main-page-item">
             </table>
@@ -31,15 +31,11 @@
         </div>
 
         <div class="timer-page" id="timer-page" style="display: none;">
-            <section>
                 <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
-            </section>
 
-            <section>
                 <p class="task" id="task"><strong>Current Task: Complete HTML pages.</strong></p>
-            </section>
 
-            <section>
+            <section class="buttons">
                 <button type="button" class="cancel-btn" id="cancel-btn" onclick="cancelPomo()">Cancel</button>
                 <button type="button" class="distract-btn" id="distract-btn" onclick="logDistraction(currentPomoID)">Log Distraction</button>
             </section>

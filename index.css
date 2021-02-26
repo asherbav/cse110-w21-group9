@@ -1,7 +1,7 @@
 body {
    margin: 0px; 
    padding: 0px;
-   font-family: Helvetica-Neue;
+   font-family: Helvetica Neue, sans-serif;
 }
 
 .timer-page {
@@ -13,22 +13,32 @@ body {
 
 .timer-page .timer,.task {
     text-align: center;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    margin: 5; 
 }
 
 .timer-page .timer{
-
+    font-size: 60px;
+    margin: 0;
 }
 
 .timer-page .task{
+    font-size: 30px;
+    margin: 0;
+}
 
+.timer-page .buttons{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
 }
 
 .main-page{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: dodgerblue;
-    
+    align-items: center;    
 }
 
 
@@ -45,11 +55,82 @@ header {
     font-family: Helvetica Neue, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 40px;
     /*line-height: 73px;*/
     color: #FFFFFF;
-    margin-top:0px;
-    top: 0px;
-    margin-bottom: 25px;
+
+    margin-bottom: 15px;
     position: relative;
+    z-index: -1;
+}
+
+h1 {
+    margin: 0px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #E36060;
+    color: #FFFFFF;
+    border-color: #D1CFD7;
+    border-style: solid;
+    padding: 10px;
+    margin: 0px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    font-size: 15px;
+}
+
+table th:first-child {
+    border-left-width: 0px;
+}
+
+table th:last-child {
+    border-right-width: 0px;
+}
+
+tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+.break-timer {
+    background-color: #E36060;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    color: #fff;
+    padding-right: 10px;
+    border-bottom-left-radius: 15px;
+    font-weight: bold;
+    font-size: 90px;
+}
+
+button {
+    background-color: #A8CD9F;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    margin: 0px 0px;
+    cursor: pointer;
+    width: 80%;
+    
+
+}
+
+td{
+    border-color: #D1CFD7;
+    border-left-width: 1px;
+    padding: 0px;
+    margin: 0px;
 }

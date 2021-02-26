@@ -87,6 +87,7 @@ function setPomo(pomoId) {
  * TODO: implement what should happen when the break timer is finished
  */
 function finishBreak() {
+	hideBreakTimer();
 	console.warn("Break finished");
 	alert('Break over');
 	let buttons = document.getElementsByTagName("button");
@@ -105,16 +106,33 @@ function finishPomo() {
 	console.warn("Pomo finished");
 	let mainpage = document.getElementById('main-page');
 	let timerpage = document.getElementById('timer-page');
-	mainpage.style.display = 'block';
+	mainpage.style.display = '';
 	timerpage.style.display = 'none';
 	updateTable();
 	if (cancelTimerFlag == 1) {
 		cancelTimerFlag = 0;
 	}
 	else {
+		showBreakTimer();
 		if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
 		else startShortBreakTimer();
 	}
+}
+
+function showBreakTimer() {
+	document.getElementById('break-timer').style.display = "";
+}
+
+function hideBreakTimer() {
+	document.getElementById('break-timer').style.display = 'none';
+}
+
+function showBreakTimer() {
+	
+}
+
+function hideBreakTimer() {
+
 }
 
 /**
@@ -240,7 +258,7 @@ function startPomo(pomoId) {
 	let mainpage = document.getElementById('main-page');
 	let timerpage = document.getElementById('timer-page');
 	mainpage.style.display = 'none';
-	timerpage.style.display = 'block';
+	timerpage.style.display = '';
 	pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
 	setPomo(pomoId);
 	setCurrentPomo(pomoId);
@@ -263,7 +281,7 @@ function updatePomo() {
  */
 function updateTable(disableAllStarts = false) {
 	let table = document.getElementById('table');
-	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Number of Distractions</th><th>Session Status</th><th>Start Session</th><th>Finish Task</th></tr>';
+	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Session Status</th><th>Start Session</th><th>Finish Task</th></tr>';
 
 	let done = [];
 	let notDone = [];
