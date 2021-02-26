@@ -1,0 +1,55 @@
+body {
+   margin: 0px; 
+   padding: 0px;
+   font-family: Helvetica-Neue;
+}
+
+.timer-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: dodgerblue;
+}
+
+.timer-page .timer,.task {
+    text-align: center;
+}
+
+.timer-page .timer{
+
+}
+
+.timer-page .task{
+
+}
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: dodgerblue;
+    
+}
+
+
+.main-page .main-page-item {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+}
+
+
+header {
+    /* PomoTimer */
+    background-color: #E36060;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    /*line-height: 73px;*/
+    color: #FFFFFF;
+    margin-top:0px;
+    top: 0px;
+    margin-bottom: 25px;
+    position: relative;
+}
