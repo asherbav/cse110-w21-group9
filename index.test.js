@@ -41,7 +41,7 @@ describe("data storage tests", () => {
   });
 
   test("get pomo test", () => {
-    expect(index.getPomo(0).taskName).toBe("updated test task");
+    expect(index.getPomo()[0].taskName).toBe("updated test task");
   });
 
   test("set/get current pomo test", () => {
