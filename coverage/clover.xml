@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614303702750" clover="3.2.0">
-  <project timestamp="1614303702751" name="All files">
+<coverage generated="1614305468943" clover="3.2.0">
+  <project timestamp="1614305468943" name="All files">
     <metrics statements="51" coveredstatements="21" conditionals="6" coveredconditionals="0" methods="18" coveredmethods="8" elements="75" coveredelements="29" complexity="0" loc="51" ncloc="51" packages="1" files="1" classes="1"/>
     <file name="index.js" path="C:\Software\School\WI21\CSE110\cse110-w21-group9\index.js">
       <metrics statements="51" coveredstatements="21" conditionals="6" coveredconditionals="0" methods="18" coveredmethods="8"/>
