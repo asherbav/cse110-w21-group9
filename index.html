@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Home Task Scheduler</title>
     <!--Change title with JS-->
@@ -15,9 +16,9 @@
 
     <main>
         <div class="main-page" id="main-page">
-            <p id="break-timer" class="main-page-item" style="display: none;"></p>
+            <p id="break-timer" class="break-timer" style="display: none;"></p>
 
-            <table id="table" class="main-page-item">
+            <table id="table" class="table">
             </table>
 
             <form class="main-page-item">
@@ -27,21 +28,17 @@
                 <input type="text" name="estimate" class="estimate" id="estimate">
                 <button type="button" class="add-btn" id="add-btn" onclick="addTask()">Add Task</button>
             </form>
-            
+
         </div>
 
         <div class="timer-page" id="timer-page" style="display: none;">
-            <section>
-                <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
-            </section>
+            <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
+            <p class="task" id="task"><strong></strong></p>
 
-            <section>
-                <p class="task" id="task"><strong>Current Task: Complete HTML pages.</strong></p>
-            </section>
-
-            <section>
+            <section class="buttons">
                 <button type="button" class="cancel-btn" id="cancel-btn" onclick="cancelPomo()">Cancel</button>
-                <button type="button" class="distract-btn" id="distract-btn" onclick="logDistraction(currentPomoID)">Log Distraction</button>
+                <button type="button" class="distract-btn" id="distract-btn" onclick="logDistraction(currentPomoID)">Log
+                    Distraction</button>
             </section>
         </div>
     </main>
