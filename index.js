@@ -19,8 +19,6 @@ const SESSION_STATUS = {
   deleted: 2,
   inprogress: 3,
 };
-
-let pomoData = [];
 /*
 {
 	taskName: "task name",
@@ -33,6 +31,7 @@ let pomoData = [];
 		SESSION_STATUS.deleted
 }
 */
+let pomoData = [];
 let currentPomoID = -1;
 
 /**
@@ -437,6 +436,7 @@ try {
     getCurrentPomoId: getCurrentPomoId,
     setPomo: setPomo,
     currentPomoID: currentPomoID,
+    getPomoById: getPomoById,
   };
 } catch (err) {
   // Do nothing

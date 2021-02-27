@@ -4,8 +4,26 @@ logDistraction, X
 setName, X
 setStatus, X
 getPomo, X
-getCurrentPomoId, 
-setPomo 
+getCurrentPomoId X, 
+setPomo X, 
+getPomoById X,
+finishBreak - check that buttons are disabled,
+finishPomo - TBD,
+startPomoTimer - TBD,
+refreshPomoTimer - Check if time resets after work time is done and check if time changes every second,
+getTimeString - Create a test date object and compare to expected time string,
+refreshBreakTimer - Same as refreshPomoTimer,
+startShortBreakTimer - Check if buttons are disabled during break,
+startLongBreakTimer - Check if startLongBreakTimer is called when pomoCount % 4 = 0,
+setBreakTimer - Check if break time is changed in the html,
+setPomoTimer - Check if pomo time is changed in the html,
+setCurrentPomo - Check value of currentPomoID,
+getCurrentPomo - Check if currentPomoID matches the function return,
+finishTask - Not Used,
+startPomo - Not Used,
+updatePomo - Not Used,
+updateTable - Update the table then compare values from pomoData to confirm they match
+addTask - Compare task row in the table to task in pomoData
 */
 const index = require("./index.js");
 jest.useFakeTimers();
@@ -47,6 +65,11 @@ describe("data storage tests", () => {
   test("set/get current pomo test", () => {
     index.setPomo(-1);
     expect(index.getCurrentPomoId()).toBe(-1);
+  });
+
+  test("get pomo by id", () => {
+    index.createPomodoro("test1", 1);
+    expect(index.getPomoById(1).taskName).toBe("test1");
   });
 });
 
