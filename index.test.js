@@ -11,14 +11,14 @@ finishBreak - check that buttons are disabled,
 finishPomo - TBD,
 startPomoTimer - TBD,
 refreshPomoTimer - Check if time resets after work time is done and check if time changes every second,
-getTimeString - Create a test date object and compare to expected time string,
+getTimeString - Create a test date object and compare to expected time string, X
 refreshBreakTimer - Same as refreshPomoTimer,
 startShortBreakTimer - Check if buttons are disabled during break,
 startLongBreakTimer - Check if startLongBreakTimer is called when pomoCount % 4 = 0,
-setBreakTimer - Check if break time is changed in the html,
-setPomoTimer - Check if pomo time is changed in the html,
-setCurrentPomo - Check value of currentPomoID,
-getCurrentPomo - Check if currentPomoID matches the function return,
+setBreakTimer - Check if break time is changed in the html, X
+setPomoTimer - Check if pomo time is changed in the html, X
+setCurrentPomo - Check value of currentPomoID, X
+getCurrentPomo - Check if currentPomoID matches the function return, X
 finishTask - Not Used,
 startPomo - Not Used,
 updatePomo - Not Used,
@@ -42,6 +42,7 @@ describe("data storage tests", () => {
       })
     );
   });
+});
 
   test("log distraction test", () => {
     index.logDistraction(0);
@@ -71,6 +72,25 @@ describe("data storage tests", () => {
     index.createPomodoro("test1", 1);
     expect(index.getPomoById(1).taskName).toBe("test1");
   });
+
+  test("set break timer test", () => {
+    index.setBreakTimer("5:00");
+    expect(document.getElementById("break-timer").innerHTML).toBe("5:00");
+  });
+
+  test("set pomo timer test", () => {
+    index.setPomoTimer("25:00");
+    expect(document.getElementById("pomo-timer").innerHTML).toBe("25:00");
+  });
+
+  test("set current Pomo test", () => {
+    index.setCurrentPomo(3);
+    expect(index.currentPomoID).toBe(3);
+  });
+
+  test("get current Pomo test", () => {
+    var tempID = index.getCurrentPomoId();
+    expect(tempID).toBe(index.currentPomoID);
 });
 
 describe("utilities", () => {
