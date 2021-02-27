@@ -281,7 +281,7 @@ function updatePomo() {
  */
 function updateTable(disableAllStarts = false) {
 	let table = document.getElementById('table');
-	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Session Status</th><th>Start Session</th><th>Finish Task</th></tr>';
+	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
 
 	let done = [];
 	let notDone = [];

@@ -1,14 +1,23 @@
+:root {
+    --light-green: #A8CD9F;
+}
 body {
     margin: 0px; 
     padding: 0px;
     font-family: Helvetica Neue, sans-serif;
  }
+
+  
  
+ .team{
+    color: #FFFFFF;
+    font-size: 15px;
+    display: inline;
+ }
  .timer-page {
      display: flex;
      flex-direction: column;
      align-items: center;
-     background-color: dodgerblue;
  }
  
  .timer-page .timer,.task {
@@ -16,24 +25,64 @@ body {
      font-family: Helvetica Neue, sans-serif;
      font-style: normal;
      font-weight: bold;
-     margin: 5; 
  }
  
  .timer-page .timer{
-     font-size: 60px;
-     margin: 0;
+    background-color: #E36060;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 80px;
+    color: #FFFFFF;
+    padding: 30px 50px 30px 50px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
  }
  
  .timer-page .task{
-     font-size: 30px;
-     margin: 0;
+    background-color: #E36060;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
  }
  
  .timer-page .buttons{
      display: flex;
+     flex-direction: column;
      justify-content: center;
-     flex-flow: wrap;
  }
+
+ .timer-page .cancel-btn {
+    background-color: #b93232;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 10px 20px 10px 20px;
+    border: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+ }
+
+ .timer-page .distract-btn {
+    background-color: #3e8e41;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    border: 0px;
+ }
+
  
  .main-page{
      display: flex;
@@ -60,6 +109,7 @@ body {
      margin: 0px;
      margin-left: 10px;
      padding: 10px;
+     display: inline;
  }
  
  table {
@@ -87,9 +137,19 @@ body {
  table th:last-child {
      border-right-width: 0px;
  }
+
+ table .remove-btn {
+     background-color: #E36060;
+ }
+
+ table button {
+    margin: 0px;
+    width: 100%;
+    height: 60px;
+ }
  
- tr:nth-child(even) {
-     background-color: #FFFFFF;
+ tr:nth-child(odd) {
+     background-color: #d9e6f2;
  }
  
  .break-timer {
@@ -97,15 +157,16 @@ body {
      position: fixed;
      top: 0px;
      right: 0px;
-     color: #fff;
+     color: #FFFFFF;
      padding-right: 10px;
      border-bottom-left-radius: 15px;
      font-weight: bold;
      font-size: 90px;
  }
  
- button {
-     background-color: #A8CD9F;
+ td > button, .add-task-form > button {
+     background-color:#3e8e41;
+     /*background-color: #A8CD9F; */
      border: none;
      color: white;
      padding: 10px 25px;
@@ -114,26 +175,24 @@ body {
      display: block;
      font-size: 14px;
      margin: 0px 0px;
-     cursor: pointer;
      margin-left: auto;
      margin-right: auto;
-     border-radius: 10px;
  }
  
- td > p{
+ td > p {
      text-align: center;
+     width: 100%;
  }
  
- td{
+ td {
      border-color: #D1CFD7;
      border-left-width: 1px;
-     padding: 0px;
-     padding: 3px;
      margin: 0px;
+     padding: 0px;
      align-self: center;
  }
  
- .add-task-form{
+ .add-task-form {
      border-color: black;
      border-width: 5px;
      margin-top: 10px;
@@ -142,10 +201,94 @@ body {
      border-radius: 10px;
  }
  
- .add-task-form > button{
-     width: 80%;
-     border: 2px black;
-     border-radius: 15px;
-     margin-top: 10px;
-     font-size: 18px;
+ .add-task-form > button {
+    width: 80%;
+    border: 2px black;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 18px;
  }
+
+ button:disabled {
+    background-color: grey;
+    color: black;
+    cursor: unset;
+ }
+
+ button:hover:enabled {
+    opacity: 1
+     /*background-color: #3e8e41 */
+ }
+
+ button{
+     opacity: 0.6;
+     transition: 0.3s;
+     cursor: pointer;
+
+ }
+
+ @media
+ only screen and (max-width: 760px) {
+
+    table {
+        width: 75%;
+    }
+     
+    table th {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        color: pink;
+    }
+      
+    table tr {
+        border-bottom: 3px solid dodgerblue;
+        display: block;
+    }
+      
+    table td {
+        border-bottom: 1px solid green;
+        display: block;
+        text-align: right;
+    }
+
+    td:nth-of-type(1):before { 
+        content: "Remove Task";
+        float: left; 
+    }
+	td:nth-of-type(2):before { 
+        content: "Task"; 
+        float: left;
+    }
+	td:nth-of-type(3):before { 
+        content: "Estimated Pomos";
+        float: left; 
+    }
+	td:nth-of-type(4):before { 
+        content: "Actual Pomos"; 
+        float: left;
+    }
+	td:nth-of-type(5):before { 
+        content: "Distractions"; 
+        float: left;
+    }
+	td:nth-of-type(6):before { 
+        content: "Status"; 
+        float: left;
+    }
+	td:nth-of-type(7):before { 
+        content: "Start Session"; 
+        float: left;
+    }
+	td:nth-of-type(8):before { 
+        content: "Finish Task"; 
+        float: left;
+    }
+    
+ }
+
