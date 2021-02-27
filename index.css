@@ -41,8 +41,6 @@ body {
     align-items: center;    
 }
 
-
-
 header {
     /* PomoTimer */
     background-color: #E36060;
@@ -117,14 +115,37 @@ button {
     font-size: 14px;
     margin: 0px 0px;
     cursor: pointer;
-    width: 80%;
-    
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
 
+td > p{
+    text-align: center;
 }
 
 td{
     border-color: #D1CFD7;
     border-left-width: 1px;
     padding: 0px;
+    padding: 3px;
     margin: 0px;
+    align-self: center;
+}
+
+.add-task-form{
+    border-color: black;
+    border-width: 5px;
+    margin-top: 10px;
+    background-color: lightgrey;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.add-task-form > button{
+    width: 80%;
+    border: 2px black;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 18px;
 }

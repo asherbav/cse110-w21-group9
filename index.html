@@ -22,7 +22,7 @@
             <table id="table" class="table">
             </table>
 
-            <form class="main-page-item">
+            <form class="add-task-form">
                 <label for="task-description">Task Description:</label>
                 <input type="text" name="task-description" class="task-description" id="task-description">
                 <label for="estimate">Estimated Pomos:</label>
@@ -33,11 +33,9 @@
         </div>
 
         <div class="timer-page" id="timer-page" style="display: none;">
-            <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
-            <p class="task" id="task"><strong></strong></p>
-                <p class="timer" id="pomo-timer"><strong>25:00</strong></p>
+            <p class="timer" id="pomo-timer"></p>
 
-                <p class="task" id="task"><strong>Current Task: Complete HTML pages.</strong></p>
+            <p class="task" id="task"></p>
 
             <section class="buttons">
                 <button type="button" class="cancel-btn" id="cancel-btn" onclick="cancelPomo()">Cancel</button>
