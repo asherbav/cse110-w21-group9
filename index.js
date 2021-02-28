@@ -1,7 +1,7 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
 const LONG_BREAK_DURATION = 1 * 1000;
-const WORK_DURATION = 10 * 1000;
+const WORK_DURATION = 25 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -139,7 +139,7 @@ function cancelPomo() {
 	pomoData[currentPomoID] = previousState;
 	cancelTimerFlag = 1;
 	panel.close();
-	if (pomoData[currentPomoID].actualPomos == 0){
+	if (pomoData[currentPomoID].actualPomos == 0) {
 		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
 		setPomo(-1);
 	}
