@@ -406,6 +406,16 @@ function addTask() {
 	return false;
 }
 
+function displayCancelDialog() {
+	let panel = document.getElementById("cancel-button-dialog");
+	panel.showModal();
+}
+
+function closeCancelDialog() {
+	let panel = document.getElementById("cancel-button-dialog");
+	panel.close();
+}
+
 window.onload = function() {
 	updateTable();
 	document.getElementById('add-task-form').addEventListener('submit', (event) => {

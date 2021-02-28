@@ -43,6 +43,16 @@
       </div>
 
       <div class="timer-page" id="timer-page" style="display: none">
+        <dialog style="text-align: center" id="cancel-button-dialog">
+            <p>Are you sure you want to cancel/invalidate this session?</p>
+            <button 
+                id="cancel"
+                onclick="cancelPomo()"
+                >Yes</button>
+            <button id="show"
+                onclick="closeCancelDialog()"
+                >No</button>    
+        </dialog>
         <p class="timer" id="pomo-timer"></p>
 
         <p class="task" id="task"></p>
@@ -60,7 +70,7 @@
             type="button"
             class="cancel-btn"
             id="cancel-btn"
-            onclick="cancelPomo()"
+            onclick="displayCancelDialog()"
           >
             Cancel
           </button>
