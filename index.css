@@ -26,6 +26,13 @@ footer {
   clear: both;
 }
 
+button {
+  opacity: 0.6;
+  transition: 0.3s;
+  cursor: pointer;
+  isolation: isolate;
+}
+
 .timer-page {
   display: flex;
   flex-direction: column;
@@ -103,13 +110,11 @@ footer {
 }
 
 header {
-  /* PomoTimer */
   background-color: #e36060;
   font-family: Helvetica Neue, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 40px;
-  /* line-height: 73px; */
   color: #fff;
   width: 100%;
   margin-bottom: 15px;
@@ -185,6 +190,10 @@ th {
   font-size: 15px;
 }
 
+tr:nth-child(odd) {
+  background-color: #f5f5dc;
+}
+
 table th:first-child {
   border-left-width: 0;
 }
@@ -197,22 +206,11 @@ table .remove-btn {
   background-color: #e36060;
 }
 
-button {
-  opacity: 0.6;
-  transition: 0.3s;
-  cursor: pointer;
-  isolation: isolate;
-}
-
 table button {
   margin: 0;
   width: 100%;
   height: 50px;
   box-sizing: border-box;
-}
-
-tr:nth-child(odd) {
-  background-color: #f5f5dc;
 }
 
 td > button,
@@ -297,6 +295,10 @@ button:hover:enabled {
     padding-bottom: 20px;
   }
 
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
   table tr:first-child {
     border: none;
     padding-top: 0;
@@ -348,53 +350,55 @@ button:hover:enabled {
     cursor: unset;
   }
 
-  tr:nth-child(odd) {
-    background-color: #fff;
-  }
-
-  td:nth-of-type(1):before {
+  td:nth-of-type(1)::before {
     content: "Remove Task";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(2):before {
+
+  td:nth-of-type(2)::before {
     content: "Task";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 15px 8px 15px;
   }
-  td:nth-of-type(3):before {
+
+  td:nth-of-type(3)::before {
     content: "Estimated Pomos";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(4):before {
+
+  td:nth-of-type(4)::before {
     content: "Actual Pomos";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(5):before {
+
+  td:nth-of-type(5)::before {
     content: "Distractions";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(6):before {
+
+  td:nth-of-type(6)::before {
     content: "Status";
     float: left;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(7):before {
+
+  td:nth-of-type(7)::before {
     content: "Start Session";
     float: left;
     padding-top: 10px;
@@ -402,7 +406,8 @@ button:hover:enabled {
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  td:nth-of-type(8):before {
+
+  td:nth-of-type(8)::before {
     content: "Finish Task";
     float: left;
     padding-top: 10px;
