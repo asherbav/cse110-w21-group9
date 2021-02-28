@@ -137,6 +137,12 @@ function cancelPomo() {
 	timerEnd = time - 1;
 	pomoData[currentPomoID] = previousState;
 	cancelTimerFlag = 1;
+	let panel = document.getElementById("cancel-button-dialog");
+	panel.close();
+	if (pomoData[currentPomoID].actualPomos == 0) {
+		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
+	}
+	
 }
 
 /**
