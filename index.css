@@ -42,7 +42,7 @@ footer {
     font-family: Helvetica Neue, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 140px;
     color: #FFFFFF;
     padding: 30px 50px 30px 50px;
     border-radius: 20px;
@@ -123,17 +123,30 @@ footer {
      display: inline;
  }
 
- .break-timer {
-    background-color: #E36060;
-    margin: 10px 0px 0px 0px;
+ .break-screen {
+    display: flex;
     position: absolute;
     top: 0px;
+    margin: 10px 0px 0px 0px;
     right: 0px;
+ }
+
+.break-timer-label {
+    display: inline;
     color: #FFFFFF;
-    padding-right: 10px;
-    border-bottom-left-radius: 15px;
     font-weight: bold;
-    font-size: 50px;
+    padding-top: 15px;
+    font-size: 40px;
+}
+
+ .break-timer {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 110px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #E36060;
+    border-bottom-left-radius: 15px;
 }
 
 .team {
@@ -150,7 +163,6 @@ footer {
     right: 0px;
     margin: 0px 0px 0px 0px;
     padding: 10px;
-    width: 100%;
  }
  
  table {
