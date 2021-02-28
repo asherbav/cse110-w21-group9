@@ -87,6 +87,7 @@ function setPomo(pomoId) {
  * TODO: implement what should happen when the break timer is finished
  */
 function finishBreak() {
+	document.getElementById('timer-audio').play();
 	hideBreakTimer();
 	console.warn("Break finished");
 	alert('Break over');
@@ -96,6 +97,14 @@ function finishBreak() {
 		button.disabled = false;
 	}
 	updateTable();
+}
+
+function showBreakTimer() {
+	document.getElementById('break-timer').style.display = 'block';
+}
+
+function hideBreakTimer() {
+	document.getElementById('break-timer').style.display = 'none';
 }
 
 /**
@@ -113,26 +122,11 @@ function finishPomo() {
 		cancelTimerFlag = 0;
 	}
 	else {
+		document.getElementById('timer-audio').play();
 		showBreakTimer();
 		if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
 		else startShortBreakTimer();
 	}
-}
-
-function showBreakTimer() {
-	document.getElementById('break-timer').style.display = "";
-}
-
-function hideBreakTimer() {
-	document.getElementById('break-timer').style.display = 'none';
-}
-
-function showBreakTimer() {
-	
-}
-
-function hideBreakTimer() {
-
 }
 
 /**
@@ -409,10 +403,14 @@ function addTask() {
 	updateTable();
 	inputDesc.value = '';
 	inputEstimate.value = '';
+	return false;
 }
 
 window.onload = function() {
 	updateTable();
+	document.getElementById('add-task-form').addEventListener('submit', (event) => {
+		event.preventDefault();
+	})
 };
 
 try {

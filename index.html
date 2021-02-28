@@ -11,24 +11,29 @@
     <section>
         <header>
             <h1>PomoTimer</h1> 
-            <p class="team">Created by Powell Rangers</p>
         </header>
         <p id="break-timer" class="break-timer" style="display: none">25:00</p>
     </section>
 
     <main>
-        <div class="main-page" id="main-page">
+        <audio id="timer-audio" src="./source/audio/timer-audio.mp3"></audio>
+        <div id="main-page" class="main-page" >
             <p id="break-timer" class="break-timer" style="display: none;"></p>
 
             <table id="table" class="table">
             </table>
 
-            <form class="add-task-form">
-                <label for="task-description">Task Description:</label>
-                <input type="text" name="task-description" class="task-description" id="task-description">
+            <form id="add-task-form" class="add-task-form" onsubmit="addTask();">
+                <label for="task-description">Task:</label>
+                <input type="text" name="task-description" class="task-description" id="task-description" required maxlength="50">
                 <label for="estimate">Estimated Pomos:</label>
-                <input type="text" name="estimate" class="estimate" id="estimate">
-                <button type="button" class="add-btn" id="add-btn" onclick="addTask()">Add Task</button>
+                <select name="estimate" class="estimate" id="estimate" required>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button type="submit" class="add-btn" id="add-btn">Add Task</button>
             </form>
 
         </div>
@@ -45,6 +50,12 @@
             </section>
         </div>
     </main>
+
+    <section>
+        <footer>
+            <p class="team">Created by Powell Rangers</p>
+        </footer>
+    </section>
 
     <script type="text/javascript" src="index.js"></script>
 </body>
