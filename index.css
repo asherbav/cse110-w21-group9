@@ -1,13 +1,28 @@
 :root {
     --light-green: #A8CD9F;
 }
-body {
+
+* {
     margin: 0px; 
     padding: 0px;
+}
+
+html, body {
+    height: 100%;
     font-family: Helvetica Neue, sans-serif;
  }
 
-  
+main {
+    overflow: auto;
+    padding-bottom: 50px;
+    min-height:100%;
+}
+footer {
+    height: 50px;
+    position: relative;
+    margin-top: -50px;
+    clear:both;
+}
 
  .timer-page {
      display: flex;
