@@ -1,4 +1,5 @@
-# Design Phase/Planning Docs
+# Doc Links
+## Design Phase/Planning Docs
 - [Work Breakdown Structure link](https://docs.google.com/document/d/1pn2MBayEZwpTlDUHozdZdwEJTFvtxxHAdJ5VhgML9EA/edit?usp=sharing)
 
 - [Design Doc link](https://docs.google.com/document/d/1we8QvEWTilbiB8DNm-V6ohStbOfmJhsSe9doBBlv3do/edit?usp=sharing)
@@ -9,26 +10,26 @@
 
 - [Minimum Viable Process Review Doc](https://docs.google.com/document/d/14Bh72qziO4323dFtJdk8T8PRXgcP6VpPIJ23A-D7apE/edit?usp=sharing)
 
-# Organization/Team Dynamics Meetings
+## Organization/Team Dynamics Meetings
 - [1/25 Topics (PM Tools)](https://docs.google.com/document/d/1lG57GpeOVE5TYDUXLIvMEa4yOyLURUmePxf8HrL1YUo/edit?usp=sharing)
 
 - [1/30 Topics (Interest Matrix, Standups)](https://docs.google.com/document/d/1n7fTjOJ58OlBZyKOLE32hKvmJDQIBwU8GiiRyJ13a_I/edit?usp=sharing)
 
-# Design/Planning Meetings
+## Design/Planning Meetings
 - [2/1 Topics (MSCW, User Stories, Diagramming, WBS)](https://docs.google.com/document/d/15joEdx28tPXOEgX7EhAQfnl7-ZMXj6mf2Y455jKdwlk/edit?usp=sharing)
 
 - [Miro Brainstorming Board](https://miro.com/app/board/o9J_lWzIaWg=/)
 
 - [2/5 Topics(Starting Pitch, CI/CD)](https://docs.google.com/document/d/1mWwP3E9k4CUcvAOoA_9DNCw-oV9FFi97uAiMdtcaFB4/edit)
 
-# 1st Sprint Meetings
+## 1st Sprint Meetings
 - [2/8 Topics(1st Sprint Goals/Roles Week 1, HTML)](https://docs.google.com/document/d/162sz5hqgDLxxb03QXDt9DVJSLW5AGZykz4-yuJIyJqo/edit)
 
 - [2/17 Topics(1st Sprint Goals/Roles Week 2, HTML Review/JS/Testing)](https://docs.google.com/document/d/1NOu-jAm7agP3r6dHowsKMK9zeBniPkxcP6OQvAuxspE/edit)
 
 - [2/22 Sprint Review/Retrospective/Demo Video](https://docs.google.com/document/d/1vwSFIkrSEglb9cABkpRaBIyRcInQBGCx15xECqTrlMQ/edit?usp=sharing)
 
-# 2nd Sprint Meetings
+## 2nd Sprint Meetings
 
 - [2/23 Topics (2nd Sprint Planning/MVP Review)](https://docs.google.com/document/d/1y5rpblx7xSWZEOdF-duLQJESWB1hck-xwCvPIeCKNdM/edit?usp=sharing)
 
