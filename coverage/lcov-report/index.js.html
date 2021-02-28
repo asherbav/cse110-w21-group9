@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.97% </span>
+                <span class="strong">14.59% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/185</span>
+                <span class='fraction'>27/185</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">32.14% </span>
+                <span class="strong">42.86% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/28</span>
+                <span class='fraction'>12/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.33% </span>
+                <span class="strong">15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/180</span>
+                <span class='fraction'>27/180</span>
             </div>
         
             
@@ -500,7 +500,10 @@
 <a name='L441'></a><a href='#L441'>441</a>
 <a name='L442'></a><a href='#L442'>442</a>
 <a name='L443'></a><a href='#L443'>443</a>
-<a name='L444'></a><a href='#L444'>444</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L444'></a><a href='#L444'>444</a>
+<a name='L445'></a><a href='#L445'>445</a>
+<a name='L446'></a><a href='#L446'>446</a>
+<a name='L447'></a><a href='#L447'>447</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -576,7 +579,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -706,11 +709,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -718,7 +721,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -914,6 +917,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1148,20 +1154,20 @@ function <span class="fstat-no" title="function not covered" >startLongBreakTime
 <span class="cstat-no" title="statement not covered" >  updateTable(true);</span>
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >setBreakTimer(</span>time) {
-<span class="cstat-no" title="statement not covered" >  document.getElementById("break-timer").innerHTML = time;</span>
+function setBreakTimer(time) {
+  document.getElementById("break-timer").innerHTML = time;
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >setPomoTimer(</span>time) {
-<span class="cstat-no" title="statement not covered" >  document.getElementById("pomo-timer").innerHTML = time;</span>
+function setPomoTimer(time) {
+  document.getElementById("pomo-timer").innerHTML = time;
 }
 &nbsp;
 /**
  * Set pomodoro id
  * @param {The unique ID for the pomodoro} pomoId
  */
-function <span class="fstat-no" title="function not covered" >setCurrentPomo(</span>pomoId) {
-<span class="cstat-no" title="statement not covered" >  currentPomoID = pomoId;</span>
+function setCurrentPomo(pomoId) {
+  currentPomoID = pomoId;
 }
 &nbsp;
 /**
@@ -1382,6 +1388,9 @@ try {
     setPomo: setPomo,
     currentPomoID: currentPomoID,
     getPomoById: getPomoById,
+    setBreakTimer: setBreakTimer,
+    setPomoTimer: setPomoTimer,
+    setCurrentPomo: setCurrentPomo,
   };
 } catch (err) {
   // Do nothing
@@ -1393,7 +1402,7 @@ try {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Feb 26 2021 17:18:39 GMT-0800 (Pacific Standard Time)
+                at Sun Feb 28 2021 01:01:25 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>

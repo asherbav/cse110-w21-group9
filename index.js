@@ -437,6 +437,9 @@ try {
     setPomo: setPomo,
     currentPomoID: currentPomoID,
     getPomoById: getPomoById,
+    setBreakTimer: setBreakTimer,
+    setPomoTimer: setPomoTimer,
+    setCurrentPomo: setCurrentPomo,
   };
 } catch (err) {
   // Do nothing
