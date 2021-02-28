@@ -216,6 +216,7 @@ table button {
 td > button,
 .add-task-form > button {
   background-color: #3e8e41;
+
   /* background-color: #A8CD9F; */
   border: none;
   color: white;
@@ -401,7 +402,6 @@ button:hover:enabled {
   td:nth-of-type(7)::before {
     content: "Start Session";
     float: left;
-    padding-top: 10px;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
@@ -410,7 +410,6 @@ button:hover:enabled {
   td:nth-of-type(8)::before {
     content: "Finish Task";
     float: left;
-    padding-top: 10px;
     background-color: #e36060;
     color: #fff;
     padding: 8px 10px 8px 10px;
