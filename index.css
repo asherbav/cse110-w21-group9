@@ -38,27 +38,28 @@ footer {
 }
  
 .timer-page .timer{
-background-color: #E36060;
-font-family: Helvetica Neue, sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 140px;
-color: #FFFFFF;
-padding: 30px 50px 30px 50px;
-border-radius: 20px;
-margin-top: 10px;
-margin-bottom: 10px;
+    background-color: #E36060;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 140px;
+    color: #FFFFFF;
+    padding: 30px 50px 30px 50px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
  
 .timer-page .task{
-background-color: #E36060;
-font-family: Helvetica Neue, sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-color: #FFFFFF;
-padding: 5px 15px 5px 15px;
-border-radius: 20px;
+    background-color: #E36060;
+    font-family: Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+    margin: 10px;
 }
  
 .timer-page .buttons{

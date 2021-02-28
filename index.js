@@ -427,6 +427,21 @@ function closeCancelDialog() {
 	panel.close();
 }
 
+function closeRemoveDialog() {
+	let panel = document.getElementById("remove-button-dialog");
+	panel.close();
+}
+
+function displayFinishDialog() {
+	let panel = document.getElementById("finish-button-dialog");
+	panel.showModal();
+}
+
+function closeFinishDialog() {
+	let panel = document.getElementById("finish-button-dialog");
+	panel.close();
+}
+
 window.onload = function () {
 	updateTable();
 	document.getElementById('add-task-form').addEventListener('submit', (event) => {
