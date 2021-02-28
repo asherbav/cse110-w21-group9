@@ -18,7 +18,7 @@ We want to record how long each break should last.
 
 Chosen option: Fixed 5 minute short break and 15 minute long break, because
 
-* 3 minute adheres to pomo technique but feels too short 
+* 3 minute adheres to pomo technique but feels too short
 * 5 minutes adheres to pomo technique and feels more well rounded
 * 30 minutes adheres to technique but seems too long for continous work flow
 * 15 minutes adheres to the pomo technique
