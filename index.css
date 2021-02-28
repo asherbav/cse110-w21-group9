@@ -231,9 +231,9 @@ footer {
      border-color: black;
      border-width: 5px;
      margin-top: 10px;
-     background-color: color: white;
+     background-color: white;
      padding: 20px;
-     /* border-radius: 10px; */
+     border-radius: 10px; 
      box-shadow: 0 0 40px rgba(0,0,0,0.2);
  }
  
@@ -261,6 +261,14 @@ footer {
      cursor: pointer;
      isolation: isolate;
  }
+ /*dialog:-internal-modal {
+    position: fixed !important;
+    top: 60px !important;
+    bottom: 60px !important;
+    max-width: calc((100% - 6px) - 2em);
+    max-height: calc((100% - 6px) - 2em);
+    overflow: auto;
+}/*
 
  @media
  only screen and (max-width: 760px) {
@@ -405,6 +413,8 @@ footer {
         color: #FFFFFF;
         padding: 8px 10px 8px 10px;
     }
+
+    
     
  }
 
