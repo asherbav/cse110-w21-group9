@@ -92,7 +92,7 @@ function finishBreak() {
 	console.warn("Break finished");
 	alert('Break over');
 	let buttons = document.getElementsByTagName("button");
-	for(let i = 0; i < buttons.length; i++) {
+	for (let i = 0; i < buttons.length; i++) {
 		let button = buttons[i];
 		button.disabled = false;
 	}
@@ -134,9 +134,16 @@ function finishPomo() {
  * TODO: for now this only stops the timer, needs to call the UI functions too
  */
 function cancelPomo() {
+	let panel = document.getElementById("cancel-button-dialog");
 	timerEnd = time - 1;
 	pomoData[currentPomoID] = previousState;
 	cancelTimerFlag = 1;
+	panel.close();
+	if (pomoData[currentPomoID].actualPomos == 0){
+		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
+		setPomo(-1);
+	}
+	updateTable();
 }
 
 /**
@@ -197,7 +204,7 @@ function startShortBreakTimer() {
 	setTimeout(refreshBreakTimer, UPDATE_TIMER_EVERY);
 	updateTable(true);
 	let buttons = document.getElementsByTagName("button");
-	for(let i = 0; i < buttons.length; i++) {
+	for (let i = 0; i < buttons.length; i++) {
 		let button = buttons[i];
 		button.setAttribute('disabled', 'disabled')
 	}
@@ -253,7 +260,6 @@ function startPomo(pomoId) {
 	let timerpage = document.getElementById('timer-page');
 	mainpage.style.display = 'none';
 	timerpage.style.display = '';
-	pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
 	setPomo(pomoId);
 	setCurrentPomo(pomoId);
 	let desc = document.getElementById('task');
@@ -261,6 +267,7 @@ function startPomo(pomoId) {
 	startPomoTimer();
 	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
 	getPomoById(pomoId).actualPomos++;
+	pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
 }
 
 /**
@@ -280,12 +287,12 @@ function updateTable(disableAllStarts = false) {
 	let done = [];
 	let notDone = [];
 	let inprogress = [];
-	for(let i = 0; i < pomoData.length; i++) {
-		if(pomoData[i].sessionStatus == SESSION_STATUS.inprogress)
+	for (let i = 0; i < pomoData.length; i++) {
+		if (pomoData[i].sessionStatus == SESSION_STATUS.inprogress)
 			inprogress.push(pomoData[i]);
-		else if(pomoData[i].sessionStatus == SESSION_STATUS.incomplete)
+		else if (pomoData[i].sessionStatus == SESSION_STATUS.incomplete)
 			notDone.push(pomoData[i]);
-		else if(pomoData[i].sessionStatus == SESSION_STATUS.complete)
+		else if (pomoData[i].sessionStatus == SESSION_STATUS.complete)
 			done.push(pomoData[i]);
 	}
 
@@ -312,7 +319,7 @@ function updateTable(disableAllStarts = false) {
 			toDraw[i].sessionStatus = SESSION_STATUS.deleted;
 			updateTable();
 		});
-		if(toDraw[i] != undefined && toDraw[i].sessionStatus == SESSION_STATUS.inprogress) {
+		if (toDraw[i] != undefined && toDraw[i].sessionStatus == SESSION_STATUS.inprogress) {
 			btnCont.setAttribute('disabled', 'disabled');
 		}
 
@@ -329,7 +336,7 @@ function updateTable(disableAllStarts = false) {
 		distractCont.innerHTML = toDraw[i].distractions;
 
 		let sessionCont = document.createElement('p');
-		switch(toDraw[i].sessionStatus) {
+		switch (toDraw[i].sessionStatus) {
 			case SESSION_STATUS.incomplete:
 				sessionCont.innerHTML = "Not Started";
 				sessionCont.className = "status-not-started";
@@ -350,7 +357,7 @@ function updateTable(disableAllStarts = false) {
 		startCont.id = "start-btn-" + newID;
 		startCont.innerHTML = 'Start';
 		startCont.setAttribute('onclick', 'startPomo(' + newID + ')');
-		if((currentPomoID >= 0 && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
+		if ((currentPomoID >= 0 && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
 			startCont.setAttribute('disabled', 'disabled');
 		}
 
@@ -359,7 +366,7 @@ function updateTable(disableAllStarts = false) {
 		finCont.id = "finish-btn-" + newID;
 		finCont.innerHTML = 'Finish';
 		finCont.setAttribute('onclick', 'finishTask(' + newID + ')');
-		if((currentPomoID >= 0 && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
+		if ((currentPomoID >= 0 && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
 			finCont.setAttribute('disabled', 'disabled');
 		}
 
@@ -416,7 +423,7 @@ function closeCancelDialog() {
 	panel.close();
 }
 
-window.onload = function() {
+window.onload = function () {
 	updateTable();
 	document.getElementById('add-task-form').addEventListener('submit', (event) => {
 		event.preventDefault();
