@@ -141,6 +141,7 @@ function cancelPomo() {
 	panel.close();
 	if (pomoData[currentPomoID].actualPomos == 0) {
 		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
+		setPomo(-1);
 	}
 	
 }
