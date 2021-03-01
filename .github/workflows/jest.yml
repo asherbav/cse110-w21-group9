@@ -22,8 +22,9 @@ jobs:
       - name: Coverage
         uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
         with:
+          working-directory: source
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: "cd source && npx jest --coverage"
+          test-command: "npx jest --coverage"
 #   build:
 #     runs-on: ubuntu-latest
 
