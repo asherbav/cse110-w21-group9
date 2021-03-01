@@ -17,7 +17,7 @@ We want to record how the user will log distractions, and to what detail.
 
 Chosen option: User logs distractions on timer page and is unable to provide descriptions, because
 
-* distractions should be logged immediately when they occur 
+* distractions should be logged immediately when they occur
 * logging at the task page could result in forgetting what distractions occurred during work
 * descriptions would make the table look too busy
 * having the user provide descriptions distracts the user from focusing on their own work
