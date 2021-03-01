@@ -301,6 +301,7 @@ button:hover:enabled {
   width: 25%;
   height: 40%;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+
   /* overflow: visible; */
 
   /* backdrop-filter: blur(10px); */
@@ -322,7 +323,6 @@ button:hover:enabled {
   border: none;
   background-color: #097a92;
   border-radius: 10px;
-  border: none;
   width: 100px;
   height: 50px;
   margin-top: 50px;
