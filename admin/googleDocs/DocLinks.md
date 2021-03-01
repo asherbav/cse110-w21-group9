@@ -9,6 +9,7 @@
 - [Starting Pitch Slides](https://docs.google.com/presentation/d/1i0_81LPEEkmYGFVJ1ctAFhZTATtb3zV7qluhbBql_qw/edit#slide=id.gbb523416b0_3_0)
 
 - [Minimum Viable Process Review Doc](https://docs.google.com/document/d/14Bh72qziO4323dFtJdk8T8PRXgcP6VpPIJ23A-D7apE/edit?usp=sharing)
+- [Colorblind Options Comparison Doc](https://docs.google.com/document/d/1KKUrCUBfgzag78zEDyQqinget878YWQXYwvT6e6aAjE/edit?usp=sharing)
 
 ## Organization/Team Dynamics Meetings
 - [1/25 Topics (PM Tools)](https://docs.google.com/document/d/1lG57GpeOVE5TYDUXLIvMEa4yOyLURUmePxf8HrL1YUo/edit?usp=sharing)
