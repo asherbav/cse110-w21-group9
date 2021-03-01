@@ -34,48 +34,49 @@ button {
 }
 
 .timer-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
- 
-.timer-page .timer,.task {
-    text-align: center;
-    font-family: Helvetica Neue, sans-serif;
-    font-style: normal;
-    font-weight: bold;
+
+.timer-page .timer,
+.task {
+  text-align: center;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: bold;
 }
- 
-.timer-page .timer{
-    background-color: #6E5AB1;
-    font-family: Helvetica Neue, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 140px;
-    color: #FFFFFF;
-    padding: 30px 50px 30px 50px;
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+
+.timer-page .timer {
+  background-color: #6e5ab1;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 140px;
+  color: #fff;
+  padding: 30px 50px 30px 50px;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
- 
-.timer-page .task{
-    background-color: #6E5AB1;
-    font-family: Helvetica Neue, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    color: #FFFFFF;
-    padding: 5px 15px 5px 15px;
-    border-radius: 20px;
-    margin: 10px;
+
+.timer-page .task {
+  background-color: #6e5ab1;
+  font-family: Helvetica Neue, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+  margin: 10px;
 }
- 
-.timer-page .buttons{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+.timer-page .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .timer-page .cancel-btn {
@@ -94,7 +95,7 @@ button {
 }
 
 .timer-page .distract-btn {
-  background-color: #097A92;
+  background-color: #097a92;
   font-family: Helvetica Neue, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -113,7 +114,7 @@ button {
 }
 
 header {
-  background-color: #6E5AB1;
+  background-color: #6e5ab1;
   font-family: Helvetica Neue, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -156,12 +157,12 @@ h1 {
   font-size: 90px;
   padding-right: 15px;
   padding-left: 15px;
-  background-color: #6E5AB1;
+  background-color: #6e5ab1;
   border-bottom-left-radius: 15px;
 }
 
 .team {
-  background-color: #6E5AB1;
+  background-color: #6e5ab1;
   color: #fff;
   font-family: Helvetica Neue, sans-serif;
   font-style: normal;
@@ -183,7 +184,7 @@ table {
 }
 
 th {
-  background-color: #6E5AB1;
+  background-color: #6e5ab1;
   color: #fff;
   border-color: #d1cfd7;
   border-style: solid;
@@ -197,16 +198,15 @@ th {
 }
 
 th:first-child {
-  border-radius: 10px 0px 0px 0px;
+  border-radius: 10px 0 0 0;
 }
 
 th:last-child {
-  border-radius: 0px 10px 0px 0px;
+  border-radius: 0 10px 0 0;
 }
 
-
 tr:nth-child(odd) {
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
 }
 
 table th:first-child {
@@ -230,7 +230,7 @@ table button {
 
 td > button,
 .add-task-form > button {
-  background-color: #097A92;
+  background-color: #097a92;
 
   /* background-color: #A8CD9F; */
   border-radius: 10px;
@@ -258,8 +258,6 @@ td {
   padding: 10px;
   align-self: center;
 }
-
-
 
 .add-task-form {
   border-color: black;
@@ -296,16 +294,16 @@ button:hover:enabled {
   border-radius: 10px;
   position: absolute;
   top: 20%;
-  left: 50%; 
+  left: 50%;
   transform: translate(-50%, 0);
   right: 0;
   margin: 0;
   width: 25%;
   height: 40%;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-  /* overflow: visible;*/
+  /* overflow: visible; */
 
-  /*backdrop-filter: blur(10px);*/
+  /* backdrop-filter: blur(10px); */
 }
 
 .button-dialog > p {
@@ -322,7 +320,7 @@ button:hover:enabled {
 
 .dialog-yes {
   border: none;
-  background-color: #097A92;
+  background-color: #097a92;
   border-radius: 10px;
   border: none;
   width: 100px;
@@ -351,7 +349,6 @@ button:hover:enabled {
   font-size: 30px;
   color: white;
 }
-
 
 @media only screen and (max-width: 760px) {
   table {
@@ -416,7 +413,6 @@ button:hover:enabled {
     margin-top: 15px;
     margin-bottom: 15px;
     height: 300%;
-    
   }
 
   table .finish-btn {
@@ -426,14 +422,12 @@ button:hover:enabled {
     margin-top: 15px;
     margin-bottom: 5px;
     height: 300%;
-   
   }
 
   button:disabled {
     background-color: grey;
     color: black;
     cursor: unset;
-    
   }
 
   td:nth-of-type(1)::before {
