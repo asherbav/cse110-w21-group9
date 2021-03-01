@@ -13,17 +13,11 @@ jobs:
         run: |
           cd source
           yarn
-      - name: Run tests
+      - name: Run Jest and Code Coverage
         run: |
           cd source
           yarn jest --coverage
-      - name: Coverage
-        uses: mattallty/jest-github-action@bcc66d5309bc35228a213e1f10bae7c6927c5a3d
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          working-directory: source
-          test-command: npx jest --coverage
+
 #   build:
 #     runs-on: ubuntu-latest
 
