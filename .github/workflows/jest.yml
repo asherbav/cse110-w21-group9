@@ -8,15 +8,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install modules
-        run: |
-          cd source
-          yarn
       - name: Run Jest and Code Coverage
         run: |
           cd source
-          yarn jest --coverage
+          npx jest --coverage
 
 #   build:
 #     runs-on: ubuntu-latest
