@@ -1,7 +1,11 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
 const LONG_BREAK_DURATION = 1 * 1000;
+<<<<<<< HEAD:index.js
 const WORK_DURATION = 25 * 1000;
+=======
+const WORK_DURATION = 10 * 1000;
+>>>>>>> 1f5c0501e3b09f04fca3874647bc6b375bb8ddc0:source/index.js
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -117,6 +121,8 @@ function finishPomo() {
 	let timerpage = document.getElementById('timer-page');
 	mainpage.style.display = '';
 	timerpage.style.display = 'none';
+	let panel = document.getElementById("cancel-button-dialog");
+	panel.close();
 	updateTable();
 	if (cancelTimerFlag == 1) {
 		cancelTimerFlag = 0;
@@ -138,12 +144,14 @@ function cancelPomo() {
 	timerEnd = time - 1;
 	pomoData[currentPomoID] = previousState;
 	cancelTimerFlag = 1;
+
 	panel.close();
 	if (pomoData[currentPomoID].actualPomos == 0) {
 		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
 		setPomo(-1);
 	}
 	updateTable();
+
 }
 
 /**
@@ -282,7 +290,7 @@ function updatePomo() {
  */
 function updateTable(disableAllStarts = false) {
 	let table = document.getElementById('table');
-	table.innerHTML = '<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
+	table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
 
 	let done = [];
 	let notDone = [];
@@ -313,7 +321,7 @@ function updateTable(disableAllStarts = false) {
 
 		//Column Content
 		let btnCont = document.createElement('button');
-		btnCont.innerHTML = 'Remove';
+		btnCont.innerHTML = 'X';
 		btnCont.className = 'remove-btn';
 		btnCont.addEventListener('click', function () {
 			toDraw[i].sessionStatus = SESSION_STATUS.deleted;
@@ -420,6 +428,21 @@ function displayCancelDialog() {
 
 function closeCancelDialog() {
 	let panel = document.getElementById("cancel-button-dialog");
+	panel.close();
+}
+
+function closeRemoveDialog() {
+	let panel = document.getElementById("remove-button-dialog");
+	panel.close();
+}
+
+function displayFinishDialog() {
+	let panel = document.getElementById("finish-button-dialog");
+	panel.showModal();
+}
+
+function closeFinishDialog() {
+	let panel = document.getElementById("finish-button-dialog");
 	panel.close();
 }
 
