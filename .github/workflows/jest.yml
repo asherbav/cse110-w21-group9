@@ -4,18 +4,27 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run Jest
-      uses: stefanoeb/jest-action@1.0.3
-      with:
-        jestArgs: --coverage
-    - name: Coverage
-      uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        test-command: "npx jest --coverage"
+      - uses: actions/checkout@v2
+      - name: Run Jest and Code Coverage
+        run: |
+          cd source
+          npx jest --coverage
+
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v1
+#     - name: Run Jest
+#       uses: stefanoeb/jest-action@1.0.3
+#       with:
+#         jestArgs: --coverage
+#     - name: Coverage
+#       uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
+#       with:
+#         github-token: ${{ secrets.GITHUB_TOKEN }}
+#         test-command: "npx jest --coverage"
 
