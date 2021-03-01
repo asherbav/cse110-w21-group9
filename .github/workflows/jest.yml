@@ -16,7 +16,7 @@ jobs:
       - name: Run tests
         run: |
           cd source
-          yarn test
+          yarn jest --json --outputFile="jest.results.json"
       - name: Coverage
         uses: mattallty/jest-github-action@v1
         env:
