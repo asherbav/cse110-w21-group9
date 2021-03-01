@@ -9,21 +9,24 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install modules
-        run: |
-          cd source
-          yarn
-
-      - name: Run tests
-        run: |
-          cd source
-          yarn test
-
+      # - name: Install modules
+      #   run: |
+      #     cd source
+      #     yarn
+      # - name: Run tests
+      #   run: |
+      #     cd source
+      #     yarn test
       - name: Coverage
-        uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: "cd source && npx jest --coverage"
+          working-directory: "source"
+        # uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
+        # with:
+        #   github-token: ${{ secrets.GITHUB_TOKEN }}
+        #   test-command: "cd source && npx jest --coverage"
 #   build:
 #     runs-on: ubuntu-latest
 
