@@ -73,25 +73,30 @@ test("get pomo by id", () => {
   expect(index.getPomoById(1).taskName).toBe("test1");
 });
 
-// test("set break timer test", () => {
-//   index.setBreakTimer("5:00");
-//   expect(document.getElementById("break-timer").innerHTML).toBe("5:00");
-// });
+ test("set break timer test", () => {
+   document.body.innerHTML = '<p id="break-timer" class="break-timer"></p>';
+   const bTimer = document.getElementById('break-timer');
+   index.setBreakTimer("8:00");
+   expect(bTimer.innerHTML).toBe("8:00");
+ });
 
-// test("set pomo timer test", () => {
-//   index.setPomoTimer("25:00");
-//   expect(document.getElementById("pomo-timer").innerHTML).toBe("25:00");
-// });
+ test("set pomo timer test", () => {
+   document.body.innerHTML = '<p class="timer" id="pomo-timer"></p>';
+   const pTimer = document.getElementById('pomo-timer');
+   index.setPomoTimer("25:00");
+   expect(pTimer.innerHTML).toBe("25:00");
+ });
 
-// test("set current Pomo test", () => {
-//   index.setCurrentPomo(3);
-//   expect(index.currentPomoID).toBe(3);
-// });
+ test("set current Pomo test", () => {
+   index.setCurrentPomo(-1);
+   expect(index.currentPomoID).toBe(-1);
+ });
 
-//   test("get current Pomo test", () => {
-//     var tempID = index.getCurrentPomoId();
-//     expect(tempID).toBe(index.currentPomoID);
-// });
+   test("get current Pomo test", () => {
+     var tempID = index.getCurrentPomoId();
+     expect(tempID).toBe(-1);
+ });
+
 
 describe("utilities", () => {
   test("date string format test", () => {
