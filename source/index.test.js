@@ -44,54 +44,54 @@ describe("data storage tests", () => {
   });
 });
 
-  test("log distraction test", () => {
-    index.logDistraction(0);
-    expect(index.pomoData[0].distractions).toBe(1);
-  });
-
-  test("set pomo status test", () => {
-    index.setStatus(0, 1);
-    expect(index.pomoData[0].sessionStatus).toBe(1);
-  });
-
-  test("set pomo name test", () => {
-    index.setName(0, "updated test task");
-    expect(index.pomoData[0].taskName).toBe("updated test task");
-  });
-
-  test("get pomo test", () => {
-    expect(index.getPomo()[0].taskName).toBe("updated test task");
-  });
-
-  test("set/get current pomo test", () => {
-    index.setPomo(-1);
-    expect(index.getCurrentPomoId()).toBe(-1);
-  });
-
-  test("get pomo by id", () => {
-    index.createPomodoro("test1", 1);
-    expect(index.getPomoById(1).taskName).toBe("test1");
-  });
-
-  test("set break timer test", () => {
-    index.setBreakTimer("5:00");
-    expect(document.getElementById("break-timer").innerHTML).toBe("5:00");
-  });
-
-  test("set pomo timer test", () => {
-    index.setPomoTimer("25:00");
-    expect(document.getElementById("pomo-timer").innerHTML).toBe("25:00");
-  });
-
-  test("set current Pomo test", () => {
-    index.setCurrentPomo(3);
-    expect(index.currentPomoID).toBe(3);
-  });
-
-  test("get current Pomo test", () => {
-    var tempID = index.getCurrentPomoId();
-    expect(tempID).toBe(index.currentPomoID);
+test("log distraction test", () => {
+  index.logDistraction(0);
+  expect(index.pomoData[0].distractions).toBe(1);
 });
+
+test("set pomo status test", () => {
+  index.setStatus(0, 1);
+  expect(index.pomoData[0].sessionStatus).toBe(1);
+});
+
+test("set pomo name test", () => {
+  index.setName(0, "updated test task");
+  expect(index.pomoData[0].taskName).toBe("updated test task");
+});
+
+test("get pomo test", () => {
+  expect(index.getPomo()[0].taskName).toBe("updated test task");
+});
+
+test("set/get current pomo test", () => {
+  index.setPomo(-1);
+  expect(index.getCurrentPomoId()).toBe(-1);
+});
+
+test("get pomo by id", () => {
+  index.createPomodoro("test1", 1);
+  expect(index.getPomoById(1).taskName).toBe("test1");
+});
+
+// test("set break timer test", () => {
+//   index.setBreakTimer("5:00");
+//   expect(document.getElementById("break-timer").innerHTML).toBe("5:00");
+// });
+
+// test("set pomo timer test", () => {
+//   index.setPomoTimer("25:00");
+//   expect(document.getElementById("pomo-timer").innerHTML).toBe("25:00");
+// });
+
+// test("set current Pomo test", () => {
+//   index.setCurrentPomo(3);
+//   expect(index.currentPomoID).toBe(3);
+// });
+
+//   test("get current Pomo test", () => {
+//     var tempID = index.getCurrentPomoId();
+//     expect(tempID).toBe(index.currentPomoID);
+// });
 
 describe("utilities", () => {
   test("date string format test", () => {
