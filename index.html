@@ -60,16 +60,16 @@
     </footer>
     <script type="text/javascript" src="index.js"></script>
 
-    <dialog style="text-align: center; border-style:dashed" id="cancel-button-dialog">
-        <p>Are you sure you want to cancel/invalidate this session?</p>
-        <button id="cancel-yes" onclick="cancelPomo()">Yes</button>
-        <button id="cancel-no" onclick="closeCancelDialog()">No</button>
+    <dialog id="cancel-button-dialog" class="button-dialog">
+        <p>Are you sure you want to cancel this session?</p>
+        <button id="cancel-yes" class="dialog-yes" onclick="cancelPomo()">Yes</button>
+        <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">No</button>
     </dialog>
 
-    <dialog style="text-align: center; border-style:dashed" id="finish-button-dialog">
+    <dialog id="finish-button-dialog" class="button-dialog">
         <p>Are you sure you want to finish this task?</p>
-        <button id="finish-yes" onclick="finishTask()">Yes</button>
-        <button id="finish-no" onclick="closeFinishDialog()">No</button>
+        <button id="finish-yes" class="dialog-yes" onclick="finishTask()">Yes</button>
+        <button id="finish-no" class="dialog-no" onclick="closeFinishDialog()">No</button>
     </dialog>
 
     <!-- <dialog style="text-align: center; border-style:dashed" id="remove-button-dialog">
