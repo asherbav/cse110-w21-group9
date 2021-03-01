@@ -7,22 +7,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      # - name: Install modules
-      #   run: |
-      #     cd source
-      #     yarn
-      # - name: Run tests
-      #   run: |
-      #     cd source
-      #     yarn test
+      - name: Install modules
+        run: |
+          cd source
+          yarn
+      - name: Run tests
+        run: |
+          cd source
+          yarn test
       - name: Coverage
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          working-directory: "source"
+          test-command: "cd source && yarn jest"
         # uses: ziishaned/jest-reporter-action@872c1051350ecaf625ba2490d68e7cb63854b44c
         # with:
         #   github-token: ${{ secrets.GITHUB_TOKEN }}
