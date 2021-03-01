@@ -18,7 +18,7 @@ jobs:
           cd source
           yarn jest
       - name: Coverage
-        uses: mattallty/jest-github-action@v1
+        uses: mattallty/jest-github-action@bcc66d5309bc35228a213e1f10bae7c6927c5a3d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
