@@ -1,7 +1,7 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
 const LONG_BREAK_DURATION = 1 * 1000;
-const WORK_DURATION = 10 * 1000;
+const WORK_DURATION = 25 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -58,26 +58,34 @@ function logDistraction(pomoId) {
 	pomoData[pomoId].distractions++;
 }
 
+// UNUSED
 function setName(pomoId, pomoName) {
 	pomoData[pomoId].taskName = pomoName;
 }
 
+// UNUSED
 function setStatus(pomoId, pomoStatus) {
 	pomoData[pomoId].sessionStatus = pomoStatus;
 }
 
-function getPomo() {
+//UNUSED
+function getPomoData() {
 	return pomoData;
 }
+
 
 function getPomoById(pomoId) {
 	return pomoData[pomoId];
 }
 
+//UNUSED  
 function getCurrentPomoId() {
 	return currentPomoID;
 }
 
+/**
+* Sets current pomo variable to a given pomo Id, used for starting and cancelling pomo
+*/
 function setPomo(pomoId) {
 	currentPomoID = pomoId;
 }
@@ -99,10 +107,16 @@ function finishBreak() {
 	updateTable();
 }
 
+/**
+ * shows html element of break timer on the page
+ */
 function showBreakTimer() {
 	document.getElementById('break-screen').style.display = 'flex';
 }
 
+/**
+ * hides html element of break timer on the page
+ */
 function hideBreakTimer() {
 	document.getElementById('break-screen').style.display = 'none';
 }
@@ -240,6 +254,7 @@ function setCurrentPomo(pomoId) {
 	currentPomoID = pomoId;
 }
 
+//UNUSED
 /**
  * Returns pomodoro id variable
  */
@@ -267,7 +282,7 @@ function startPomo(pomoId) {
 	setPomo(pomoId);
 	setCurrentPomo(pomoId);
 	let desc = document.getElementById('task');
-	desc.innerHTML = getPomoById(pomoId).taskName;
+	desc.innerHTML = "Current Task: " + getPomoById(pomoId).taskName;
 	startPomoTimer();
 	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
 	getPomoById(pomoId).actualPomos++;

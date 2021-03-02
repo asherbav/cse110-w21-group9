@@ -97,8 +97,7 @@ footer {
   align-items: center;
 }
 
-.timer-page .timer, 
-.task {
+.timer-page .timer{
   text-align: center;
   font-style: normal;
   font-weight: bold;
@@ -106,6 +105,20 @@ footer {
   color: #fff;
   border-radius: 20px;
   box-shadow: 0 0 40px var(--shadow-intensity);
+}
+
+.timer-page .task {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  color: #fff;
+}
+
+.timer-page .task-sect{
+  background-color: var(--main-color);
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+  margin-bottom: 10px;
 }
 
 .timer-page .timer {
