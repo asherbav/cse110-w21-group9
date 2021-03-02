@@ -165,8 +165,7 @@ function cancelPomo() {
 function finishBreak() {
   document.getElementById('timer-audio').play();
   hideBreakTimer();
-  console.warn("Break finished");
-  alert('Break over');
+  displayBreakDialog();
   let buttons = document.getElementsByTagName("button");
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
@@ -470,6 +469,16 @@ function displayFinishDialog() {
 
 function closeFinishDialog() {
   let panel = document.getElementById("finish-button-dialog");
+  panel.style.display = "none";
+}
+
+function displayBreakDialog() {
+  let panel = document.getElementById("break-button-dialog");
+  panel.style.display = "block";
+}
+
+function closeBreakDialog() {
+  let panel = document.getElementById("break-button-dialog");
   panel.style.display = "none";
 }
 
