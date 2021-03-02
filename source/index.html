@@ -73,25 +73,29 @@
     </footer>
     <script type="text/javascript" src="index.js"></script>
 
-    <dialog id="cancel-button-dialog" class="button-dialog">
-      <p>Are you sure you want to cancel this session?</p>
-      <button id="cancel-yes" class="dialog-yes" onclick="cancelPomo()">
-        Yes
-      </button>
-      <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">
-        No
-      </button>
-    </dialog>
+    <div class="dialog-blocker" id="cancel-button-dialog">
+      <div class="button-dialog">
+        <p>Are you sure you want to cancel this session?</p>
+        <button id="cancel-yes" class="dialog-yes" onclick="cancelPomo()">
+          Yes
+        </button>
+        <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">
+          No
+        </button>
+      </div>
+    </div>
 
-    <dialog id="finish-button-dialog" class="button-dialog">
-      <p>Are you sure you want to finish this task?</p>
-      <button id="finish-yes" class="dialog-yes" onclick="finishTask()">
-        Yes
-      </button>
-      <button id="finish-no" class="dialog-no" onclick="closeFinishDialog()">
-        No
-      </button>
-    </dialog>
+    <div class="dialog-blocker" id="finish-button-dialog">
+      <div class="button-dialog">
+        <p>Are you sure you want to finish this task?</p>
+        <button id="finish-yes" class="dialog-yes" onclick="finishTask()">
+          Yes
+        </button>
+        <button id="finish-no" class="dialog-no" onclick="closeFinishDialog()">
+          No
+        </button>
+      </div>
+    </div>
 
     <!-- <dialog style="text-align: center; border-style:dashed" id="remove-button-dialog">
         <p>Are you sure you want to remove this task?</p>

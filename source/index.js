@@ -1,7 +1,7 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
-const LONG_BREAK_DURATION = 1 * 1000;
-const WORK_DURATION = 1 * 1000;
+const LONG_BREAK_DURATION = 5 * 1000;
+const WORK_DURATION = 5 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -128,8 +128,7 @@ function finishPomo() {
   let timerpage = document.getElementById('timer-page');
   mainpage.style.display = '';
   timerpage.style.display = 'none';
-  let panel = document.getElementById("cancel-button-dialog");
-  panel.close();
+  closeCancelDialog();
   updateTable();
   if (cancelTimerFlag == 1) {
     cancelTimerFlag = 0;
@@ -151,8 +150,7 @@ function cancelPomo() {
   timerEnd = time - 1;
   pomoData[currentPomoID] = previousState;
   cancelTimerFlag = 1;
-
-  panel.close();
+  closeCancelDialog();
   if (pomoData[currentPomoID].actualPomos == 0) {
     pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
     setPomo(INVALID_POMOID);
@@ -450,28 +448,29 @@ function removeTask(pomoId) {
 /**** DIALOG ******/
 
 function displayCancelDialog() {
+  console.warn("im alive");
   let panel = document.getElementById("cancel-button-dialog");
-  panel.showModal();
+  panel.style.display = "block";
 }
 
 function closeCancelDialog() {
   let panel = document.getElementById("cancel-button-dialog");
-  panel.close();
+  panel.style.display = "none";
 }
 
 function closeRemoveDialog() {
   let panel = document.getElementById("remove-button-dialog");
-  panel.close();
+  panel.style.display = "none";
 }
 
 function displayFinishDialog() {
   let panel = document.getElementById("finish-button-dialog");
-  panel.showModal();
+  panel.style.display = "block";
 }
 
 function closeFinishDialog() {
   let panel = document.getElementById("finish-button-dialog");
-  panel.close();
+  panel.style.display = "none";
 }
 
 /***** ONLOAD *******/
