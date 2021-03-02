@@ -1,10 +1,11 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
 const LONG_BREAK_DURATION = 1 * 1000;
-const WORK_DURATION = 25 * 1000;
+const WORK_DURATION = 1 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
+const INVALID_POMOID = -1;
 
 let time, timerEnd;
 let breakCount = 0;
@@ -30,10 +31,11 @@ let pomoData = [];
 	sessionStatus: one of:
 		SESSION_STATUS.incomplete,
 		SESSION_STATUS.complete,
-		SESSION_STATUS.deleted
+		SESSION_STATUS.deleted,
+    SESSION_STATUS.inprogress
 }
 */
-let currentPomoID = -1;
+let currentPomoID = INVALID_POMOID;
 
 /**
  * Function to create a pomodoro
@@ -68,7 +70,7 @@ function setStatus(pomoId, pomoStatus) {
 	pomoData[pomoId].sessionStatus = pomoStatus;
 }
 
-//UNUSED
+// UNUSED
 function getPomoData() {
 	return pomoData;
 }
@@ -158,7 +160,7 @@ function cancelPomo() {
 	panel.close();
 	if (pomoData[currentPomoID].actualPomos == 0){
 		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
-		setPomo(-1);
+		setPomo(INVALID_POMOID);
 	}
 	updateTable();
 
@@ -236,6 +238,11 @@ function startLongBreakTimer() {
 	timerEnd = time + LONG_BREAK_DURATION;
 	setTimeout(refreshBreakTimer, UPDATE_TIMER_EVERY);
 	updateTable(true);
+  let buttons = document.getElementsByTagName("button");
+	for (let i = 0; i < buttons.length; i++) {
+		let button = buttons[i];
+		button.setAttribute('disabled', 'disabled');
+  }
 }
 
 function setBreakTimer(time) {
@@ -266,8 +273,8 @@ function getCurrentPomo() {
  * Sets a task as finished
  */
 function finishTask(pomoID) {
-	pomoData[pomoID].sessionStatus = SESSION_STATUS.complete;
-	setCurrentPomo(-1);
+	setStatus(pomoID, SESSION_STATUS.complete);
+	setCurrentPomo(INVALID_POMOID);
 	updateTable();
 }
 
@@ -286,7 +293,7 @@ function startPomo(pomoId) {
 	startPomoTimer();
 	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
 	getPomoById(pomoId).actualPomos++;
-	pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
+	setStatus(pomoId, SESSION_STATUS.inprogress);
 }
 
 /**
@@ -335,9 +342,8 @@ function updateTable(disableAllStarts = false) {
 		btnCont.innerHTML = 'X';
 		btnCont.className = 'remove-btn';
 		btnCont.addEventListener('click', function () {
-			toDraw[i].sessionStatus = SESSION_STATUS.deleted;
-			updateTable();
-		});
+      removeTask(toDraw[i].id)
+    });
 		if (toDraw[i] != undefined && toDraw[i].sessionStatus == SESSION_STATUS.inprogress) {
 			btnCont.setAttribute('disabled', 'disabled');
 		}
@@ -376,7 +382,7 @@ function updateTable(disableAllStarts = false) {
 		startCont.id = "start-btn-" + newID;
 		startCont.innerHTML = 'Start';
 		startCont.setAttribute('onclick', 'startPomo(' + newID + ')');
-		if ((currentPomoID >= 0 && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
+		if ((currentPomoID != INVALID_POMOID && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
 			startCont.setAttribute('disabled', 'disabled');
 		}
 
@@ -385,7 +391,7 @@ function updateTable(disableAllStarts = false) {
 		finCont.id = "finish-btn-" + newID;
 		finCont.innerHTML = 'Finish';
 		finCont.setAttribute('onclick', 'finishTask(' + newID + ')');
-		if ((currentPomoID >= 0 && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
+		if ((currentPomoID != INVALID_POMOID && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
 			finCont.setAttribute('disabled', 'disabled');
 		}
 
@@ -430,6 +436,11 @@ function addTask() {
 	inputDesc.value = '';
 	inputEstimate.value = '';
 	return false;
+}
+
+function removeTask(pomoId){
+  pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
+	updateTable();
 }
 
 function displayCancelDialog() {
