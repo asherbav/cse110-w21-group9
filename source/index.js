@@ -37,29 +37,6 @@ let pomoData = [];
 */
 let currentPomoID = INVALID_POMOID;
 
-/**
- * Function to create a pomodoro
- */
-function createPomodoro(taskName, estimatedPomos) {
-	let pomo = {
-		"id": pomoData.length,
-		"taskName": taskName,
-		"estimatedPomos": estimatedPomos,
-		"actualPomos": 0,
-		"distractions": 0,
-		"sessionStatus": SESSION_STATUS.incomplete
-	};
-	pomoData.push(pomo);
-	return pomo.id;
-}
-
-/**
- * Log the distractions for the currently running pomo
- */
-function logDistraction(pomoId) {
-	pomoData[pomoId].distractions++;
-}
-
 // UNUSED
 function setName(pomoId, pomoName) {
 	pomoData[pomoId].taskName = pomoName;
@@ -93,35 +70,57 @@ function setPomo(pomoId) {
 }
 
 /**
- * Called by the timer when the break is complete
- * TODO: implement what should happen when the break timer is finished
+ * Set pomodoro id
+ * @param {The unique ID for the pomodoro} pomoId 
  */
-function finishBreak() {
-	document.getElementById('timer-audio').play();
-	hideBreakTimer();
-	console.warn("Break finished");
-	alert('Break over');
-	let buttons = document.getElementsByTagName("button");
-	for (let i = 0; i < buttons.length; i++) {
-		let button = buttons[i];
-		button.disabled = false;
-	}
-	updateTable();
+function setCurrentPomo(pomoId) {
+	currentPomoID = pomoId;
+}
+
+//UNUSED
+/**
+ * Returns pomodoro id variable
+ */
+function getCurrentPomo() {
+	return currentPomoID;
 }
 
 /**
- * shows html element of break timer on the page
+ * Function to create a pomodoro
  */
-function showBreakTimer() {
-	document.getElementById('break-screen').style.display = 'flex';
+function createPomodoro(taskName, estimatedPomos) {
+	let pomo = {
+		"id": pomoData.length,
+		"taskName": taskName,
+		"estimatedPomos": estimatedPomos,
+		"actualPomos": 0,
+		"distractions": 0,
+		"sessionStatus": SESSION_STATUS.incomplete
+	};
+	pomoData.push(pomo);
+	return pomo.id;
 }
 
+/* FLOW CONTROL */
+
 /**
- * hides html element of break timer on the page
+ * Called when user presses start pomo, loads that pomo and goes to the timer page
  */
-function hideBreakTimer() {
-	document.getElementById('break-screen').style.display = 'none';
+function startPomo(pomoId) {
+	let mainpage = document.getElementById('main-page');
+	let timerpage = document.getElementById('timer-page');
+	mainpage.style.display = 'none';
+	timerpage.style.display = '';
+	setPomo(pomoId);
+	setCurrentPomo(pomoId);
+	let desc = document.getElementById('task');
+	desc.innerHTML = "Current Task: " + getPomoById(pomoId).taskName;
+	startPomoTimer();
+	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
+	getPomoById(pomoId).actualPomos++;
+	setStatus(pomoId, SESSION_STATUS.inprogress);
 }
+
 
 /**
  * Called by the timer when the pomo is complete, starts the break timer
@@ -147,24 +146,7 @@ function finishPomo() {
 	}
 }
 
-/**
- * Cancels the currently running pomo
- * TODO: for now this only stops the timer, needs to call the UI functions too
- */
-function cancelPomo() {
-	let panel = document.getElementById("cancel-button-dialog");
-	timerEnd = time - 1;
-	pomoData[currentPomoID] = previousState;
-	cancelTimerFlag = 1;
-
-	panel.close();
-	if (pomoData[currentPomoID].actualPomos == 0){
-		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
-		setPomo(INVALID_POMOID);
-	}
-	updateTable();
-
-}
+/******** TIMER FUNCTIONS *******/
 
 /**
  * Called when we want to start the pomodoro timer
@@ -254,19 +236,63 @@ function setPomoTimer(time) {
 }
 
 /**
- * Set pomodoro id
- * @param {The unique ID for the pomodoro} pomoId 
+ * Called by the timer when the break is complete
+ * TODO: implement what should happen when the break timer is finished
  */
-function setCurrentPomo(pomoId) {
-	currentPomoID = pomoId;
+function finishBreak() {
+	document.getElementById('timer-audio').play();
+	hideBreakTimer();
+	console.warn("Break finished");
+	alert('Break over');
+	let buttons = document.getElementsByTagName("button");
+	for (let i = 0; i < buttons.length; i++) {
+		let button = buttons[i];
+		button.disabled = false;
+	}
+	updateTable();
 }
 
-//UNUSED
+/****** UI ******/
+
 /**
- * Returns pomodoro id variable
+ * Log the distractions for the currently running pomo
  */
-function getCurrentPomo() {
-	return currentPomoID;
+function logDistraction(pomoId) {
+	pomoData[pomoId].distractions++;
+}
+
+/**
+ * shows html element of break timer on the page
+ */
+function showBreakTimer() {
+	document.getElementById('break-screen').style.display = 'flex';
+}
+
+/**
+ * hides html element of break timer on the page
+ */
+function hideBreakTimer() {
+	document.getElementById('break-screen').style.display = 'none';
+}
+
+
+/**
+ * Cancels the currently running pomo
+ * TODO: for now this only stops the timer, needs to call the UI functions too
+ */
+function cancelPomo() {
+	let panel = document.getElementById("cancel-button-dialog");
+	timerEnd = time - 1;
+	pomoData[currentPomoID] = previousState;
+	cancelTimerFlag = 1;
+
+	panel.close();
+	if (pomoData[currentPomoID].actualPomos == 0){
+		pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
+		setPomo(INVALID_POMOID);
+	}
+	updateTable();
+
 }
 
 /**
@@ -278,30 +304,7 @@ function finishTask(pomoID) {
 	updateTable();
 }
 
-/**
- * Called when user presses start pomo, loads that pomo and goes to the timer page
- */
-function startPomo(pomoId) {
-	let mainpage = document.getElementById('main-page');
-	let timerpage = document.getElementById('timer-page');
-	mainpage.style.display = 'none';
-	timerpage.style.display = '';
-	setPomo(pomoId);
-	setCurrentPomo(pomoId);
-	let desc = document.getElementById('task');
-	desc.innerHTML = "Current Task: " + getPomoById(pomoId).taskName;
-	startPomoTimer();
-	previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
-	getPomoById(pomoId).actualPomos++;
-	setStatus(pomoId, SESSION_STATUS.inprogress);
-}
-
-/**
- * Called whenever the user updates something about the pomodoro (status, changes description, etc) and handles it
- */
-function updatePomo() {
-
-}
+/***** TABLE ******/
 
 /**
  * Redraw table
@@ -419,6 +422,7 @@ function updateTable(disableAllStarts = false) {
 	}
 }
 
+/**** TABLE BUTTONS ****/
 /**
  * Called when user presses add task button.
  * Adds task to the table
@@ -442,6 +446,9 @@ function removeTask(pomoId){
   pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
 	updateTable();
 }
+
+
+/**** DIALOG ******/
 
 function displayCancelDialog() {
 	let panel = document.getElementById("cancel-button-dialog");
@@ -468,6 +475,7 @@ function closeFinishDialog() {
 	panel.close();
 }
 
+/***** ONLOAD *******/
 window.onload = function () {
 	updateTable();
 	document.getElementById('add-task-form').addEventListener('submit', (event) => {
