@@ -124,20 +124,13 @@ function startPomo(pomoId) {
  */
 function finishPomo() {
   console.warn("Pomo finished");
-  let mainpage = document.getElementById('main-page');
-  let timerpage = document.getElementById('timer-page');
-  mainpage.style.display = '';
-  timerpage.style.display = 'none';
   closeCancelDialog();
-  updateTable();
   if (cancelTimerFlag == 1) {
     cancelTimerFlag = 0;
   }
   else {
     document.getElementById('timer-audio').play();
-    showBreakTimer();
-    if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
-    else startShortBreakTimer();
+    displayWorkDoneDialog();
   }
 }
 
@@ -480,6 +473,24 @@ function displayBreakDialog() {
 function closeBreakDialog() {
   let panel = document.getElementById("break-button-dialog");
   panel.style.display = "none";
+}
+
+function displayWorkDoneDialog() {
+  let panel = document.getElementById("workdone-button-dialog");
+  panel.style.display = "block";
+}
+
+function closeWorkDoneDialog() {
+  let panel = document.getElementById("workdone-button-dialog");
+  panel.style.display = "none";
+  let mainpage = document.getElementById('main-page');
+  let timerpage = document.getElementById('timer-page');
+  mainpage.style.display = '';
+  timerpage.style.display = 'none';
+  updateTable();
+  showBreakTimer();
+  if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
+  else startShortBreakTimer();
 }
 
 /***** ONLOAD *******/

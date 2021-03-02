@@ -367,6 +367,10 @@ table .remove-btn {
   display: none;
 }
 
+#workdone-button-dialog {
+  display: none;
+}
+
 /* Button Animations */
 button:active {
   transform: translateY(4px);
