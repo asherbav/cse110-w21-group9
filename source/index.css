@@ -32,20 +32,6 @@ button {
   cursor: pointer;
 }
 
-button:active {
-  transform: translateY(4px);
-}
-
-button:disabled {
-  background-color: var(--disable-color) !important;
-  color: black;
-  cursor: unset;
-}
-
-button:hover:enabled {
-  opacity: 1;
-}
-
 /* Header */
 header {
   background-color: var(--main-color);
@@ -97,31 +83,14 @@ footer {
   align-items: center;
 }
 
-.timer-page .timer{
-  text-align: center;
-  font-style: normal;
-  font-weight: bold;
-  background-color: var(--main-color);
-  color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 40px var(--shadow-intensity);
-}
-
-.timer-page .task {
-  text-align: center;
-  font-style: normal;
-  font-weight: bold;
-  color: #fff;
-}
-
-.timer-page .task-sect{
-  background-color: var(--main-color);
-  border-radius: 20px;
-  box-shadow: 0 0 40px var(--shadow-intensity);
-  margin-bottom: 10px;
-}
-
 .timer-page .timer {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
   font-size: 140px;
   padding: 30px 50px 30px 50px;
   margin-top: 40px;
@@ -129,9 +98,20 @@ footer {
 }
 
 .timer-page .task {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  color: #fff;
   font-size: 20px;
   padding: 5px 15px 5px 15px;
   margin: 10px;
+}
+
+.timer-page .task-sect {
+  background-color: var(--main-color);
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+  margin-bottom: 10px;
 }
 
 .timer-page .buttons {
@@ -279,6 +259,10 @@ td {
   align-self: center;
 }
 
+table .remove-btn {
+  background-color: var(--stop-color);
+}
+
 /* Add Task Form */
 .add-task-form {
   border-color: black;
@@ -313,6 +297,7 @@ td {
   width: 25%;
   height: 40%;
   box-shadow: 0 0 40px var(--shadow-intensity);
+
   /* overflow: visible; */
 
   /* backdrop-filter: blur(10px); */
@@ -359,11 +344,23 @@ td {
   color: white;
 }
 
-table .remove-btn {
-  background-color: var(--stop-color);
+
+/* Button Animations */
+button:active {
+  transform: translateY(4px);
 }
 
-/* Responsiveness WILL FIX*/
+button:disabled {
+  background-color: var(--disable-color) !important;
+  color: black;
+  cursor: unset;
+}
+
+button:hover:enabled {
+  opacity: 1;
+}
+
+/* Responsiveness WILL FIX */
 @media only screen and (max-width: 760px) {
   table {
     width: 75%;
