@@ -7,15 +7,13 @@
   </head>
 
   <body>
-    <section>
       <header>
-        <h1>PomoTimer</h1>
+        <h1 class="title">PomoTimer</h1>
+        <section id="break-screen" class="break-screen" style="display: none">
+          <p id="break-timer-label" class="break-timer-label">Break Timer</p>
+          <p id="break-timer" class="break-timer"></p>
+        </section>
       </header>
-      <section id="break-screen" class="break-screen" style="display: none">
-        <p id="break-timer-label" class="break-timer-label">Break Timer:</p>
-        <p id="break-timer" class="break-timer"></p>
-      </section>
-    </section>
 
     <main>
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
@@ -45,8 +43,10 @@
 
       <div class="timer-page" id="timer-page" style="display: none">
         <p class="timer" id="pomo-timer"></p>
-        <p class="task" id="task"></p>
-        <p class="task">If you are finished early, review your work.</p>
+        <section id = "task-sect" class = "task-sect">
+          <p class="task" id="task"></p>
+          <p class="task">If you are finished early, review your work.</p>
+        </section>
         <section class="buttons">
           <button
             type="button"
