@@ -49,9 +49,8 @@ header {
 
 .title {
   margin: 0;
-  margin-left: 10px;
   padding: 10px;
-  display: inline;
+  display: block;
 }
 
 /* Footer */
@@ -371,6 +370,20 @@ table .remove-btn {
   display: none;
 }
 
+.mobile-break {
+  display: none;
+}
+
+.task-description {
+  height: 22px;
+  font-size: 18px;
+}
+
+.estimate {
+  height: 22px;
+  font-size: 18px;
+}
+
 /* Button Animations */
 button:active {
   transform: translateY(4px);
@@ -389,7 +402,8 @@ button:hover:enabled {
 /* Responsiveness WILL FIX */
 @media only screen and (max-width: 760px) {
   table {
-    width: 75%;
+    width: calc(100% - 10vw);
+    margin: 10vw;
   }
 
   table th {
@@ -410,6 +424,7 @@ button:hover:enabled {
     margin-bottom: 15px;
     padding-top: 15px;
     padding-bottom: 20px;
+    width: calc(100% - 10vw);
   }
 
   tr:nth-child(odd) {
@@ -427,6 +442,7 @@ button:hover:enabled {
     border-bottom: 1px solid green;
     display: block;
     padding-bottom: 10px;
+    width: 100%;
   }
 
   td > p {
@@ -529,5 +545,37 @@ button:hover:enabled {
     background-color: var(--main-color);
     color: #fff;
     padding: 8px 10px 8px 10px;
+  }
+
+  .title {
+    font-size: max(22px, 8vw);
+    height: auto;
+  }
+
+  header {
+    height: 10vw;
+  }
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .mobile-break {
+    display: inline;
+  }
+
+  .add-task-form {
+    width: calc(100% - 10vw);
+    margin: 10vw;
+    font-size: 18px;
+  }
+
+  .estimate {
+    width: 100%;
+  }
+
+  .task-description {
+    width: 100%;
   }
 }
