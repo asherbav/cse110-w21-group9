@@ -1,0 +1,52 @@
+# Team 9 - 02/08/21
+
+- Goal - Discuss future plans and direction for the overall project and work for this week.
+- Members Present: Alex, Asher, Dat, Eswar, Gary, Lucy
+- Members Absent: Trevor, Yuriy
+- Meeting Logistics
+  - Start: 3:00 PM
+  - End: 5:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Assigned Members Responsible for Tasks
+    - Coordinate
+      - Alex, Asher
+    - Document
+      - Alex, Asher, Lucy, Trevor
+    - Plan
+      - Alex, Asher
+    - Design
+      - Asher, Eswar, Gary
+    - HTML
+      - Eswar, Gary, Yuriy
+    - CSS
+      - Eswar, Gary, Yuriy
+    - JavaScript
+      - Alex, Lucy, Trevor
+    - Build
+      - Dat, Trevor
+    - Test
+      - Dat, Trevor
+  - Testing
+    - We will be doing Test Driven Development
+    - Write tests before we start coding
+    - There is an upcoming lab regarding testing basics
+  - ADRs
+    - Create ADR for JavaScript version and come up with any other ADRs we can include.
+  - HTML Pages
+    - Page 1 - Completed by Wednesday
+    - Page 2 - Completed by Friday
+  - ADR
+    - Complete ASAP
+  - JavaScript
+    - Website connections diagram
+    - Find out what components need JavaScript
+    - Decide how to structure our JavaScript
+  - Testing
+    - Complete lab for this week and discuss afterwards
+- Unresolved Topics
+- Future Agenda
+  - Meet up again to update progress on HTML/CSS
+  - Prepare for future tasks - JavaScript, Building, Testing
+  - Complete ADRs
+  - Consult MVP for future direction

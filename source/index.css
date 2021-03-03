@@ -1,0 +1,533 @@
+/* Variables */
+:root {
+  --main-color: #6e5ab1;
+  --go-color: #097a92;
+  --stop-color: #751444;
+  --disable-color: grey;
+  --table-border-bottom-color: dodgerblue;
+  --shadow-intensity: rgba(0, 0, 0, 0.3);
+}
+
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+main {
+  overflow: auto;
+  min-height: 100%;
+}
+
+button {
+  outline-style: none;
+  opacity: 0.6;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Header */
+header {
+  background-color: var(--main-color);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2.75rem;
+  color: #fff;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: -1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.title {
+  margin: 0;
+  margin-left: 10px;
+  padding: 10px;
+  display: inline;
+}
+
+/* Footer */
+footer {
+  position: sticky;
+  bottom: 0;
+  clear: both;
+}
+
+.team {
+  background-color: var(--main-color);
+  color: #fff;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Timer Page */
+.timer-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-page .timer {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+  font-size: 140px;
+  padding: 30px 50px 30px 50px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.timer-page .task {
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 15px 5px 15px;
+  margin: 10px;
+}
+
+.timer-page .task-sect {
+  background-color: var(--main-color);
+  border-radius: 20px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+  margin-bottom: 10px;
+}
+
+.timer-page .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timer-page .cancel-btn,
+.distract-btn {
+  font-style: normal;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: 0;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+}
+
+.timer-page .cancel-btn {
+  background-color: var(--stop-color);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.timer-page .distract-btn {
+  background-color: var(--go-color);
+}
+
+/* Break Timer */
+.break-screen {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 0;
+  margin: 10px 0 0 0;
+  right: 0;
+}
+
+.break-timer-label {
+  display: inline;
+  color: #fff;
+  font-weight: bold;
+  padding-top: 5px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.break-timer {
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 90px;
+  padding-right: 15px;
+  padding-left: 15px;
+  background-color: var(--main-color);
+  border-bottom-left-radius: 15px;
+}
+
+/* Main Table Page */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+  border-radius: 10px;
+}
+
+th {
+  background-color: var(--main-color);
+  color: #fff;
+  border-color: #d1cfd7;
+  border-style: solid;
+  padding: 10px;
+  margin: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-top-width: 0;
+  font-size: 15px;
+}
+
+th:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+th:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+tr:nth-child(odd) {
+  background-color: #eaeaea;
+}
+
+table th:first-child {
+  border-left-width: 0;
+}
+
+table th:last-child {
+  border-right-width: 0;
+}
+
+table button {
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+td > button,
+.add-task-form > button {
+  background-color: var(--go-color);
+
+  /* background-color: #A8CD9F; */
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+td > p {
+  text-align: center;
+  width: 100%;
+}
+
+td {
+  border-color: #d1cfd7;
+  border-left-width: 1px;
+  margin: 10px;
+  padding: 10px;
+  align-self: center;
+}
+
+table .remove-btn {
+  background-color: var(--stop-color);
+}
+
+/* Add Task Form */
+.add-task-form {
+  border-color: black;
+  border-width: 5px;
+  margin-top: 10px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+}
+
+.add-task-form > button {
+  width: 80%;
+  border: 2px black;
+  border-radius: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Popouts */
+.button-dialog {
+  background-color: grey;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  right: 0;
+  margin: 0;
+  width: 25%;
+  padding-bottom: 10px;
+  box-shadow: 0 0 40px var(--shadow-intensity);
+
+  /* overflow: visible; */
+
+  /* backdrop-filter: blur(10px); */
+}
+
+.button-dialog > p {
+  font-family: Helvetica Neue, sans-serif;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  margin-top: 50px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.dialog-yes {
+  border: none;
+  background-color: var(--go-color);
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  margin-top: 50px;
+  margin-right: 15px;
+  margin-left: 15px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+}
+
+.dialog-no {
+  border: none;
+  background-color: var(--stop-color);
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  margin-left: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+}
+
+.dialog-blocker {
+  width: 100%;
+  height: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#finish-button-dialog {
+  display: none;
+}
+
+#cancel-button-dialog {
+  display: none;
+}
+
+#break-button-dialog {
+  display: none;
+}
+
+#workdone-button-dialog {
+  display: none;
+}
+
+/* Button Animations */
+button:active {
+  transform: translateY(4px);
+}
+
+button:disabled {
+  background-color: var(--disable-color) !important;
+  color: black;
+  cursor: unset;
+}
+
+button:hover:enabled {
+  opacity: 1;
+}
+
+/* Responsiveness WILL FIX */
+@media only screen and (max-width: 760px) {
+  table {
+    width: 75%;
+  }
+
+  table th {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    color: pink;
+  }
+
+  table tr {
+    border-bottom: 5px solid var(--table-border-bottom);
+    display: block;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+
+  table tr:first-child {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+  }
+
+  table td {
+    border-bottom: 1px solid green;
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  td > p {
+    overflow-wrap: break-word;
+    text-align: right;
+    padding-top: 10px;
+  }
+
+  table .remove-btn {
+    background-color: var(--stop-color);
+    width: 30%;
+    margin-right: 0;
+    margin-bottom: 5px;
+    height: 300%;
+  }
+
+  table .start-btn {
+    background-color: var(--go-color);
+    width: 30%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 300%;
+  }
+
+  table .finish-btn {
+    background-color: var(--go-color);
+    width: 30%;
+    margin-right: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    height: 300%;
+  }
+
+  button:disabled {
+    background-color: var(--disable-color);
+    color: black;
+    cursor: unset;
+  }
+
+  td:nth-of-type(1)::before {
+    content: "Remove Task";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(2)::before {
+    content: "Task";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 15px 8px 15px;
+  }
+
+  td:nth-of-type(3)::before {
+    content: "Estimated Pomos";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(4)::before {
+    content: "Actual Pomos";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(5)::before {
+    content: "Distractions";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(6)::before {
+    content: "Status";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(7)::before {
+    content: "Start Session";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+
+  td:nth-of-type(8)::before {
+    content: "Finish Task";
+    float: left;
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+  }
+}
