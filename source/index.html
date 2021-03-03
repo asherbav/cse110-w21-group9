@@ -9,15 +9,15 @@
   <body>
       <header>
         <h1 class="title">PomoTimer</h1>
-        <section id="break-screen" class="break-screen" style="display: none">
-          <p id="break-timer-label" class="break-timer-label">Break Timer</p>
-          <p id="break-timer" class="break-timer"></p>
-        </section>
       </header>
 
     <main>
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
       <div id="main-page" class="main-page">
+        <section id="break-screen" class="break-screen" style="display: none">
+          <p id="break-timer-label" class="break-timer-label">Break Timer</p>
+          <p id="break-timer" class="break-timer"></p>
+        </section>
         <table id="table" class="table"></table>
 
         <form id="add-task-form" class="add-task-form" onsubmit="addTask();">
