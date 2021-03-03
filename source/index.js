@@ -22,6 +22,7 @@ const SESSION_STATUS = {
 };
 
 let pomoData = [];
+let visibleTasks = 0;
 /*
 {
   taskName: "task name",
@@ -87,6 +88,7 @@ function getCurrentPomo() {
  * Function to create a pomodoro
  */
 function createPomodoro(taskName, estimatedPomos) {
+  visibleTasks++;
   let pomo = {
     "id": pomoData.length,
     "taskName": taskName,
@@ -298,9 +300,17 @@ function finishTask(pomoID) {
  * Redraw table
  */
 function updateTable(disableAllStarts = false) {
+
+  if(visibleTasks == 0){
+    document.getElementById('table').style.display = 'none';
+    }
+    else{
+      document.getElementById('table').style.display = 'block';
+    }
+  console.log(visibleTasks)
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
-
+  
   let done = [];
   let notDone = [];
   let inprogress = [];
@@ -339,6 +349,8 @@ function updateTable(disableAllStarts = false) {
       btnCont.setAttribute('disabled', 'disabled');
     }
 
+    if(toDraw[i] == undefined)
+      return;
     let descCont = document.createElement('p');
     descCont.innerHTML = toDraw[i].taskName;
 
@@ -408,6 +420,7 @@ function updateTable(disableAllStarts = false) {
 
     table.appendChild(row);
   }
+
 }
 
 /**** TABLE BUTTONS ****/
@@ -436,6 +449,7 @@ function addTask() {
  * @param {PomoID to remove} pomoId 
  */
 function removeTask(pomoId) {
+  visibleTasks--;
   pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
   updateTable();
 }
