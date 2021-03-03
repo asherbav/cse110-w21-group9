@@ -310,7 +310,7 @@ function updateTable(disableAllStarts = false) {
   }
 
   toDraw = inprogress.concat(notDone).concat(done);
-  for (let i = 0; i < pomoData.length; i++) {
+  for (let i = 0; i < toDraw.length; i++) {
     //Row Container
     let row = document.createElement('tr');
 
