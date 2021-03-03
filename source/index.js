@@ -148,6 +148,10 @@ function cancelPomo() {
     pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
     setPomo(INVALID_POMOID);
   }
+  let mainpage = document.getElementById('main-page');
+  let timerpage = document.getElementById('timer-page');
+  mainpage.style.display = '';
+  timerpage.style.display = 'none';
   updateTable();
 }
 
