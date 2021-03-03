@@ -439,7 +439,7 @@ function addTask() {
   let newID = createPomodoro(inputDesc.value, inputEstimate.value);
   updateTable();
   inputDesc.value = '';
-  inputEstimate.value = '';
+  inputEstimate.value = '1';
   return false;
 }
 
