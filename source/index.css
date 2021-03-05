@@ -8,6 +8,8 @@
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
 
+
+
 /* Global */
 * {
   margin: 0;
@@ -17,6 +19,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   font-family: Helvetica Neue, sans-serif;
 }
 
@@ -386,8 +389,9 @@ button:hover:enabled {
   opacity: 1;
 }
 
+
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1024px) {
   table {
     width: 75%;
   }
@@ -543,3 +547,5 @@ button:hover:enabled {
     margin-bottom: 20px;
   }
 }
+
+
