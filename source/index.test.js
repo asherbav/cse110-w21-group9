@@ -25,7 +25,14 @@ updatePomo - Not Used,
 updateTable - Update the table then compare values from pomoData to confirm they match
 addTask - Compare task row in the table to task in pomoData
 */
+const { finishBreak, buttons } = require("./index.js");
 const index = require("./index.js");
+const fs = require("fs");
+const path = require("path");
+const html = fs.readFileSync("./index.html", "utf8");
+
+jest.dontMock("fs");
+
 jest.useFakeTimers();
 
 describe("data storage tests", () => {
@@ -44,59 +51,80 @@ describe("data storage tests", () => {
   });
 });
 
-test("log distraction test", () => {
-  index.logDistraction(0);
-  expect(index.pomoData[0].distractions).toBe(1);
+describe("index.js tests", () => {
+  // Before each test, create an instance of the html page.
+  beforeEach(() => {
+    document.documentElement.innerHTML = html.toString();
+  });
+
+  afterEach(() => {
+    jest.resetModules();
+  });
+
+  test("log distraction test", () => {
+    index.logDistraction(0);
+    expect(index.pomoData[0].distractions).toBe(1);
+  });
+
+  test("set pomo status test", () => {
+    index.setStatus(0, 1);
+    expect(index.pomoData[0].sessionStatus).toBe(1);
+  });
+
+  test("set pomo name test", () => {
+    index.setName(0, "updated test task");
+    expect(index.pomoData[0].taskName).toBe("updated test task");
+  });
+
+  test("get pomo test", () => {
+    expect(index.getPomo()[0].taskName).toBe("updated test task");
+  });
+
+  test("set/get current pomo test", () => {
+    index.setPomo(-1);
+    expect(index.getCurrentPomoId()).toBe(-1);
+  });
+
+  test("get pomo by id", () => {
+    index.createPomodoro("test1", 1);
+    expect(index.getPomoById(1).taskName).toBe("test1");
+  });
+
+  test("set break timer test", () => {
+    document.body.innerHTML = '<p id="break-timer" class="break-timer"></p>';
+    const bTimer = document.getElementById("break-timer");
+    index.setBreakTimer("8:00");
+    expect(bTimer.innerHTML).toBe("8:00");
+  });
+
+  test("set pomo timer test", () => {
+    document.body.innerHTML = '<p class="timer" id="pomo-timer"></p>';
+    const pTimer = document.getElementById("pomo-timer");
+    index.setPomoTimer("25:00");
+    expect(pTimer.innerHTML).toBe("25:00");
+  });
+
+  test("set current Pomo test", () => {
+    index.setCurrentPomo(-1);
+    expect(index.currentPomoID).toBe(-1);
+  });
+
+  test("get current Pomo test", () => {
+    let tempID = index.getCurrentPomoId();
+    expect(tempID).toBe(-1);
+  });
+
+  test("finish break", () => {
+    finishBreak();
+    // let buttons = document.getElementsByTagName("button");
+    // for (let i = 0; i < buttons.length; i++) {
+    //   let button = buttons[i];
+    //   expect(button.disabled).toBe(false);
+    // }
+
+    console.log(document.getElementsByTagName("button"));
+  });
 });
-
-test("set pomo status test", () => {
-  index.setStatus(0, 1);
-  expect(index.pomoData[0].sessionStatus).toBe(1);
-});
-
-test("set pomo name test", () => {
-  index.setName(0, "updated test task");
-  expect(index.pomoData[0].taskName).toBe("updated test task");
-});
-
-test("get pomo test", () => {
-  expect(index.getPomo()[0].taskName).toBe("updated test task");
-});
-
-test("set/get current pomo test", () => {
-  index.setPomo(-1);
-  expect(index.getCurrentPomoId()).toBe(-1);
-});
-
-test("get pomo by id", () => {
-  index.createPomodoro("test1", 1);
-  expect(index.getPomoById(1).taskName).toBe("test1");
-});
-
- test("set break timer test", () => {
-   document.body.innerHTML = '<p id="break-timer" class="break-timer"></p>';
-   const bTimer = document.getElementById('break-timer');
-   index.setBreakTimer("8:00");
-   expect(bTimer.innerHTML).toBe("8:00");
- });
-
- test("set pomo timer test", () => {
-   document.body.innerHTML = '<p class="timer" id="pomo-timer"></p>';
-   const pTimer = document.getElementById('pomo-timer');
-   index.setPomoTimer("25:00");
-   expect(pTimer.innerHTML).toBe("25:00");
- });
-
- test("set current Pomo test", () => {
-   index.setCurrentPomo(-1);
-   expect(index.currentPomoID).toBe(-1);
- });
-
-   test("get current Pomo test", () => {
-     var tempID = index.getCurrentPomoId();
-     expect(tempID).toBe(-1);
- });
-
 
 describe("utilities", () => {
   test("date string format test", () => {
