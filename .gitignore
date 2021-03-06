@@ -1,5 +1,6 @@
 .DS_Store
-./source/node_modules/**/*
+source/node_modules/**/*
 yarn.lock
-./source/coverage
-./source/coverage/**/*
+source/coverage
+source/coverage/**/*
+source/coverage/*

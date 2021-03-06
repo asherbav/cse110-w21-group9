@@ -512,12 +512,17 @@ function closeWorkDoneDialog() {
 }
 
 /***** ONLOAD *******/
-window.onload = function () {
-  updateTable();
-  document.getElementById('add-task-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-  })
-};
+try {
+  // If we are running in a browser  
+  window.onload = function () {
+    updateTable();
+    document.getElementById('add-task-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+    })
+  };
+} catch (err) {
+  // We are running in a test environment
+}
 
 try {
   // If we are running in a test environment
@@ -527,6 +532,7 @@ try {
     LONG_BREAK_DURATION: LONG_BREAK_DURATION,
     WORK_DURATION: WORK_DURATION,
     UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
+    SESSION_STATUS: SESSION_STATUS,
     time: time,
     timerEnd: timerEnd,
     getTimeString: getTimeString,
@@ -536,8 +542,20 @@ try {
     startShortBreakTimer: startShortBreakTimer,
     refreshBreakTimer: refreshBreakTimer,
     finishPomo: finishPomo,
+    pomoData: pomoData,
+    createPomodoro: createPomodoro,
+    logDistraction: logDistraction,
+    setName: setName,
+    setStatus: setStatus,
+    getCurrentPomoId: getCurrentPomoId,
+    setPomo: setPomo,
+    currentPomoID: currentPomoID,
+    getPomoById: getPomoById,
+    setBreakTimer: setBreakTimer,
+    setPomoTimer: setPomoTimer,
+    setCurrentPomo: setCurrentPomo,  
   };
 }
 catch (err) {
-  // Do nothing
+  // We are running in a browser
 }

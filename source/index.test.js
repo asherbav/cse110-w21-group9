@@ -25,7 +25,6 @@ updatePomo - Not Used,
 updateTable - Update the table then compare values from pomoData to confirm they match
 addTask - Compare task row in the table to task in pomoData
 */
-const { finishBreak, buttons } = require("./index.js");
 const index = require("./index.js");
 const fs = require("fs");
 const path = require("path");
@@ -49,17 +48,6 @@ describe("data storage tests", () => {
       })
     );
   });
-});
-
-describe("index.js tests", () => {
-  // Before each test, create an instance of the html page.
-  beforeEach(() => {
-    document.documentElement.innerHTML = html.toString();
-  });
-
-  afterEach(() => {
-    jest.resetModules();
-  });
 
   test("log distraction test", () => {
     index.logDistraction(0);
@@ -76,10 +64,6 @@ describe("index.js tests", () => {
     expect(index.pomoData[0].taskName).toBe("updated test task");
   });
 
-  test("get pomo test", () => {
-    expect(index.getPomo()[0].taskName).toBe("updated test task");
-  });
-
   test("set/get current pomo test", () => {
     index.setPomo(-1);
     expect(index.getCurrentPomoId()).toBe(-1);
@@ -88,6 +72,18 @@ describe("index.js tests", () => {
   test("get pomo by id", () => {
     index.createPomodoro("test1", 1);
     expect(index.getPomoById(1).taskName).toBe("test1");
+  });
+
+});
+
+describe("index.js tests", () => {
+  // Before each test, create an instance of the html page.
+  beforeEach(() => {
+    document.documentElement.innerHTML = html.toString();
+  });
+
+  afterEach(() => {
+    jest.resetModules();
   });
 
   test("set break timer test", () => {
@@ -115,12 +111,14 @@ describe("index.js tests", () => {
   });
 
   test("finish break", () => {
-    finishBreak();
-    // let buttons = document.getElementsByTagName("button");
-    // for (let i = 0; i < buttons.length; i++) {
-    //   let button = buttons[i];
-    //   expect(button.disabled).toBe(false);
-    // }
+    window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
+    index.finishBreak();
+    let buttons = document.getElementsByTagName("button");
+    for (let i = 0; i < buttons.length; i++) {
+      let button = buttons[i];
+      console.log(button.disabled)
+      expect(button.disabled).toBe(false);
+    }
 
     console.log(document.getElementsByTagName("button"));
   });
