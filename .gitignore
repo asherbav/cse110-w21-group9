@@ -4,3 +4,6 @@ yarn.lock
 source/coverage
 source/coverage/**/*
 source/coverage/*
+source/coverage/clover.xml
+source/coverage/lcov-report/index.html
+source/coverage/lcov-report/index.js.html

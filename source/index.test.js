@@ -113,18 +113,21 @@ describe("index.js tests", () => {
   test("finish break", () => {
     window.HTMLMediaElement.prototype.play = () => { /* do nothing */ };
     index.finishBreak();
-    let buttons = document.getElementsByTagName("button");
-    for (let i = 0; i < buttons.length; i++) {
-      let button = buttons[i];
-      console.log(button.disabled)
-      expect(button.disabled).toBe(false);
+    let removeButtons = document.getElementsByClassName("remove-btn");
+    let startButtons = document.getElementsByClassName("start-btn");
+    let finishButtons = document.getElementsByClassName("finish-btn");
+    expect(removeButtons[0].disabled).toBe(false);
+    expect(startButtons[0].disabled).toBe(false);
+    expect(finishButtons[0].disabled).toBe(true);
+    for(let i = 1; i < removeButtons.length; i++) {
+      expect(removeButtons[i].disabled).toBe(false);
+      expect(startButtons[i].disabled).toBe(true);
+      expect(finishButtons[i].disabled).toBe(true);
     }
-
-    console.log(document.getElementsByTagName("button"));
   });
-});
-
-test('date string format test', () => {
-	var date = new Date(1613616935705)
-	expect(index.getTimeString(date)).toBe("55:35");
+  
+  test('date string format test', () => {
+    var date = new Date(1613616935705)
+    expect(index.getTimeString(date)).toBe("55:35");
+  });
 });

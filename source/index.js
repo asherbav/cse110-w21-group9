@@ -165,6 +165,7 @@ function finishBreak() {
   document.getElementById('timer-audio').play();
   hideBreakTimer();
   displayBreakDialog();
+  // Enable all the non table buttons
   let buttons = document.getElementsByTagName("button");
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
@@ -301,13 +302,13 @@ function finishTask(pomoID) {
  */
 function updateTable(disableAllStarts = false) {
 
-  if(visibleTasks == 0){
+  if(visibleTasks == 0) {
     document.getElementById('table').style.display = 'none';
-    }
-    else{
-      document.getElementById('table').style.display = 'block';
-    }
-  console.log(visibleTasks)
+  }
+  else {
+    document.getElementById('table').style.display = 'block';
+  }
+  
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
