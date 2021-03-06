@@ -1,10 +1,11 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
-const LONG_BREAK_DURATION = 1 * 1000;
-const WORK_DURATION = 10 * 1000;
+const LONG_BREAK_DURATION = 5 * 1000;
+const WORK_DURATION = 5 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
+const INVALID_POMOID = -1;
 
 let time, timerEnd;
 let breakCount = 0;
@@ -17,46 +18,27 @@ const SESSION_STATUS = {
   incomplete: 0,
   complete: 1,
   deleted: 2,
-  inprogress: 3,
+  inprogress: 3
 };
+
+let pomoData = [];
+let visibleTasks = 0;
 /*
 {
-	taskName: "task name",
-	  estimatedPomos: number,
-	actualPomos: number,
-	distractions, 
-	sessionStatus: one of:
-		SESSION_STATUS.incomplete,
-		SESSION_STATUS.complete,
-		SESSION_STATUS.deleted
+  taskName: "task name",
+    estimatedPomos: number,
+  actualPomos: number,
+  distractions, 
+  sessionStatus: one of:
+    SESSION_STATUS.incomplete,
+    SESSION_STATUS.complete,
+    SESSION_STATUS.deleted,
+    SESSION_STATUS.inprogress
 }
 */
-let pomoData = [];
-let currentPomoID = -1;
+let currentPomoID = INVALID_POMOID;
 
-/**
- * Function to create a pomodoro
- */
-function createPomodoro(taskName, estimatedPomos) {
-  let pomo = {
-    id: pomoData.length,
-    taskName: taskName,
-    estimatedPomos: estimatedPomos,
-    actualPomos: 0,
-    distractions: 0,
-    sessionStatus: SESSION_STATUS.incomplete,
-  };
-  pomoData.push(pomo);
-  return pomo.id;
-}
-
-/**
- * Log the distractions for the currently running pomo
- */
-function logDistraction(pomoId) {
-  pomoData[pomoId].distractions++;
-}
-
+/***** GETTERS and SETTERS *******/
 function setName(pomoId, pomoName) {
   pomoData[pomoId].taskName = pomoName;
 }
@@ -65,9 +47,10 @@ function setStatus(pomoId, pomoStatus) {
   pomoData[pomoId].sessionStatus = pomoStatus;
 }
 
-function getPomo() {
+function getPomoData() {
   return pomoData;
 }
+
 
 function getPomoById(pomoId) {
   return pomoData[pomoId];
@@ -77,34 +60,65 @@ function getCurrentPomoId() {
   return currentPomoID;
 }
 
+/**
+* Sets current pomo variable to a given pomo Id, used for starting and cancelling pomo
+*/
 function setPomo(pomoId) {
   currentPomoID = pomoId;
 }
 
 /**
- * Called by the timer when the break is complete
- * TODO: implement what should happen when the break timer is finished
+ * Set pomodoro id
+ * @param {The unique ID for the pomodoro} pomoId 
  */
-function finishBreak() {
-  document.getElementById("timer-audio").play();
-  hideBreakTimer();
-  console.warn("Break finished");
-  alert("Break over");
-  let buttons = document.getElementsByTagName("button");
-  for (let i = 0; i < buttons.length; i++) {
-    let button = buttons[i];
-    button.disabled = false;
-  }
-  updateTable();
+function setCurrentPomo(pomoId) {
+  currentPomoID = pomoId;
 }
 
-function showBreakTimer() {
-  document.getElementById("break-screen").style.display = "flex";
+/**
+ * Returns pomodoro id variable
+ */
+function getCurrentPomo() {
+  return currentPomoID;
 }
 
-function hideBreakTimer() {
-  document.getElementById("break-screen").style.display = "none";
+/************ FLOW CONTROL **********/
+
+/**
+ * Function to create a pomodoro
+ */
+function createPomodoro(taskName, estimatedPomos) {
+  visibleTasks++;
+  let pomo = {
+    "id": pomoData.length,
+    "taskName": taskName,
+    "estimatedPomos": estimatedPomos,
+    "actualPomos": 0,
+    "distractions": 0,
+    "sessionStatus": SESSION_STATUS.incomplete
+  };
+  pomoData.push(pomo);
+  return pomo.id;
 }
+
+/**
+ * Called when user presses start pomo, loads that pomo and goes to the timer page
+ */
+function startPomo(pomoId) {
+  let mainpage = document.getElementById('main-page');
+  let timerpage = document.getElementById('timer-page');
+  mainpage.style.display = 'none';
+  timerpage.style.display = '';
+  setPomo(pomoId);
+  setCurrentPomo(pomoId);
+  let desc = document.getElementById('task');
+  desc.innerHTML = "Current Task: " + getPomoById(pomoId).taskName;
+  startPomoTimer();
+  previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
+  getPomoById(pomoId).actualPomos++;
+  setStatus(pomoId, SESSION_STATUS.inprogress);
+}
+
 
 /**
  * Called by the timer when the pomo is complete, starts the break timer
@@ -112,20 +126,13 @@ function hideBreakTimer() {
  */
 function finishPomo() {
   console.warn("Pomo finished");
-  let mainpage = document.getElementById("main-page");
-  let timerpage = document.getElementById("timer-page");
-  mainpage.style.display = "";
-  timerpage.style.display = "none";
-  let panel = document.getElementById("cancel-button-dialog");
-  panel.close();
-  updateTable();
+  closeCancelDialog();
   if (cancelTimerFlag == 1) {
     cancelTimerFlag = 0;
-  } else {
-    document.getElementById("timer-audio").play();
-    showBreakTimer();
-    if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
-    else startShortBreakTimer();
+  }
+  else {
+    document.getElementById('timer-audio').play();
+    displayWorkDoneDialog();
   }
 }
 
@@ -138,14 +145,35 @@ function cancelPomo() {
   timerEnd = time - 1;
   pomoData[currentPomoID] = previousState;
   cancelTimerFlag = 1;
-
-  panel.close();
+  closeCancelDialog();
   if (pomoData[currentPomoID].actualPomos == 0) {
     pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
-    setPomo(-1);
+    setPomo(INVALID_POMOID);
+  }
+  let mainpage = document.getElementById('main-page');
+  let timerpage = document.getElementById('timer-page');
+  mainpage.style.display = '';
+  timerpage.style.display = 'none';
+  updateTable();
+}
+
+/**
+ * Called by the timer when the break is complete
+ * TODO: implement what should happen when the break timer is finished
+ */
+function finishBreak() {
+  document.getElementById('timer-audio').play();
+  hideBreakTimer();
+  displayBreakDialog();
+  let buttons = document.getElementsByTagName("button");
+  for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+    button.disabled = false;
   }
   updateTable();
 }
+
+/******** TIMER FUNCTIONS *******/
 
 /**
  * Called when we want to start the pomodoro timer
@@ -157,7 +185,7 @@ function startPomoTimer() {
 }
 
 /**
- * Refreshes the pomo timer, checks how much time is left,
+ * Refreshes the pomo timer, checks how much time is left, 
  * and if we are finished
  */
 function refreshPomoTimer() {
@@ -177,15 +205,11 @@ function refreshPomoTimer() {
  * MM:SS
  */
 function getTimeString(dObj) {
-  return (
-    ("0" + dObj.getMinutes()).slice(-2) +
-    ":" +
-    ("0" + dObj.getSeconds()).slice(-2)
-  );
+  return ('0' + dObj.getMinutes()).slice(-2) + ":" + ('0' + dObj.getSeconds()).slice(-2)
 }
 
 /**
- * Refreshes the break timer, checks how much time is left,
+ * Refreshes the break timer, checks how much time is left, 
  * and if we are finished
  */
 function refreshBreakTimer() {
@@ -211,7 +235,7 @@ function startShortBreakTimer() {
   let buttons = document.getElementsByTagName("button");
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
-    button.setAttribute("disabled", "disabled");
+    button.setAttribute('disabled', 'disabled')
   }
 }
 
@@ -223,71 +247,70 @@ function startLongBreakTimer() {
   timerEnd = time + LONG_BREAK_DURATION;
   setTimeout(refreshBreakTimer, UPDATE_TIMER_EVERY);
   updateTable(true);
+  let buttons = document.getElementsByTagName("button");
+  for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+    button.setAttribute('disabled', 'disabled');
+  }
 }
 
 function setBreakTimer(time) {
-  document.getElementById("break-timer").innerHTML = time;
+  document.getElementById('break-timer').innerHTML = time;
 }
 
 function setPomoTimer(time) {
-  document.getElementById("pomo-timer").innerHTML = time;
+  document.getElementById('pomo-timer').innerHTML = time;
+}
+
+/****** UI ******/
+
+/**
+ * Log the distractions for the currently running pomo
+ */
+function logDistraction(pomoId) {
+  pomoData[pomoId].distractions++;
 }
 
 /**
- * Set pomodoro id
- * @param {The unique ID for the pomodoro} pomoId
+ * shows html element of break timer on the page
  */
-function setCurrentPomo(pomoId) {
-  currentPomoID = pomoId;
+function showBreakTimer() {
+  document.getElementById('break-screen').style.display = 'flex';
 }
 
 /**
- * Returns pomodoro id variable
+ * hides html element of break timer on the page
  */
-function getCurrentPomo() {
-  return currentPomoID;
+function hideBreakTimer() {
+  document.getElementById('break-screen').style.display = 'none';
 }
 
 /**
  * Sets a task as finished
  */
 function finishTask(pomoID) {
-  pomoData[pomoID].sessionStatus = SESSION_STATUS.complete;
-  setCurrentPomo(-1);
+  setStatus(pomoID, SESSION_STATUS.complete);
+  setCurrentPomo(INVALID_POMOID);
   updateTable();
 }
 
-/**
- * Called when user presses start pomo, loads that pomo and goes to the timer page
- */
-function startPomo(pomoId) {
-  let mainpage = document.getElementById("main-page");
-  let timerpage = document.getElementById("timer-page");
-  mainpage.style.display = "none";
-  timerpage.style.display = "";
-  setPomo(pomoId);
-  setCurrentPomo(pomoId);
-  let desc = document.getElementById("task");
-  desc.innerHTML = getPomoById(pomoId).taskName;
-  startPomoTimer();
-  previousState = JSON.parse(JSON.stringify(getPomoById(pomoId)));
-  getPomoById(pomoId).actualPomos++;
-  pomoData[pomoId].sessionStatus = SESSION_STATUS.inprogress;
-}
-
-/**
- * Called whenever the user updates something about the pomodoro (status, changes description, etc) and handles it
- */
-function updatePomo() {}
+/***** TABLE ******/
 
 /**
  * Redraw table
  */
 function updateTable(disableAllStarts = false) {
-  let table = document.getElementById("table");
-  table.innerHTML =
-    "<tr><th>Remove Task</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>";
 
+  if(visibleTasks == 0){
+    document.getElementById('table').style.display = 'none';
+    }
+    else{
+      document.getElementById('table').style.display = 'block';
+    }
+  console.log(visibleTasks)
+  let table = document.getElementById('table');
+  table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
+  
   let done = [];
   let notDone = [];
   let inprogress = [];
@@ -303,46 +326,44 @@ function updateTable(disableAllStarts = false) {
   toDraw = inprogress.concat(notDone).concat(done);
   for (let i = 0; i < pomoData.length; i++) {
     //Row Container
-    let row = document.createElement("tr");
+    let row = document.createElement('tr');
 
     //Column Containers
-    let removeBtn = document.createElement("td");
-    let desc = document.createElement("td");
-    let estimate = document.createElement("td");
-    let actual = document.createElement("td");
-    let distract = document.createElement("td");
-    let sessionStatus = document.createElement("td");
-    let start = document.createElement("td");
-    let fin = document.createElement("td");
+    let removeBtn = document.createElement('td');
+    let desc = document.createElement('td');
+    let estimate = document.createElement('td');
+    let actual = document.createElement('td');
+    let distract = document.createElement('td');
+    let sessionStatus = document.createElement('td');
+    let start = document.createElement('td');
+    let fin = document.createElement('td');
 
     //Column Content
-    let btnCont = document.createElement("button");
-    btnCont.innerHTML = "Remove";
-    btnCont.className = "remove-btn";
-    btnCont.addEventListener("click", function () {
-      toDraw[i].sessionStatus = SESSION_STATUS.deleted;
-      updateTable();
+    let btnCont = document.createElement('button');
+    btnCont.innerHTML = 'X';
+    btnCont.className = 'remove-btn';
+    btnCont.addEventListener('click', function () {
+      removeTask(toDraw[i].id)
     });
-    if (
-      toDraw[i] != undefined &&
-      toDraw[i].sessionStatus == SESSION_STATUS.inprogress
-    ) {
-      btnCont.setAttribute("disabled", "disabled");
+    if (toDraw[i] != undefined && toDraw[i].sessionStatus == SESSION_STATUS.inprogress) {
+      btnCont.setAttribute('disabled', 'disabled');
     }
 
-    let descCont = document.createElement("p");
+    if(toDraw[i] == undefined)
+      return;
+    let descCont = document.createElement('p');
     descCont.innerHTML = toDraw[i].taskName;
 
-    let estCont = document.createElement("p");
+    let estCont = document.createElement('p');
     estCont.innerHTML = toDraw[i].estimatedPomos;
 
-    let actualCont = document.createElement("p");
+    let actualCont = document.createElement('p');
     actualCont.innerHTML = toDraw[i].actualPomos;
 
-    let distractCont = document.createElement("p");
+    let distractCont = document.createElement('p');
     distractCont.innerHTML = toDraw[i].distractions;
 
-    let sessionCont = document.createElement("p");
+    let sessionCont = document.createElement('p');
     switch (toDraw[i].sessionStatus) {
       case SESSION_STATUS.incomplete:
         sessionCont.innerHTML = "Not Started";
@@ -359,30 +380,22 @@ function updateTable(disableAllStarts = false) {
 
     let newID = toDraw[i].id;
 
-    let startCont = document.createElement("button");
-    startCont.className = "start-btn";
+    let startCont = document.createElement('button');
+    startCont.className = 'start-btn';
     startCont.id = "start-btn-" + newID;
-    startCont.innerHTML = "Start";
-    startCont.setAttribute("onclick", "startPomo(" + newID + ")");
-    if (
-      (currentPomoID >= 0 && currentPomoID != newID) ||
-      disableAllStarts ||
-      toDraw[i].sessionStatus == SESSION_STATUS.complete
-    ) {
-      startCont.setAttribute("disabled", "disabled");
+    startCont.innerHTML = 'Start';
+    startCont.setAttribute('onclick', 'startPomo(' + newID + ')');
+    if ((currentPomoID != INVALID_POMOID && currentPomoID != newID) || disableAllStarts || toDraw[i].sessionStatus == SESSION_STATUS.complete) {
+      startCont.setAttribute('disabled', 'disabled');
     }
 
-    let finCont = document.createElement("button");
-    finCont.className = "finish-btn";
+    let finCont = document.createElement('button');
+    finCont.className = 'finish-btn';
     finCont.id = "finish-btn-" + newID;
-    finCont.innerHTML = "Finish";
-    finCont.setAttribute("onclick", "finishTask(" + newID + ")");
-    if (
-      (currentPomoID >= 0 && currentPomoID != newID) ||
-      toDraw[i].sessionStatus == SESSION_STATUS.complete ||
-      toDraw[i].sessionStatus == SESSION_STATUS.incomplete
-    ) {
-      finCont.setAttribute("disabled", "disabled");
+    finCont.innerHTML = 'Finish';
+    finCont.setAttribute('onclick', 'finishTask(' + newID + ')');
+    if ((currentPomoID != INVALID_POMOID && currentPomoID != newID) || toDraw[i].sessionStatus == SESSION_STATUS.complete || toDraw[i].sessionStatus == SESSION_STATUS.incomplete) {
+      finCont.setAttribute('disabled', 'disabled');
     }
 
     //Appending Column Content to Columns
@@ -407,8 +420,10 @@ function updateTable(disableAllStarts = false) {
 
     table.appendChild(row);
   }
+
 }
 
+/**** TABLE BUTTONS ****/
 /**
  * Called when user presses add task button.
  * Adds task to the table
@@ -416,35 +431,92 @@ function updateTable(disableAllStarts = false) {
 function addTask() {
   // let table = document.getElementById('table');
 
-  // //Inputs
-  let inputEstimate = document.getElementById("estimate");
-  let inputDesc = document.getElementById("task-description");
+  // Inputs
+  let inputEstimate = document.getElementById('estimate');
+  let inputDesc = document.getElementById('task-description');
 
-  // //Clears values
+  // Clears values
   let newID = createPomodoro(inputDesc.value, inputEstimate.value);
   updateTable();
-  inputDesc.value = "";
-  inputEstimate.value = "";
+  inputDesc.value = '';
+  inputEstimate.value = '1';
   return false;
 }
 
+/**
+ * Called when user presses remove task button.
+ * Removes tasks from the table. 
+ * @param {PomoID to remove} pomoId 
+ */
+function removeTask(pomoId) {
+  visibleTasks--;
+  pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
+  updateTable();
+}
+
+
+/**** DIALOG ******/
+
 function displayCancelDialog() {
+  console.warn("im alive");
   let panel = document.getElementById("cancel-button-dialog");
-  panel.showModal();
+  panel.style.display = "block";
 }
 
 function closeCancelDialog() {
   let panel = document.getElementById("cancel-button-dialog");
-  panel.close();
+  panel.style.display = "none";
 }
 
+function closeRemoveDialog() {
+  let panel = document.getElementById("remove-button-dialog");
+  panel.style.display = "none";
+}
+
+function displayFinishDialog() {
+  let panel = document.getElementById("finish-button-dialog");
+  panel.style.display = "block";
+}
+
+function closeFinishDialog() {
+  let panel = document.getElementById("finish-button-dialog");
+  panel.style.display = "none";
+}
+
+function displayBreakDialog() {
+  let panel = document.getElementById("break-button-dialog");
+  panel.style.display = "block";
+}
+
+function closeBreakDialog() {
+  let panel = document.getElementById("break-button-dialog");
+  panel.style.display = "none";
+}
+
+function displayWorkDoneDialog() {
+  let panel = document.getElementById("workdone-button-dialog");
+  panel.style.display = "block";
+}
+
+function closeWorkDoneDialog() {
+  let panel = document.getElementById("workdone-button-dialog");
+  panel.style.display = "none";
+  let mainpage = document.getElementById('main-page');
+  let timerpage = document.getElementById('timer-page');
+  mainpage.style.display = '';
+  timerpage.style.display = 'none';
+  updateTable();
+  showBreakTimer();
+  if (++breakCount % LONG_BREAK_EVERY == 0) startLongBreakTimer();
+  else startShortBreakTimer();
+}
+
+/***** ONLOAD *******/
 window.onload = function () {
   updateTable();
-  document
-    .getElementById("add-task-form")
-    .addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
+  document.getElementById('add-task-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+  })
 };
 
 try {
@@ -455,7 +527,6 @@ try {
     LONG_BREAK_DURATION: LONG_BREAK_DURATION,
     WORK_DURATION: WORK_DURATION,
     UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
-    SESSION_STATUS: SESSION_STATUS,
     time: time,
     timerEnd: timerEnd,
     getTimeString: getTimeString,
@@ -465,20 +536,8 @@ try {
     startShortBreakTimer: startShortBreakTimer,
     refreshBreakTimer: refreshBreakTimer,
     finishPomo: finishPomo,
-    pomoData: pomoData,
-    createPomodoro: createPomodoro,
-    logDistraction: logDistraction,
-    setName: setName,
-    setStatus: setStatus,
-    getPomo: getPomo,
-    getCurrentPomoId: getCurrentPomoId,
-    setPomo: setPomo,
-    currentPomoID: currentPomoID,
-    getPomoById: getPomoById,
-    setBreakTimer: setBreakTimer,
-    setPomoTimer: setPomoTimer,
-    setCurrentPomo: setCurrentPomo,
   };
-} catch (err) {
+}
+catch (err) {
   // Do nothing
 }
