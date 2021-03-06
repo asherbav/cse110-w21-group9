@@ -116,11 +116,11 @@ describe("index.js tests", () => {
 
   test("finish break", () => {
     finishBreak();
-    // let buttons = document.getElementsByTagName("button");
-    // for (let i = 0; i < buttons.length; i++) {
-    //   let button = buttons[i];
-    //   expect(button.disabled).toBe(false);
-    // }
+    let buttons = document.getElementsByTagName("button");
+    for (let i = 0; i < buttons.length; i++) {
+      let button = buttons[i];
+      expect(button.disabled).toBe(false);
+    }
 
     console.log(document.getElementsByTagName("button"));
   });
