@@ -51,6 +51,9 @@ function getPomoData() {
   return pomoData;
 }
 
+function setPomoData(newData) {
+  pomoData = newData;
+}
 
 function getPomoById(pomoId) {
   return pomoData[pomoId];
@@ -125,7 +128,6 @@ function startPomo(pomoId) {
  * TODO: Implement the what should happen when the pomo timer is finished
  */
 function finishPomo() {
-  console.warn("Pomo finished");
   closeCancelDialog();
   if (cancelTimerFlag == 1) {
     cancelTimerFlag = 0;
@@ -459,7 +461,6 @@ function removeTask(pomoId) {
 /**** DIALOG ******/
 
 function displayCancelDialog() {
-  console.warn("im alive");
   let panel = document.getElementById("cancel-button-dialog");
   panel.style.display = "block";
 }
@@ -562,6 +563,11 @@ try {
     displayFinishDialog: displayFinishDialog,
     closeBreakDialog: closeBreakDialog,
     closeFinishDialog: closeFinishDialog,
+    addTask: addTask,
+    removeTask: removeTask,
+    visibleTasks: visibleTasks,
+    getPomoData: getPomoData,
+    setPomoData: setPomoData,
   };
 }
 catch (err) {

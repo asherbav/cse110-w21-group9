@@ -146,6 +146,22 @@ describe("index.js tests", () => {
     index.closeBreakDialog();
     expect(document.getElementById("break-button-dialog").style.display).toBe("none");
   });
+
+  test("add task", () => {
+    index.setPomoData([]);
+    let previous = index.visibleTasks
+    document.getElementById('estimate').value = 4
+    document.getElementById('task-description').value = "Test Task"
+    index.addTask()
+    expect(index.getPomoData()[0]["taskName"]).toBe("Test Task");
+    expect(index.getPomoData()[0]["estimatedPomos"]).toBe("4");
+  });
+
+  test("remove task", () => {
+    index.setPomoData([{"id":0,"taskName":"tes1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":2},{"id":1,"taskName":"test1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0},{"id":2,"taskName":"test2","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0}])
+    index.removeTask(0);
+    expect(index.getPomoData()[0]["sessionStatus"]).toBe(index.SESSION_STATUS.deleted);
+  });
   
   test('date string format test', () => {
     var date = new Date(1613616935705)
