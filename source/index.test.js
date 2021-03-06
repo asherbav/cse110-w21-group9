@@ -125,6 +125,27 @@ describe("index.js tests", () => {
       expect(finishButtons[i].disabled).toBe(true);
     }
   });
+
+  test("cancel dialog popup", () => {
+    index.displayCancelDialog();
+    expect(document.getElementById("cancel-button-dialog").style.display).toBe("block");
+    index.closeCancelDialog();
+    expect(document.getElementById("cancel-button-dialog").style.display).toBe("none");
+  });
+
+  test("finish dialog popup", () => {
+    index.displayFinishDialog();
+    expect(document.getElementById("finish-button-dialog").style.display).toBe("block")
+    index.closeFinishDialog();
+    expect(document.getElementById("finish-button-dialog").style.display).toBe("none")
+  })
+  
+  test("break dialog popup", () => {
+    index.displayBreakDialog();
+    expect(document.getElementById("break-button-dialog").style.display).toBe("block");
+    index.closeBreakDialog();
+    expect(document.getElementById("break-button-dialog").style.display).toBe("none");
+  });
   
   test('date string format test', () => {
     var date = new Date(1613616935705)

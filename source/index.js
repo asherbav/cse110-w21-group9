@@ -1,7 +1,7 @@
 // Time in milliseconds
 const SHORT_BREAK_DURATION = 10 * 1000;
 const LONG_BREAK_DURATION = 5 * 1000;
-const WORK_DURATION = 5 * 1000;
+const WORK_DURATION = 100 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -308,7 +308,7 @@ function updateTable(disableAllStarts = false) {
   else {
     document.getElementById('table').style.display = 'block';
   }
-  
+
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
@@ -554,7 +554,14 @@ try {
     getPomoById: getPomoById,
     setBreakTimer: setBreakTimer,
     setPomoTimer: setPomoTimer,
-    setCurrentPomo: setCurrentPomo,  
+    setCurrentPomo: setCurrentPomo,
+    updateTable: updateTable,
+    displayCancelDialog: displayCancelDialog,
+    closeCancelDialog: closeCancelDialog,
+    displayBreakDialog: displayBreakDialog,
+    displayFinishDialog: displayFinishDialog,
+    closeBreakDialog: closeBreakDialog,
+    closeFinishDialog: closeFinishDialog,
   };
 }
 catch (err) {
