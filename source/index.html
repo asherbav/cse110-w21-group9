@@ -7,15 +7,13 @@
   </head>
 
   <body>
-    <section>
       <header>
-        <h1>PomoTimer</h1>
+        <h1 class="title">PomoTimer</h1>
+        <section id="break-screen" class="break-screen" style="display: none">
+          <p id="break-timer-label" class="break-timer-label">Break Timer</p>
+          <p id="break-timer" class="break-timer"></p>
+        </section>
       </header>
-      <section id="break-screen" class="break-screen" style="display: none">
-        <p id="break-timer-label" class="break-timer-label">Break Timer:</p>
-        <p id="break-timer" class="break-timer"></p>
-      </section>
-    </section>
 
     <main>
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
@@ -44,18 +42,11 @@
       </div>
 
       <div class="timer-page" id="timer-page" style="display: none">
-        <dialog
-          style="text-align: center; border-style: dashed"
-          id="cancel-button-dialog"
-        >
-          <p>Are you sure you want to cancel/invalidate this session?</p>
-          <button id="cancel" onclick="cancelPomo()">Yes</button>
-          <button id="show" onclick="closeCancelDialog()">No</button>
-        </dialog>
-
         <p class="timer" id="pomo-timer"></p>
-        <p class="task" id="task"></p>
-
+        <section id = "task-sect" class = "task-sect">
+          <p class="task" id="task"></p>
+          <p class="task">If you are finished early, review your work.</p>
+        </section>
         <section class="buttons">
           <button
             type="button"
@@ -81,5 +72,53 @@
       <p class="team">Created by The Powell Rangers</p>
     </footer>
     <script type="text/javascript" src="index.js"></script>
+
+    <div class="dialog-blocker" id="cancel-button-dialog">
+      <div class="button-dialog">
+        <p>Are you sure you want to cancel this session?</p>
+        <button id="cancel-yes" class="dialog-yes" onclick="cancelPomo()">
+          Yes
+        </button>
+        <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">
+          No
+        </button>
+      </div>
+    </div>
+
+    <div class="dialog-blocker" id="finish-button-dialog">
+      <div class="button-dialog">
+        <p>Are you sure you want to finish this task?</p>
+        <button id="finish-yes" class="dialog-yes" onclick="finishTask()">
+          Yes
+        </button>
+        <button id="finish-no" class="dialog-no" onclick="closeFinishDialog()">
+          No
+        </button>
+      </div>
+    </div>
+
+    <div class="dialog-blocker" id="break-button-dialog">
+      <div class="button-dialog">
+        <p>Your break is done!</p>
+        <button id="break-yes" class="dialog-yes" onclick="closeBreakDialog()">
+          Ok
+        </button>
+      </div>
+    </div>
+
+    <div class="dialog-blocker" id="workdone-button-dialog">
+      <div class="button-dialog">
+        <p>Your work session is done!</p>
+        <button id="workdone-yes" class="dialog-yes" onclick="closeWorkDoneDialog()">
+          Ok
+        </button>
+      </div>
+    </div>
+
+    <!-- <dialog style="text-align: center; border-style:dashed" id="remove-button-dialog">
+        <p>Are you sure you want to remove this task?</p>
+        <button id="remove-yes" onclick="cancelPomo()">Yes</button>
+        <button id="remove-no" onclick="closeRemoveDialog()">No</button>
+    </dialog> -->
   </body>
 </html>
