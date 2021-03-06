@@ -17,6 +17,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
   font-family: Helvetica Neue, sans-serif;
 }
 
@@ -387,7 +388,7 @@ button:hover:enabled {
 }
 
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1024px) {
   table {
     width: 75%;
   }
