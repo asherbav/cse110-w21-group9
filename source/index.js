@@ -9,6 +9,7 @@ const INVALID_POMOID = -1;
 
 let time, timerEnd;
 let breakCount = 0;
+let forTesting = 0;
 
 let previousState;
 
@@ -569,14 +570,20 @@ function closeWorkDoneDialog() {
 }
 
 /***** ONLOAD *******/
-window.onload = function () {
-  recoverPomoData();
-  document
-    .getElementById("add-task-form")
-    .addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
-};
+try {
+  // We are running in a browser
+  window.onload = function () {
+    recoverPomoData();
+    document
+      .getElementById("add-task-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+      });
+  };
+} catch(err) {
+  // We are running in a test environment
+  forTesting = 1;
+}
 
 try {
   // If we are running in a test environment
@@ -620,10 +627,10 @@ try {
     addTask: addTask,
     finishTask: finishTask,
     removeTask: removeTask,
-    visibleTasks: visibleTasks,
     getPomoData: getPomoData,
     setPomoData: setPomoData,
   };
 } catch (err) {
   // We are running in a browser
+  if(forTesting) console.error(err);
 }
