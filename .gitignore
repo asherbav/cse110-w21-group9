@@ -1,3 +1,9 @@
 .DS_Store
-./source/node_modules/**/*
+source/node_modules/**/*
 yarn.lock
+source/coverage
+source/coverage/**/*
+source/coverage/*
+source/coverage/clover.xml
+source/coverage/lcov-report/index.html
+source/coverage/lcov-report/index.js.html

@@ -51,6 +51,9 @@ function getPomoData() {
   return pomoData;
 }
 
+function setPomoData(newData) {
+  pomoData = newData;
+}
 
 function getPomoById(pomoId) {
   return pomoData[pomoId];
@@ -125,7 +128,6 @@ function startPomo(pomoId) {
  * TODO: Implement the what should happen when the pomo timer is finished
  */
 function finishPomo() {
-  console.warn("Pomo finished");
   closeCancelDialog();
   if (cancelTimerFlag == 1) {
     cancelTimerFlag = 0;
@@ -165,6 +167,7 @@ function finishBreak() {
   document.getElementById('timer-audio').play();
   hideBreakTimer();
   displayBreakDialog();
+  // Enable all the non table buttons
   let buttons = document.getElementsByTagName("button");
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
@@ -301,13 +304,13 @@ function finishTask(pomoID) {
  */
 function updateTable(disableAllStarts = false) {
 
-  if(visibleTasks == 0){
+  if(visibleTasks == 0) {
     document.getElementById('table').style.display = 'none';
-    }
-    else{
-      document.getElementById('table').style.display = 'block';
-    }
-  console.log(visibleTasks)
+  }
+  else {
+    document.getElementById('table').style.display = 'block';
+  }
+
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
@@ -458,7 +461,6 @@ function removeTask(pomoId) {
 /**** DIALOG ******/
 
 function displayCancelDialog() {
-  console.warn("im alive");
   let panel = document.getElementById("cancel-button-dialog");
   panel.style.display = "block";
 }
@@ -512,12 +514,17 @@ function closeWorkDoneDialog() {
 }
 
 /***** ONLOAD *******/
-window.onload = function () {
-  updateTable();
-  document.getElementById('add-task-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-  })
-};
+try {
+  // If we are running in a browser  
+  window.onload = function () {
+    updateTable();
+    document.getElementById('add-task-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+    })
+  };
+} catch (err) {
+  // We are running in a test environment
+}
 
 try {
   // If we are running in a test environment
@@ -527,6 +534,7 @@ try {
     LONG_BREAK_DURATION: LONG_BREAK_DURATION,
     WORK_DURATION: WORK_DURATION,
     UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
+    SESSION_STATUS: SESSION_STATUS,
     time: time,
     timerEnd: timerEnd,
     getTimeString: getTimeString,
@@ -536,8 +544,35 @@ try {
     startShortBreakTimer: startShortBreakTimer,
     refreshBreakTimer: refreshBreakTimer,
     finishPomo: finishPomo,
+    pomoData: pomoData,
+    createPomodoro: createPomodoro,
+    logDistraction: logDistraction,
+    setName: setName,
+    setStatus: setStatus,
+    getCurrentPomoId: getCurrentPomoId,
+    setPomo: setPomo,
+    currentPomoID: currentPomoID,
+    getPomoById: getPomoById,
+    setBreakTimer: setBreakTimer,
+    setPomoTimer: setPomoTimer,
+    setCurrentPomo: setCurrentPomo,
+    updateTable: updateTable,
+    displayCancelDialog: displayCancelDialog,
+    closeCancelDialog: closeCancelDialog,
+    displayBreakDialog: displayBreakDialog,
+    displayFinishDialog: displayFinishDialog,
+    closeBreakDialog: closeBreakDialog,
+    closeFinishDialog: closeFinishDialog,
+    displayWorkDoneDialog: displayWorkDoneDialog,
+    closeWorkDoneDialog: closeWorkDoneDialog,
+    addTask: addTask,
+    finishTask: finishTask,
+    removeTask: removeTask,
+    visibleTasks: visibleTasks,
+    getPomoData: getPomoData,
+    setPomoData: setPomoData,
   };
 }
 catch (err) {
-  // Do nothing
+  // We are running in a browser
 }
