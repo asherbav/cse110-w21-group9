@@ -388,7 +388,7 @@ button:hover:enabled {
 }
 
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 720px) {
   table {
     width: 75%;
   }

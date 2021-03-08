@@ -7,12 +7,16 @@ const UPDATE_TIMER_EVERY = 200;
 const LONG_BREAK_EVERY = 4;
 const INVALID_POMOID = -1;
 
+const RESPONSIVE_CUTOFF_PX = 720;
+
 let time, timerEnd;
 let breakCount = 0;
 
 let previousState;
 
 let cancelTimerFlag = 0;
+
+let isMobile;
 
 const SESSION_STATUS = {
   incomplete: 0,
@@ -300,14 +304,6 @@ function finishTask(pomoID) {
  * Redraw table
  */
 function updateTable(disableAllStarts = false) {
-
-  if(visibleTasks == 0){
-    document.getElementById('table').style.display = 'none';
-    }
-    else{
-      document.getElementById('table').style.display = 'block';
-    }
-  console.log(visibleTasks)
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
@@ -324,6 +320,14 @@ function updateTable(disableAllStarts = false) {
   }
 
   toDraw = inprogress.concat(notDone).concat(done);
+
+  if(toDraw.length == 0){
+    document.getElementById('table').style.display = 'none';
+  }
+  else{
+    document.getElementById('table').style.display = 'block';
+  }
+  
   for (let i = 0; i < toDraw.length; i++) {
     //Row Container
     let row = document.createElement('tr');
@@ -513,10 +517,17 @@ function closeWorkDoneDialog() {
 
 /***** ONLOAD *******/
 window.onload = function () {
+  isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
   updateTable();
   document.getElementById('add-task-form').addEventListener('submit', (event) => {
     event.preventDefault();
   })
+};
+
+window.onresize = function () {
+  let lastMobile = isMobile;
+  isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
+  if(!isMobile && lastMobile) updateTable();
 };
 
 try {
