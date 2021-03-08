@@ -1,0 +1,31 @@
+# Team 9 - 02/17/21
+
+- Goal: Discuss New Design, Plan Future Objectives, Review Progress
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 12:00 PM
+  - End: 3:00 PM
+- Agenda
+  - Discussed Design Options
+    - Option 1: Finish Task button on Timer Page
+    - Option 2: User manually finishes task from Task Page, No Finish Task button on Timer Page
+    - Decision: Use Option 2 since we have existing wireframes and diagrams for this design. Will make JavaScript simpler as well
+  - Assigned small, medium, large task sizes to issues in GitHub
+  - Discussed coding style
+    - Decision detailed in coding style guide in developer guide
+  - Work Schedule for this week
+    - Thursday
+      - Work in JavaScript interaction with HTML
+    - Friday
+      - Create Grid/Flexbox for HTML to make table responsive
+    - Saturday
+      - Finish task manager and JavaScript functions
+  - Reviewed Current Progress
+    - HTML Skeleton Completed for Timer and Task Pages
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub
+  - Implement JavaScript interaction then CSS
+  - Discuss design decision with Sasya
+  - Start thinking about the demo video
