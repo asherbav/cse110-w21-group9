@@ -173,6 +173,13 @@ describe("index.js tests", () => {
     expect(document.getElementById("break-button-dialog").style.display).toBe("none");
   });
 
+  test("work dialog popup", () => {
+    index.displayWorkDoneDialog();
+    expect(document.getElementById("workdone-button-dialog").style.display).toBe("block");
+    index.closeWorkDoneDialog();
+    expect(document.getElementById("workdone-button-dialog").style.display).toBe("none");
+  });
+
   test("add task", () => {
     index.setPomoData([]);
     let previous = index.visibleTasks
@@ -184,9 +191,15 @@ describe("index.js tests", () => {
   });
 
   test("remove task", () => {
-    index.setPomoData([{"id":0,"taskName":"tes1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":2},{"id":1,"taskName":"test1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0},{"id":2,"taskName":"test2","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0}])
+    index.setPomoData([{"id":0,"taskName":"tes1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":2},{"id":1,"taskName":"test1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":index.SESSION_STATUS.inprogress},{"id":2,"taskName":"test2","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0}]);
     index.removeTask(0);
     expect(index.getPomoData()[0]["sessionStatus"]).toBe(index.SESSION_STATUS.deleted);
+  });
+
+  test("finish task", () => {
+    index.setPomoData([{"id":0,"taskName":"tes1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":2},{"id":1,"taskName":"test1","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":index.SESSION_STATUS.inprogress},{"id":2,"taskName":"test2","estimatedPomos":"1","actualPomos":0,"distractions":0,"sessionStatus":0}]);
+    index.finishTask(0)
+    expect(index.getPomoData()[0]["sessionStatus"]).toBe(index.SESSION_STATUS.complete);
   });
   
   test('date string format test', () => {
