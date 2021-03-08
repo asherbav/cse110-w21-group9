@@ -101,23 +101,31 @@ function getCurrentPomo() {
 }
 
 /**
- * Recove pomoData from localStorage
+ * Recover pomoData from localStorage
  */
 function recoverPomoData() {
   if(localStorage.getItem("cpid") !== null) {
     // Do not change these to getters and setters
     currentPomoID = parseInt(localStorage.getItem("cpid"));
     pomoData = JSON.parse(localStorage.getItem("pomoData"));
-    console.log("Recovered:", pomoData)
   }
   updateTable();
+}
+
+/**
+ * Reset the pomo data. Currently for development purposes only, but we should probably add a button to reset somewhere
+ */
+function resetPomoData() {
+  currentPomoID = INVALID_POMOID;
+  pomoData = [];
+  updateTable();
+  savePomoData();
 }
 
 /**
  * Save pomoData to localStorage
  */
 function savePomoData() {
-  console.error("Updating LS", currentPomoID, pomoData)
   localStorage.setItem("cpid", currentPomoID);
   localStorage.setItem("pomoData", JSON.stringify(pomoData));
 }
