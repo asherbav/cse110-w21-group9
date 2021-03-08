@@ -28,6 +28,7 @@ addTask - Compare task row in the table to task in pomoData
 const index = require("./index.js");
 const fs = require("fs");
 const path = require("path");
+const { currentPomoID, getCurrentPomoId, SESSION_STATUS, previousState } = require("./index.js");
 const html = fs.readFileSync("./index.html", "utf8");
 
 jest.dontMock("fs");
@@ -124,6 +125,31 @@ describe("index.js tests", () => {
       expect(startButtons[i].disabled).toBe(true);
       expect(finishButtons[i].disabled).toBe(true);
     }
+  });
+
+  test("start pomo test", () => {
+    index.createPomodoro("test task", 4);
+    index.startPomo(0);
+    let desc = document.getElementById('task');
+    expect(index.getCurrentPomoId()).toBe(0);
+    expect(desc.innerHTML).toBe("Current Task: updated test task");
+    expect(index.getPomoById(0).actualPomos).toBe(1);
+    expect(index.pomoData[0].sessionStatus).toBe(SESSION_STATUS.inprogress);
+  });
+
+  test("cancel pomo test", () => {
+    index.createPomodoro("test task2", 2);
+    index.startPomo(1);
+    index.cancelPomo(1);
+    expect(index.pomoData[1].actualPomos).toBe(0);
+    expect(index.pomoData[1].sessionStatus).toBe(SESSION_STATUS.incomplete);
+    expect(getCurrentPomoId()).toBe(-1);
+  });
+
+  test("finish task, status test", () => {
+    index.createPomodoro("test task", 4);
+    index.finishTask(0);
+    expect(index.pomoData[0].sessionStatus).toBe(1);
   });
 
   test("cancel dialog popup", () => {
