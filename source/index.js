@@ -1,7 +1,7 @@
 // Time in milliseconds
-const SHORT_BREAK_DURATION = 10 * 1000;
+const SHORT_BREAK_DURATION = 100 * 1000;
 const LONG_BREAK_DURATION = 5 * 1000;
-const WORK_DURATION = 100 * 1000;
+const WORK_DURATION = 1 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -327,7 +327,7 @@ function updateTable(disableAllStarts = false) {
   }
 
   toDraw = inprogress.concat(notDone).concat(done);
-  for (let i = 0; i < pomoData.length; i++) {
+  for (let i = 0; i < toDraw.length; i++) {
     //Row Container
     let row = document.createElement('tr');
 
