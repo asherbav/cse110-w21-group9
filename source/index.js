@@ -1,7 +1,7 @@
 // Time in milliseconds
-const SHORT_BREAK_DURATION = 100 * 1000;
+const SHORT_BREAK_DURATION = 3 * 1000;
 const LONG_BREAK_DURATION = 5 * 1000;
-const WORK_DURATION = 1 * 1000;
+const WORK_DURATION = 3 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
@@ -22,7 +22,6 @@ const SESSION_STATUS = {
 };
 
 let pomoData = [];
-let visibleTasks = 0;
 /*
 {
   taskName: "task name",
@@ -41,14 +40,21 @@ let currentPomoID = INVALID_POMOID;
 /***** GETTERS and SETTERS *******/
 function setName(pomoId, pomoName) {
   pomoData[pomoId].taskName = pomoName;
+  savePomoData();
 }
 
 function setStatus(pomoId, pomoStatus) {
   pomoData[pomoId].sessionStatus = pomoStatus;
+  savePomoData();
 }
 
 function getPomoData() {
   return pomoData;
+}
+
+function storeNewPomo(pomo) {
+  pomoData.push(pomo);
+  savePomoData();
 }
 
 
@@ -65,6 +71,17 @@ function getCurrentPomoId() {
 */
 function setPomo(pomoId) {
   currentPomoID = pomoId;
+  savePomoData();
+}
+
+function setPomoById(pomoID, pomo) {
+  pomoData[pomoID] = pomo;
+  savePomoData();
+}
+
+function logDistractionForPomo(id) {
+  pomoData[id].distractions++;
+  savePomoData();
 }
 
 /**
@@ -73,6 +90,7 @@ function setPomo(pomoId) {
  */
 function setCurrentPomo(pomoId) {
   currentPomoID = pomoId;
+  savePomoData();
 }
 
 /**
@@ -82,13 +100,34 @@ function getCurrentPomo() {
   return currentPomoID;
 }
 
+/**
+ * Recove pomoData from localStorage
+ */
+function recoverPomoData() {
+  if(localStorage.getItem("cpid") !== null) {
+    // Do not change these to getters and setters
+    currentPomoID = parseInt(localStorage.getItem("cpid"));
+    pomoData = JSON.parse(localStorage.getItem("pomoData"));
+    console.log("Recovered:", pomoData)
+  }
+  updateTable();
+}
+
+/**
+ * Save pomoData to localStorage
+ */
+function savePomoData() {
+  console.error("Updating LS", currentPomoID, pomoData)
+  localStorage.setItem("cpid", currentPomoID);
+  localStorage.setItem("pomoData", JSON.stringify(pomoData));
+}
+
 /************ FLOW CONTROL **********/
 
 /**
  * Function to create a pomodoro
  */
 function createPomodoro(taskName, estimatedPomos) {
-  visibleTasks++;
   let pomo = {
     "id": pomoData.length,
     "taskName": taskName,
@@ -97,7 +136,7 @@ function createPomodoro(taskName, estimatedPomos) {
     "distractions": 0,
     "sessionStatus": SESSION_STATUS.incomplete
   };
-  pomoData.push(pomo);
+  storeNewPomo(pomo);
   return pomo.id;
 }
 
@@ -143,11 +182,11 @@ function finishPomo() {
 function cancelPomo() {
   let panel = document.getElementById("cancel-button-dialog");
   timerEnd = time - 1;
-  pomoData[currentPomoID] = previousState;
+  setPomoById(currentPomoID, previousState);
   cancelTimerFlag = 1;
   closeCancelDialog();
-  if (pomoData[currentPomoID].actualPomos == 0) {
-    pomoData[currentPomoID].sessionStatus = SESSION_STATUS.incomplete;
+  if (getPomoById(currentPomoID).actualPomos == 0) {
+    getPomoById(currentPomoID).sessionStatus = SESSION_STATUS.incomplete;
     setPomo(INVALID_POMOID);
   }
   let mainpage = document.getElementById('main-page');
@@ -268,7 +307,7 @@ function setPomoTimer(time) {
  * Log the distractions for the currently running pomo
  */
 function logDistraction(pomoId) {
-  pomoData[pomoId].distractions++;
+  logDistractionForPomo(pomoId);
 }
 
 /**
@@ -301,13 +340,8 @@ function finishTask(pomoID) {
  */
 function updateTable(disableAllStarts = false) {
 
-  if(visibleTasks == 0){
-    document.getElementById('table').style.display = 'none';
-    }
-    else{
-      document.getElementById('table').style.display = 'block';
-    }
-  console.log(visibleTasks)
+
+
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
@@ -324,6 +358,12 @@ function updateTable(disableAllStarts = false) {
   }
 
   toDraw = inprogress.concat(notDone).concat(done);
+  if(toDraw.length == 0){
+    document.getElementById('table').style.display = 'none';
+  }
+  else{
+    document.getElementById('table').style.display = 'block';
+  }
   for (let i = 0; i < toDraw.length; i++) {
     //Row Container
     let row = document.createElement('tr');
@@ -449,8 +489,8 @@ function addTask() {
  * @param {PomoID to remove} pomoId 
  */
 function removeTask(pomoId) {
-  visibleTasks--;
-  pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
+  getPomoById(pomoId).sessionStatus = SESSION_STATUS.deleted;
+  savePomoData();
   updateTable();
 }
 
@@ -513,7 +553,7 @@ function closeWorkDoneDialog() {
 
 /***** ONLOAD *******/
 window.onload = function () {
-  updateTable();
+  recoverPomoData();
   document.getElementById('add-task-form').addEventListener('submit', (event) => {
     event.preventDefault();
   })
