@@ -370,6 +370,10 @@ table .remove-btn {
   display: none;
 }
 
+#remove-button-dialog {
+  display: none;
+}
+
 #workdone-button-dialog {
   display: none;
 }
