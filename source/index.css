@@ -29,7 +29,7 @@ main {
 
 button {
   outline-style: none;
-  /* opacity: 0.6; */
+  opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
   color: white;
@@ -381,7 +381,7 @@ button:active {
 
 button:disabled {
   background-color: var(--disable-color) !important;
-  color: rgb(48, 48, 48);
+  color: rgb(20, 20, 20);
   cursor: unset;
 }
 
