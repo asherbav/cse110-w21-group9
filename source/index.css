@@ -24,6 +24,7 @@ body {
 main {
   overflow: auto;
   min-height: 100%;
+  padding-bottom: 50px;
 }
 
 button {
@@ -41,7 +42,6 @@ header {
   font-size: 2.75rem;
   color: #fff;
   width: 100%;
-  margin-bottom: 30px;
   position: relative;
   z-index: -1;
   padding-top: 10px;
@@ -178,13 +178,14 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  padding-top: 55px;
 }
 
 table {
   border-collapse: collapse;
   box-shadow: 0 0 40px var(--shadow-intensity);
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 th {

@@ -26,7 +26,6 @@ const SESSION_STATUS = {
 };
 
 let pomoData = [];
-let visibleTasks = 0;
 /*
 {
   taskName: "task name",
@@ -55,6 +54,9 @@ function getPomoData() {
   return pomoData;
 }
 
+function setPomoData(newData) {
+  pomoData = newData;
+}
 
 function getPomoById(pomoId) {
   return pomoData[pomoId];
@@ -92,7 +94,6 @@ function getCurrentPomo() {
  * Function to create a pomodoro
  */
 function createPomodoro(taskName, estimatedPomos) {
-  visibleTasks++;
   let pomo = {
     "id": pomoData.length,
     "taskName": taskName,
@@ -168,6 +169,7 @@ function finishBreak() {
   document.getElementById('timer-audio').play();
   hideBreakTimer();
   displayBreakDialog();
+  // Enable all the non table buttons
   let buttons = document.getElementsByTagName("button");
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
@@ -452,7 +454,6 @@ function addTask() {
  * @param {PomoID to remove} pomoId 
  */
 function removeTask(pomoId) {
-  visibleTasks--;
   pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
   updateTable();
 }
@@ -514,19 +515,27 @@ function closeWorkDoneDialog() {
 }
 
 /***** ONLOAD *******/
-window.onload = function () {
+try {
+  // If we are running in a browser  
+  window.onload = function () {
   isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
   updateTable();
-  document.getElementById('add-task-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-  })
-};
+    document.getElementById('add-task-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+    })
+  };
 
-window.onresize = function () {
-  let lastMobile = isMobile;
-  isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
-  if(!isMobile && lastMobile) updateTable();
-};
+  window.onresize = function () {
+    let lastMobile = isMobile;
+    isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
+    if(!isMobile && lastMobile) updateTable();
+  };
+} catch (err) {
+  // We are running in a test environment
+}
+
+
+
 
 try {
   // If we are running in a test environment
@@ -536,6 +545,7 @@ try {
     LONG_BREAK_DURATION: LONG_BREAK_DURATION,
     WORK_DURATION: WORK_DURATION,
     UPDATE_TIMER_EVERY: UPDATE_TIMER_EVERY,
+    SESSION_STATUS: SESSION_STATUS,
     time: time,
     timerEnd: timerEnd,
     getTimeString: getTimeString,
@@ -545,8 +555,38 @@ try {
     startShortBreakTimer: startShortBreakTimer,
     refreshBreakTimer: refreshBreakTimer,
     finishPomo: finishPomo,
+    pomoData: pomoData,
+    createPomodoro: createPomodoro,
+    logDistraction: logDistraction,
+    setName: setName,
+    setStatus: setStatus,
+    getCurrentPomoId: getCurrentPomoId,
+    setPomo: setPomo,
+    currentPomoID: currentPomoID,
+    getPomoById: getPomoById,
+    setBreakTimer: setBreakTimer,
+    setPomoTimer: setPomoTimer,
+    setCurrentPomo: setCurrentPomo,
+    updateTable: updateTable,
+    displayCancelDialog: displayCancelDialog,
+    closeCancelDialog: closeCancelDialog,
+    displayBreakDialog: displayBreakDialog,
+    displayFinishDialog: displayFinishDialog,
+    closeBreakDialog: closeBreakDialog,
+    closeFinishDialog: closeFinishDialog,
+    displayWorkDoneDialog: displayWorkDoneDialog,
+    closeWorkDoneDialog: closeWorkDoneDialog,
+    addTask: addTask,
+    finishTask: finishTask,
+    removeTask: removeTask,
+    getPomoData: getPomoData,
+    setPomoData: setPomoData,
+    finishTask: finishTask,
+    cancelPomo: cancelPomo,
+    startPomo: startPomo,
+    previousState: previousState,
   };
 }
 catch (err) {
-  // Do nothing
+  // We are running in a browser
 }
