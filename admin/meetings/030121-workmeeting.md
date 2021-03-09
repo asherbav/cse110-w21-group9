@@ -1,0 +1,30 @@
+# Team 9 - 03/01/21
+
+- Goal: Continue working on Sprint
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 2:00 PM
+  - End: 11:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Change pixel units for responsiveness
+    - Options: vh/vw, em
+  - Push diagrams and user stories to the repo
+  - Implement Dialogs for: Finish Task, Remove Task, Break end
+  - Added commit style to the developer guide
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub
+  - GitHub Organization and Code Cleanup
+    - Merge branches together
+    - Start using different branches for different issues
+    - Get rid of unused functions
+    - Add more descriptive comments
+    - Use proper getter and setter functions
+    - Get rid of magic numbers
+    - Set global variables for colors in CSS
+    - Use Relative Units
+    - Double check repository structure
+  - Testing
+    - Finish testing and address failed linter

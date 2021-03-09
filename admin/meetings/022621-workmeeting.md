@@ -1,0 +1,30 @@
+# Team 9 - 02/26/21
+
+- Goal: Continue working for the Sprint
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 2:00 PM
+  - End: 5:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Style disabled buttons
+  - Work on website responsiveness
+  - Finish styling the task table
+  - Create the estimated pomo drop down
+  - Limit inputs for add task
+    - Maximum work limit
+  - Add Accessibility Features
+    - Color Blindness
+      - Use Light House from Dev Tools
+      - Color blind friendly color scheme
+    - Language Option
+  - Test Objectives
+    - Increase code coverage
+    - Using Jest
+    - Create tests for functions that return values
+    - Test timing functions
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub
+  - Reorganize Repo

@@ -1,0 +1,26 @@
+# Team 9 - 02/23/21
+
+- Goal: Work on our Sprint
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 2:00 PM
+  - End: 5:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Schedule Work Meeting Dates:
+    - Thursday 5-7pm
+      - Testing and CSS
+    - Friday 4pm
+      - More testing and CSS
+    - To-Do:
+      - Create a commit guide
+      - Update User Stories
+        - Link specific features to specific user needs
+      - Document Slack daily stand-ups
+      - Go over MVP Checklist and find out what we need to complete
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub
+  - Ask Sasya about MVP checklist and project requirements
+  - Reorganize repo and double check documentation
