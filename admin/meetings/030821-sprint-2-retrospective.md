@@ -23,12 +23,14 @@
   - We had work meetings almost every day
   - Lots of engagement and discussions on Slack
 - Start
-  - Focussing more on documentation and testing requirements
-  - More rigid structure of development and write cleaner code
-  - Start earlier on work rather than leave the bulk for the end of the sprint
-  - Complete the MVP and add our diagrams to the repo
-  - Do more team check-ins
+  - Clean up the project repo
+  - Bug Testing
+  - Making final touches
+  - Manual testing and finding edge cases that cause the program to fail
+  - Add more accessibility
+  - Have Sasya review the project one last time
 - Stop
-  - Filling out when2meet late
-  - Having last minute meetings and schedule them earlier
+  - Having standups if no work was completed
+  - Forgetting to do standups
+  - Making changes to the design
   -

@@ -7,23 +7,23 @@
   - Start: 6:30 PM
   - End:
 - Week 1 Goals
-  - [ ] Commit Style Guide
-  - [ ] Design Fixes
-  - [ ] Added ADRs
-  - [ ] User Story Fixes
-  - [ ] Proposed Accessibility
-  - [ ] Finalized Styling
-  - [ ] Completed CSS
-  - [ ] Created More Test Goals
+  - [x] Commit Style Guide
+  - [x] Design Fixes
+  - [x] Added ADRs
+  - [x] User Story Fixes
+  - [x] Proposed Accessibility
+  - [x] Finalized Styling
+  - [x] Completed CSS
+  - [x] Created More Test Goals
 - Week 2 Goals
 
   - [x] Code Clean Up
-  - [ ] Added Documentation
-  - [ ] Bug Fixes
-  - [ ] Added Accessibility
-  - [ ] Added more ADRs
-  - [ ] Added Local Storage
-  - [ ] Test Coverage Goal 70%+
+  - [x] Added Documentation
+  - [x] Bug Fixes
+  - [x] Added Accessibility
+  - [x] Added more ADRs
+  - [x] Added Local Storage
+  - [x] Test Coverage Goal 70%+
 
 - Highlights
   - GitHub Setup
