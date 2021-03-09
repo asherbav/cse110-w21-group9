@@ -3,7 +3,7 @@
   --main-color: #6e5ab1;
   --go-color: #097a92;
   --stop-color: #751444;
-  --disable-color: grey;
+  --disable-color: #a3a3a3;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
@@ -32,6 +32,7 @@ button {
   opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
+  color: white;
 }
 
 /* Header */
@@ -286,9 +287,9 @@ table .remove-btn {
 
 /* Popouts */
 .button-dialog {
-  background-color: grey;
+  background-color: white;
   text-align: center;
-  border: none;
+  border: solid black;
   border-radius: 10px;
   position: absolute;
   top: 20%;
@@ -311,7 +312,7 @@ table .remove-btn {
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
-  color: white;
+  color: black;
   margin-top: 50px;
   margin-right: 30px;
   margin-left: 30px;
@@ -380,7 +381,7 @@ button:active {
 
 button:disabled {
   background-color: var(--disable-color) !important;
-  color: black;
+  color: rgb(20, 20, 20);
   cursor: unset;
 }
 
