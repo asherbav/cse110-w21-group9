@@ -629,6 +629,10 @@ try {
     removeTask: removeTask,
     getPomoData: getPomoData,
     setPomoData: setPomoData,
+    finishTask: finishTask,
+    cancelPomo: cancelPomo,
+    startPomo: startPomo,
+    previousState: previousState,
   };
 } catch (err) {
   // We are running in a browser
