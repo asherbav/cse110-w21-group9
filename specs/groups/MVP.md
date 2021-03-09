@@ -19,7 +19,7 @@
 - [x] Brainstorming
   - [x] Miro
   - [x] Draw.io
-- [ ] Artifacts
+- [x] Artifacts
   - [x] Architectural Decision Records (ADR)
   - [x] Personas/User Stories
   - [x] Vision/Overview Diagram
@@ -36,7 +36,7 @@
 - [x] Tooling
   - [x] Do we have a slate of clear tools?
   - [x] Environment Setup
-- [ ] Coding
+- [x] Coding
   - [x] Where and how many repositories will we have?
   - [x] How do we organize our repo(s)
     - [x] Repository guidelines
@@ -46,54 +46,48 @@
   - [x] Development policy
     - [x] Feature branches (vs) Forks
     - [x] Merging policy
-  - [ ] Proper commit style
+  - [x] Proper commit style
   - [x] How often is code being committed?
   - [x] Code Reviews
 - [ ] Documentation
   - [x] Storage area for documentation
-  - [ ] Architecture Diagrams (Add to Repo)
-    - [ ] UML/C4/Event Modeling/Ad hoc
-  - [ ] Internal Documentation
+  - [x] Architecture Diagrams (Add to Repo)
+  - [x] Internal Documentation
     - [x] Form
       - [x] Private Wiki
       - [x] Private Web Site(s)
-    - [ ] Covers
+    - [x] Covers
       - [x] Technical Decisions (ADR)
-      - [ ] Processes (How to push a build)
+      - [x] Processes (How to push a build)
       - [x] Logistics and Management (Notes, etc.)
-- [ ] Building
+- [x] Building
   - [x] CI Pipeline
     - [x] Is it working on every pull request?
-  - [ ] Pipeline Bare Minimum Steps
+  - [x] Pipeline Bare Minimum Steps
     - [x] Linter/Style Guide Enforcer
     - [x] Test Coverage Checker
-    - [ ] Build or Bundle of Code
-    - [ ] Optimization of Code or Assets
-    - [ ] Code Quality checker (eg. CodeClimate)
-    - [ ] Unit Tests Harness
-    - [ ] End-To-End / Integration Test Harness
-    - [ ] Packaging and Pushing to Delivery Location
+    - [x] Build or Bundle of Code
+    - [x] Optimization of Code or Assets
+    - [x] Code Quality checker (eg. CodeClimate)
+    - [x] Unit Tests Harness
   - [x] Easy way to fire off the pipeline?
-- [ ] Testing
-  - [ ] Do we have a test plan or at least test goals?
-  - [ ] What kind of tests do we have?
-    - [ ] Unit Tests
-    - [ ] Integration Tests
-    - [ ] End to End Tests
-    - [ ] User Acceptance Tests
-  - [ ] Who is writing the tests?
-    - [ ] Coders testing or separate testers
-  - [ ] How much testing do we have?
-    - [ ] Code coverage metrics?
-  - [ ] How often are tests run and to what level of detail?
-    - [ ] How do tests relate to operations?
-- [ ] Operating
-  - [ ] Operating Plan
+- [x] Testing
+  - [x] Do we have a test plan or at least test goals?
+  - [x] What kind of tests do we have?
+    - [x] Unit Tests
+    - [x] User Acceptance Tests
+  - [x] Who is writing the tests?
+    - [x] Coders testing or separate testers
+  - [x] How much testing do we have?
+    - [x] Code coverage metrics?
+  - [x] How often are tests run and to what level of detail?
+    - [x] How do tests relate to operations?
+- [x] Operating
+  - [x] Operating Plan
     - [x] SLA, checklisting, escalation, etc.
     - [x] Monitoring the health of our system
     - [x] Monitoring the health of our team
     - [x] The system informs ongoing changes to software
     - [ ] DevOps - Analytics, Error Trace, etc.
-      - [ ] Maintenance Mode
-      - [ ] Staging Servers
+      - [x] Analytics
     - [ ] Road Map (?)
