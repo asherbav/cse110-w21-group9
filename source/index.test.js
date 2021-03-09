@@ -186,6 +186,7 @@ describe("index.js tests", () => {
     document.getElementById('estimate').value = 4
     document.getElementById('task-description').value = "Test Task"
     index.addTask()
+    console.log(index.getPomoData()[0])
     expect(index.getPomoData()[0]["taskName"]).toBe("Test Task");
     expect(index.getPomoData()[0]["estimatedPomos"]).toBe("4");
   });
