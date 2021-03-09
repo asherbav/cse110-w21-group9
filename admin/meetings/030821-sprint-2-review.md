@@ -1,0 +1,44 @@
+# Team 9 - 03/08/21
+
+- Goal
+- Members Present: Everyone
+- Members Absent:
+- Meeting Logistics
+  - Start: 6:30 PM
+  - End:
+- Week 1 Goals
+  - [ ] Commit Style Guide
+  - [ ] Design Fixes
+  - [ ] Added ADRs
+  - [ ] User Story Fixes
+  - [ ] Proposed Accessibility
+  - [ ] Finalized Styling
+  - [ ] Completed CSS
+  - [ ] Created More Test Goals
+- Week 2 Goals
+
+  - [x] Code Clean Up
+  - [ ] Added Documentation
+  - [ ] Bug Fixes
+  - [ ] Added Accessibility
+  - [ ] Added more ADRs
+  - [ ] Added Local Storage
+  - [ ] Test Coverage Goal 70%+
+
+- Highlights
+  - GitHub Setup
+    - Mandatory meeting feedback
+    - Meeting Notes
+    - CI/CD Pipeline
+    - Issues/Pull Requests
+    - JS API Proposal
+    - Code Files (JavaScript, HTML, CSS)
+    - Testing Library (Jest)
+  - Working Prototype
+    - Task Manager
+    - Timer
+  - How we Worked
+    - Mob Programming
+      - Discord audio channels with screen sharing
+      - Gary worked as driver who shared his screen
+      - VSCode Live Sharing

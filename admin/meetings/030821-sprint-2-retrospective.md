@@ -1,0 +1,34 @@
+# Team 9 - 02/22/21
+
+- Goal
+- Members Present: Everyone
+- Members Absent:
+- Meeting Logistics
+  - Start: 6:30 PM
+  - End:
+- Clarity
+  - Goals and requirements were not always clear
+  - Some bugs during coding were very confusing
+- Autonomy
+  - Cleaning up the GitHub made task assignment much simpler
+  - Issues and tasks made it easier to work on out own, but still confined to the team consensus for features and designs. (Not a bad thing, but can’t be fully autonomous inherently)
+- Mastery
+  - We generally worked out most issues in our process
+- Meaning
+  - Sprint was extremely successful and we were able to overcome big hurdles
+- Impact
+  - It's just a timer so not too impactful
+  - Our project is not likely to impact anyone besides us
+- Engagement
+  - We had work meetings almost every day
+  - Lots of engagement and discussions on Slack
+- Start
+  - Focussing more on documentation and testing requirements
+  - More rigid structure of development and write cleaner code
+  - Start earlier on work rather than leave the bulk for the end of the sprint
+  - Complete the MVP and add our diagrams to the repo
+  - Do more team check-ins
+- Stop
+  - Filling out when2meet late
+  - Having last minute meetings and schedule them earlier
+  -
