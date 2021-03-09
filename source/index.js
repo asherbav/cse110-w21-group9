@@ -7,12 +7,16 @@ const UPDATE_TIMER_EVERY = 200;
 const LONG_BREAK_EVERY = 4;
 const INVALID_POMOID = -1;
 
+const RESPONSIVE_CUTOFF_PX = 720;
+
 let time, timerEnd;
 let breakCount = 0;
 
 let previousState;
 
 let cancelTimerFlag = 0;
+
+let isMobile;
 
 const SESSION_STATUS = {
   incomplete: 0,
@@ -22,7 +26,6 @@ const SESSION_STATUS = {
 };
 
 let pomoData = [];
-let visibleTasks = 0;
 /*
 {
   taskName: "task name",
@@ -91,7 +94,6 @@ function getCurrentPomo() {
  * Function to create a pomodoro
  */
 function createPomodoro(taskName, estimatedPomos) {
-  visibleTasks++;
   let pomo = {
     "id": pomoData.length,
     "taskName": taskName,
@@ -303,14 +305,6 @@ function finishTask(pomoID) {
  * Redraw table
  */
 function updateTable(disableAllStarts = false) {
-
-  if(visibleTasks == 0) {
-    document.getElementById('table').style.display = 'none';
-  }
-  else {
-    document.getElementById('table').style.display = 'block';
-  }
-
   let table = document.getElementById('table');
   table.innerHTML = '<tr><th>Remove</th><th>Task</th><th>Estimated Pomos</th><th>Actual Pomos</th><th>Distractions</th><th>Status</th><th>Start Session</th><th>Finish Task</th></tr>';
   
@@ -327,6 +321,14 @@ function updateTable(disableAllStarts = false) {
   }
 
   toDraw = inprogress.concat(notDone).concat(done);
+
+  if(toDraw.length == 0){
+    document.getElementById('table').style.display = 'none';
+  }
+  else{
+    document.getElementById('table').style.display = 'block';
+  }
+  
   for (let i = 0; i < toDraw.length; i++) {
     //Row Container
     let row = document.createElement('tr');
@@ -452,7 +454,6 @@ function addTask() {
  * @param {PomoID to remove} pomoId 
  */
 function removeTask(pomoId) {
-  visibleTasks--;
   pomoData[pomoId].sessionStatus = SESSION_STATUS.deleted;
   updateTable();
 }
@@ -517,14 +518,24 @@ function closeWorkDoneDialog() {
 try {
   // If we are running in a browser  
   window.onload = function () {
-    updateTable();
+  isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
+  updateTable();
     document.getElementById('add-task-form').addEventListener('submit', (event) => {
       event.preventDefault();
     })
   };
+
+  window.onresize = function () {
+    let lastMobile = isMobile;
+    isMobile = window.innerWidth <= RESPONSIVE_CUTOFF_PX;
+    if(!isMobile && lastMobile) updateTable();
+  };
 } catch (err) {
   // We are running in a test environment
 }
+
+
+
 
 try {
   // If we are running in a test environment
@@ -568,9 +579,12 @@ try {
     addTask: addTask,
     finishTask: finishTask,
     removeTask: removeTask,
-    visibleTasks: visibleTasks,
     getPomoData: getPomoData,
     setPomoData: setPomoData,
+    finishTask: finishTask,
+    cancelPomo: cancelPomo,
+    startPomo: startPomo,
+    previousState: previousState,
   };
 }
 catch (err) {
