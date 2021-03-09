@@ -8,7 +8,7 @@ We want to record how JS will handle the HTML pages.
 
 ## Considered Options
 
-* single HTML page 
+* single HTML page
   * JS hops between two "displayed" pages
 * two HTML pages
   * just link between them
