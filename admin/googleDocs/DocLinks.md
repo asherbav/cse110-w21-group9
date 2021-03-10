@@ -9,7 +9,12 @@
 - [Starting Pitch Slides](https://docs.google.com/presentation/d/1i0_81LPEEkmYGFVJ1ctAFhZTATtb3zV7qluhbBql_qw/edit#slide=id.gbb523416b0_3_0)
 
 - [Minimum Viable Process Review Doc](https://docs.google.com/document/d/14Bh72qziO4323dFtJdk8T8PRXgcP6VpPIJ23A-D7apE/edit?usp=sharing)
+
 - [Colorblind Options Comparison Doc](https://docs.google.com/document/d/1KKUrCUBfgzag78zEDyQqinget878YWQXYwvT6e6aAjE/edit?usp=sharing)
+
+- [Project Communications Plan Doc](https://docs.google.com/document/d/1ILllQD5yD0RZ8IHQm8posKze2wohiGGhT-Utwbstyg4/edit?usp=sharing)
+
+- [Role Assignment Matrix Doc](https://docs.google.com/document/d/1dNoW92eT0vsWgJipUtc0TXJrGzV_zxG-kRrQ5dqPe90/edit?usp=sharing)
 
 ## Organization/Team Dynamics Meetings
 - [1/25 Topics (PM Tools)](https://docs.google.com/document/d/1lG57GpeOVE5TYDUXLIvMEa4yOyLURUmePxf8HrL1YUo/edit?usp=sharing)
@@ -39,3 +44,8 @@
 - [2/26 2nd Sprint Work Meeting (Test Coverage Planning/CSS Objectives)](https://docs.google.com/document/d/16mXVs_4lvTglQPTEh6tRcOi2f8sNgmGFIL8MZdzDE8U/edit?usp=sharing)
 
 - [2/27 2nd Sprint Work Meeting (Test Implementation/CSS)](https://docs.google.com/document/d/1F3NK1NIReZEWiF38pFbp_ZEZ8Tntc3QgC0oXvoYw8NU/edit?usp=sharing)
+
+- [3/1 2nd Sprint Work Meeting (System Fixing/CSS)](https://docs.google.com/document/d/109yVtxVnMQ84plNM8VZCPZ9A1QdlH9HMB9hZpL_9nYg/edit?usp=sharing)
+
+- [3/2 2nd Sprint Work (Cleanup/CSS/Bug-Fixing)](https://docs.google.com/document/d/1OaKayRnJByyHm-QOx5z2HM0GIB1EVSQmE0o_klMaB5c/edit?usp=sharing)
+- [3/8 Sprint Review/Retrospective/Main](https://docs.google.com/document/d/1mrsUcyMRu6XmwFfi4O7Gn_2qrglHcPaRuwIPl65-PzA/edit?usp=sharing)
