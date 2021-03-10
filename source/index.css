@@ -406,9 +406,10 @@ button:hover:enabled {
   opacity: 1;
 }
 
-/* Responsiveness WILL FIX */
+/* Responsiveness */
 @media only screen and (max-width: 1024px) {
 
+  /* Global */
   * {
     margin: 0;
     padding: 0;
@@ -651,7 +652,7 @@ button:hover:enabled {
     background-color: var(--main-color);
     font-size: 9vw;
   }
-  
+
   .add-task-form {
     width: calc(90% - 10vw);
     margin: 10vw;
