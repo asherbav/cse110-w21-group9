@@ -407,14 +407,14 @@ button:hover:enabled {
 }
 
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 1024px) {
-
+@media only screen and (max-width: 1024px) { 
   * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
   }
 
-  html, body {
+  html, 
+  body {
     overflow-x: hidden;
   }
 
@@ -427,78 +427,7 @@ button:hover:enabled {
     font-size: max(22px, 15vw);
     height: auto;
   }
-
-  /* Timer Page*/
-  .timer-page .timer {
-    width: 60%;
-    font-size: 25vw;
-    padding-right: 55px;
-    padding-left: 45px;
   
-  }
-
-  .timer-page .task-sect {
-    width: 80%;
-  }
-
-  .timer-page .task-sect > p{
-    font-size: 7vw;
-  }
-
-  .timer-page .buttons {
-    width: 70%;
-  }
-
-  .timer-page .buttons > button{
-    font-size: 6vw;
-  }
-
-  /* Break Timer */
-  .mobile-break {
-    display: inline;
-  }
-
-  .break-screen {
-    width: 75%;
-    position: relative;
-    border-radius: 15px;
-    margin: 0;
-    margin-top: 30px;
-    padding: 5px;
-    margin-bottom: 20px;
-    right: -11%;
-  }
-
-  .break-timer {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    font-size: 9vw;
-  }
-
-  .break-timer-label {
-    color: fff;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-color: var(--main-color);
-    font-size: 9vw;
-  }
-
-  /* Dialog Popouts */
-  .button-dialog {
-    width: 65%;
-  }
-
-  .button-dialog > p {
-    font-size: 8vw;
-  }
-  
-  .dialog-no, .dialog-yes {
-    width: 30%;
-    margin: 10px;
-    margin-top: 50px;
-    font-size: 7vw;
-  }
-
   /* Table */
   table {
     width: calc(100% - 10vw);
@@ -647,6 +576,76 @@ button:hover:enabled {
     background-color: var(--main-color);
     color: #fff;
     padding: 8px 10px 8px 10px;
+  }
+  
+  /* Dialog Popouts */
+  .button-dialog {
+    width: 65%;
+  }
+
+  .button-dialog > p {
+    font-size: 8vw;
+  }
+  
+  .dialog-no, .dialog-yes {
+    width: 30%;
+    margin: 10px;
+    margin-top: 50px;
+    font-size: 7vw;
+  }
+
+  /* Timer Page */
+  .timer-page .timer {
+    width: 60%;
+    font-size: 25vw;
+    padding-right: 55px;
+    padding-left: 45px;
+  }
+
+  .timer-page .task-sect {
+    width: 80%;
+  }
+
+  .timer-page .task-sect > p {
+    font-size: 7vw;
+  }
+
+  .timer-page .buttons {
+    width: 70%;
+  }
+
+  .timer-page .buttons > button {
+    font-size: 6vw;
+  }
+
+  /* Break Timer */
+  .mobile-break {
+    display: inline;
+  }
+
+  .break-screen {
+    width: 75%;
+    position: relative;
+    border-radius: 15px;
+    margin: 0;
+    margin-top: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+    right: -11%;
+  }
+
+  .break-timer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 9vw;
+  }
+
+  .break-timer-label {
+    color: fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--main-color);
+    font-size: 9vw;
   }
   
   .add-task-form {
