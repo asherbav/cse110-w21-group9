@@ -407,13 +407,14 @@ button:hover:enabled {
 }
 
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 1024px) { 
+@media only screen and (max-width: 1024px) {
+
   * {
     margin: 0;
     padding: 0;
   }
 
-  html, 
+  html,
   body {
     overflow-x: hidden;
   }
@@ -427,7 +428,7 @@ button:hover:enabled {
     font-size: max(22px, 15vw);
     height: auto;
   }
-  
+
   /* Table */
   table {
     width: calc(100% - 10vw);
@@ -473,7 +474,9 @@ button:hover:enabled {
     width: 95%;
   }
 
-  td:nth-of-type(1),td:nth-of-type(7),td:nth-of-type(8) {
+  td:nth-of-type(1),
+  td:nth-of-type(7),
+  td:nth-of-type(8) {
     padding-bottom: 2px;
   }
 
@@ -577,7 +580,7 @@ button:hover:enabled {
     color: #fff;
     padding: 8px 10px 8px 10px;
   }
-  
+
   /* Dialog Popouts */
   .button-dialog {
     width: 65%;
@@ -586,8 +589,9 @@ button:hover:enabled {
   .button-dialog > p {
     font-size: 8vw;
   }
-  
-  .dialog-no, .dialog-yes {
+
+  .dialog-no,
+  .dialog-yes {
     width: 30%;
     margin: 10px;
     margin-top: 50px;
