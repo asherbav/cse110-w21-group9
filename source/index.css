@@ -400,10 +400,61 @@ button:hover:enabled {
 }
 
 /* Responsiveness WILL FIX */
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1024px) {
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  header {
+    height: 10vw;
+  }
+
+  .title {
+    font-size: max(22px, 15vw);
+    height: auto;
+  }
+
+  /* Break Timer */
+  .mobile-break {
+    display: inline;
+  }
+
+  .break-screen {
+    width: 75%;
+    position: relative;
+    border-radius: 15px;
+    margin: 0;
+    margin-top: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+    right: -11%;
+  }
+
+  .break-timer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 3rem;
+  }
+
+  .break-timer-label {
+    color: fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--main-color);
+  }
+
+  /* Table */
   table {
     width: calc(100% - 10vw);
     margin: 10vw;
+    margin-top: 0;
   }
 
   table th {
@@ -415,14 +466,13 @@ button:hover:enabled {
     padding: 0;
     position: absolute;
     width: 1px;
-    color: pink;
   }
 
   table tr {
-    border-bottom: 5px solid var(--table-border-bottom);
+    border-bottom: 15px solid var(--table-border-bottom);
     display: block;
-    margin-bottom: 15px;
-    padding-top: 15px;
+    margin-bottom: 10px;
+    padding-top: 10px;
     padding-bottom: 20px;
     width: calc(100% - 10vw);
   }
@@ -439,10 +489,14 @@ button:hover:enabled {
   }
 
   table td {
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid black;
     display: block;
-    padding-bottom: 10px;
+    padding-bottom: 13px;
     width: 100%;
+  }
+
+  td:nth-of-type(1),td:nth-of-type(7),td:nth-of-type(8) {
+    padding-bottom: 2px;
   }
 
   td > p {
@@ -463,8 +517,7 @@ button:hover:enabled {
     background-color: var(--go-color);
     width: 30%;
     margin-right: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     height: 300%;
   }
 
@@ -472,7 +525,6 @@ button:hover:enabled {
     background-color: var(--go-color);
     width: 30%;
     margin-right: 0;
-    margin-top: 15px;
     margin-bottom: 5px;
     height: 300%;
   }
@@ -489,6 +541,7 @@ button:hover:enabled {
     background-color: var(--main-color);
     color: #fff;
     padding: 8px 10px 8px 10px;
+    margin-top: 4px;
   }
 
   td:nth-of-type(2)::before {
@@ -547,26 +600,8 @@ button:hover:enabled {
     padding: 8px 10px 8px 10px;
   }
 
-  .title {
-    font-size: max(22px, 8vw);
-    height: auto;
-  }
-
-  header {
-    height: 10vw;
-  }
-
-  * {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .mobile-break {
-    display: inline;
-  }
-
   .add-task-form {
-    width: calc(100% - 10vw);
+    width: calc(90% - 10vw);
     margin: 10vw;
     font-size: 18px;
   }
