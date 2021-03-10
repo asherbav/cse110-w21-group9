@@ -421,6 +421,31 @@ button:hover:enabled {
     height: auto;
   }
 
+  /* Timer Page*/
+  .timer-page .timer {
+    width: 60%;
+    font-size: 25vw;
+    padding-right: 55px;
+    padding-left: 45px;
+  
+  }
+
+  .timer-page .task-sect {
+    width: 80%;
+  }
+
+  .timer-page .task-sect > p{
+    font-size: 7vw;
+  }
+
+  .timer-page .buttons {
+    width: 70%;
+  }
+
+  .timer-page .buttons > button{
+    font-size: 6vw;
+  }
+
   /* Break Timer */
   .mobile-break {
     display: inline;
@@ -440,7 +465,7 @@ button:hover:enabled {
   .break-timer {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    font-size: 3rem;
+    font-size: 9vw;
   }
 
   .break-timer-label {
@@ -448,6 +473,23 @@ button:hover:enabled {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: var(--main-color);
+    font-size: 9vw;
+  }
+
+  /* Dialog Popouts */
+  .button-dialog {
+    width: 65%;
+  }
+
+  .button-dialog > p {
+    font-size: 8vw;
+  }
+  
+  .dialog-no, .dialog-yes {
+    width: 30%;
+    margin: 10px;
+    margin-top: 50px;
+    font-size: 7vw;
   }
 
   /* Table */
@@ -492,7 +534,7 @@ button:hover:enabled {
     border-bottom: 1px solid black;
     display: block;
     padding-bottom: 13px;
-    width: 100%;
+    width: 95%;
   }
 
   td:nth-of-type(1),td:nth-of-type(7),td:nth-of-type(8) {
