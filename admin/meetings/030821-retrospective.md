@@ -1,11 +1,11 @@
-# Team 9 - 02/22/21
+# Team 9 - 03/08/21
 
-- Goal
+- Goal: Sprint Retrospective
 - Members Present: Everyone
 - Members Absent:
 - Meeting Logistics
   - Start: 6:30 PM
-  - End:
+  - End: 8:00 PM
 - Clarity
   - Goals and requirements were not always clear
   - Some bugs during coding were very confusing
@@ -33,4 +33,3 @@
   - Having standups if no work was completed
   - Forgetting to do standups
   - Making changes to the design
-  -

@@ -1,11 +1,11 @@
 # Team 9 - 03/08/21
 
-- Goal
+- Goal: Sprint Review
 - Members Present: Everyone
 - Members Absent:
 - Meeting Logistics
   - Start: 6:30 PM
-  - End:
+  - End: 8:00 PM
 - Week 1 Goals
   - [x] Commit Style Guide
   - [x] Design Fixes
@@ -26,6 +26,7 @@
   - [x] Test Coverage Goal 70%+
 
 - Highlights
+
   - GitHub Setup
     - Mandatory meeting feedback
     - Meeting Notes
@@ -38,7 +39,17 @@
     - Task Manager
     - Timer
   - How we Worked
+
     - Mob Programming
       - Discord audio channels with screen sharing
       - Gary worked as driver who shared his screen
       - VSCode Live Sharing
+
+  - Test Suite on CI/CD Pipeline
+    ![Test Suite](img/test-suite.png)
+  - Final Task Page
+    ![Task HTML](img/final-task-page.png)
+  - Final Timer Page
+    ![Timer HTML](img/final-timer-page.png)
+  - Revised User Story
+    ![User Story](img/revised-userstory.png)
