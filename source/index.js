@@ -7,7 +7,7 @@ const UPDATE_TIMER_EVERY = 200;
 const LONG_BREAK_EVERY = 4;
 const INVALID_POMOID = -1;
 
-const RESPONSIVE_CUTOFF_PX = 720;
+const RESPONSIVE_CUTOFF_PX = 1024;
 
 let time, timerEnd;
 let breakCount = 0;
