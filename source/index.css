@@ -3,10 +3,10 @@
   --main-color: #6e5ab1;
   --go-color: #16809b;
   --go-color-hover: #10444e;
-  --stop-color: #A66E87;
+  --stop-color: #a66e87;
   --stop-color-hover: #7a1849;
-  --disable-color: #BFBFBF;
-  --disable-text-color: #6A6A6A;
+  --disable-color: #bfbfbf;
+  --disable-text-color: #6a6a6a;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
