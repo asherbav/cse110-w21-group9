@@ -1,12 +1,12 @@
 /* Variables */
 :root {
   --main-color: #6e5ab1;
-  --go-color: #097a92;
-  --go-color-hover: #084653;
-  --stop-color: #751444;
-  --stop-color-hover: #4e0f2e;
-  --disable-color: #a3a3a3;
-  --disable-text-color: black;
+  --go-color: #7AAFBE;
+  --go-color-hover: #0e7286;
+  --stop-color: #A66E87;
+  --stop-color-hover: #7a1849;
+  --disable-color: #BFBFBF;
+  --disable-text-color: #6A6A6A;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
@@ -523,7 +523,7 @@ button:disabled {
 
   button:disabled {
     background-color: var(--disable-color);
-    color: black;
+    color: var(--disable-text-color);
     cursor: unset;
   }
 
