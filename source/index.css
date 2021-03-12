@@ -2,8 +2,11 @@
 :root {
   --main-color: #6e5ab1;
   --go-color: #097a92;
+  --go-color-hover: #084653;
   --stop-color: #751444;
-  --disable-color: grey;
+  --stop-color-hover: #4e0f2e;
+  --disable-color: #a3a3a3;
+  --disable-text-color: black;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
@@ -29,9 +32,10 @@ main {
 
 button {
   outline-style: none;
-  opacity: 0.6;
+  /* opacity: 0.6; */
   transition: 0.3s;
   cursor: pointer;
+  color: white;
 }
 
 /* Header */
@@ -286,9 +290,9 @@ table .remove-btn {
 
 /* Popouts */
 .button-dialog {
-  background-color: grey;
+  background-color: white;
   text-align: center;
-  border: none;
+  border: solid black;
   border-radius: 10px;
   position: absolute;
   top: 20%;
@@ -311,7 +315,7 @@ table .remove-btn {
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
-  color: white;
+  color: black;
   margin-top: 50px;
   margin-right: 30px;
   margin-left: 30px;
@@ -380,12 +384,20 @@ button:active {
 
 button:disabled {
   background-color: var(--disable-color) !important;
-  color: black;
+  color: var(--disable-text-color);
   cursor: unset;
 }
 
-button:hover:enabled {
+/* button:hover:enabled {
   opacity: 1;
+} */
+
+.go-color-btn:hover:enabled {
+  background-color: var(--go-color-hover);
+}
+
+.stop-color-btn:hover:enabled {
+  background-color: var(--stop-color-hover);
 }
 
 /* Responsiveness WILL FIX */

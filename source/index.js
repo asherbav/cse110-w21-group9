@@ -398,7 +398,7 @@ function updateTable(disableAllStarts = false) {
     //Column Content
     let btnCont = document.createElement("button");
     btnCont.innerHTML = "X";
-    btnCont.className = "remove-btn";
+    btnCont.className = "remove-btn stop-color-btn";
     btnCont.addEventListener("click", function () {
       removeTask(toDraw[i].id);
     });
@@ -440,7 +440,7 @@ function updateTable(disableAllStarts = false) {
     let newID = toDraw[i].id;
 
     let startCont = document.createElement("button");
-    startCont.className = "start-btn";
+    startCont.className = "start-btn go-color-btn";
     startCont.id = "start-btn-" + newID;
     startCont.innerHTML = "Start";
     startCont.setAttribute("onclick", "startPomo(" + newID + ")");
@@ -453,7 +453,7 @@ function updateTable(disableAllStarts = false) {
     }
 
     let finCont = document.createElement("button");
-    finCont.className = "finish-btn";
+    finCont.className = "finish-btn go-color-btn";
     finCont.id = "finish-btn-" + newID;
     finCont.innerHTML = "Finish";
     finCont.setAttribute("onclick", "finishTask(" + newID + ")");
