@@ -552,16 +552,6 @@ function closeRemoveDialog() {
   panel.style.display = "none";
 }
 
-function displayFinishDialog() {
-  let panel = document.getElementById("finish-button-dialog");
-  panel.style.display = "block";
-}
-
-function closeFinishDialog() {
-  let panel = document.getElementById("finish-button-dialog");
-  panel.style.display = "none";
-}
-
 function displayBreakDialog() {
   let panel = document.getElementById("break-button-dialog");
   panel.style.display = "block";
