@@ -1,9 +1,12 @@
 /* Variables */
 :root {
   --main-color: #6e5ab1;
-  --go-color: #097a92;
-  --stop-color: #751444;
-  --disable-color: #a3a3a3;
+  --go-color: #16809b;
+  --go-color-hover: #10444e;
+  --stop-color: #a66e87;
+  --stop-color-hover: #7a1849;
+  --disable-color: #bfbfbf;
+  --disable-text-color: #6a6a6a;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
@@ -31,7 +34,6 @@ main {
 
 button {
   outline-style: none;
-  opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
   color: white;
@@ -400,12 +402,16 @@ button:active {
 
 button:disabled {
   background-color: var(--disable-color) !important;
-  color: rgb(20, 20, 20);
+  color: var(--disable-text-color);
   cursor: unset;
 }
 
-button:hover:enabled {
-  opacity: 1;
+.go-color-btn:hover:enabled {
+  background-color: var(--go-color-hover);
+}
+
+.stop-color-btn:hover:enabled {
+  background-color: var(--stop-color-hover);
 }
 
 /* Responsiveness */
@@ -514,7 +520,7 @@ button:hover:enabled {
 
   button:disabled {
     background-color: var(--disable-color);
-    color: black;
+    color: var(--disable-text-color);
     cursor: unset;
   }
 
