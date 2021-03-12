@@ -349,6 +349,7 @@ function hideBreakTimer() {
 function finishTask(pomoID) {
   setStatus(pomoID, SESSION_STATUS.complete);
   setCurrentPomo(INVALID_POMOID);
+  closeFinishDialog();
   updateTable();
 }
 
@@ -458,7 +459,7 @@ function updateTable(disableAllStarts = false) {
     finCont.className = "finish-btn";
     finCont.id = "finish-btn-" + newID;
     finCont.innerHTML = "Finish";
-    finCont.setAttribute("onclick", "finishTask(" + newID + ")");
+    finCont.setAttribute("onclick", "displayFinishDialog(" + newID + ")");
     if (
       (currentPomoID != INVALID_POMOID && currentPomoID != newID) ||
       toDraw[i].sessionStatus == SESSION_STATUS.complete ||
@@ -579,6 +580,18 @@ function displayWorkDoneDialog() {
 function displayRemoveDialog() {
   let panel = document.getElementById("remove-button-dialog");
   panel.style.display = "block";
+}
+
+function displayFinishDialog(id) {
+  let panel = document.getElementById("finish-button-dialog");
+  let button = document.getElementById("finish-yes");
+  button.setAttribute("onclick", "finishTask(" + id + ")");
+  panel.style.display = "block";
+}
+
+function closeFinishDialog() {
+  let panel = document.getElementById("finish-button-dialog");
+  panel.style.display = "none";
 }
 
 function closeWorkDoneDialog() {
