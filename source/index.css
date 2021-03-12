@@ -32,7 +32,6 @@ main {
 
 button {
   outline-style: none;
-  /* opacity: 0.6; */
   transition: 0.3s;
   cursor: pointer;
   color: white;
@@ -404,10 +403,6 @@ button:disabled {
   color: var(--disable-text-color);
   cursor: unset;
 }
-
-/* button:hover:enabled {
-  opacity: 1;
-} */
 
 .go-color-btn:hover:enabled {
   background-color: var(--go-color-hover);
