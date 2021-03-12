@@ -1,0 +1,23 @@
+# Team 9 - 02/27/21
+
+- Goal: Continue working on Sprint
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 2:00 PM
+  - End: 5:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Style Goals
+    - Fixed spacing on the table
+    - Break timer shown during break
+    - Fixed footer when the window is small
+    - Added sound for the pomo and break timers
+    - Added dropdown selection for estimated pomos
+    - Fixed timer color, margin, padding, border
+  - Brainstormed different ADRs we should add
+  - Brainstormed testing options and details
+    - Accessibility, Breaks, Timer Page, Notifications, Layout, Input
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub

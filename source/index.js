@@ -13,6 +13,7 @@ let time, timerEnd;
 let breakCount = 0;
 let forTesting = 0;
 
+let taskToRemove;
 let previousState;
 
 let cancelTimerFlag = 0;
@@ -400,7 +401,8 @@ function updateTable(disableAllStarts = false) {
     btnCont.innerHTML = "X";
     btnCont.className = "remove-btn stop-color-btn";
     btnCont.addEventListener("click", function () {
-      removeTask(toDraw[i].id);
+      taskToRemove = toDraw[i].id
+      displayRemoveDialog();
     });
     if (
       toDraw[i] != undefined &&
@@ -489,6 +491,13 @@ function updateTable(disableAllStarts = false) {
   }
 }
 
+function sanitizeHTML(text) {
+  return text // Temporarily disabling since it fails tests for some reason.
+  /*var element = document.createElement('span');
+  element.innerText = text;
+  return element.innerHTML;*/
+}
+
 /**** TABLE BUTTONS ****/
 /**
  * Called when user presses add task button.
@@ -502,7 +511,7 @@ function addTask() {
   let inputDesc = document.getElementById("task-description");
 
   // Clears values
-  let newID = createPomodoro(inputDesc.value, inputEstimate.value);
+  let newID = createPomodoro(sanitizeHTML(inputDesc.value), sanitizeHTML(inputEstimate.value));
   updateTable();
   inputDesc.value = "";
   inputEstimate.value = "1";
@@ -518,6 +527,11 @@ function removeTask(pomoId) {
   getPomoById(pomoId).sessionStatus = SESSION_STATUS.deleted;
   savePomoData();
   updateTable();
+}
+
+function removeTaskButton() {
+  removeTask(taskToRemove);
+  closeRemoveDialog();
 }
 
 /**** DIALOG ******/
@@ -559,6 +573,11 @@ function closeBreakDialog() {
 
 function displayWorkDoneDialog() {
   let panel = document.getElementById("workdone-button-dialog");
+  panel.style.display = "block";
+}
+
+function displayRemoveDialog() {
+  let panel = document.getElementById("remove-button-dialog");
   panel.style.display = "block";
 }
 

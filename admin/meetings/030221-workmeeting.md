@@ -1,0 +1,36 @@
+# Team 9 - 03/02/21
+
+- Goal: Continue working on Sprint
+- Members Present: Everyone
+- Members Absent: None
+- Meeting Logistics
+  - Start: 2:00 PM
+  - End: 8:00 PM
+- Agenda
+  - Unresolved Topics from Past Meeting: None
+  - Cleaned Up GitHub Repo
+    - Merged branches with master and updated all branches to sync JavaScript code
+    - Created new issues and branches for each issue
+    - Moved coding files into source folder
+    - Remade CI/CD pipeline to function within the source subdirectory
+  - Completed Dialogs
+    - Finish, Remove, Break Ended
+  - Cleaned up Code
+    - Removed unused functions
+    - Removed magic numbers from CSS and JavaScript
+    - Group related selectors in CSS
+    - Used getters and setters properly
+  - Bug Fixes:
+    - Safari Pop-up Fix
+    - Cancelling pomo leads to a stuck page
+    - Timer alarm now play right when timer ends
+    - Remove button was not being greyed out
+- Unresolved Topics - None
+- Future Agenda
+  - Continue working on the issues on GitHub
+  - Look into relative units and comments
+  - Finish testing
+  - Fix responsiveness
+  - Test for bugs
+  - Create more ADRs
+  - Add diagrams and documentation to repo

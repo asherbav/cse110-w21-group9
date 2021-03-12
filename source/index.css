@@ -6,7 +6,7 @@
   --stop-color: #751444;
   --stop-color-hover: #4e0f2e;
   --disable-color: #a3a3a3;
-  --disable-text-color: black;
+  --disable-text-color: black
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
@@ -54,9 +54,8 @@ header {
 
 .title {
   margin: 0;
-  margin-left: 10px;
   padding: 10px;
-  display: inline;
+  display: block;
 }
 
 /* Footer */
@@ -373,8 +372,26 @@ table .remove-btn {
   display: none;
 }
 
+#remove-button-dialog {
+  display: none;
+}
+
 #workdone-button-dialog {
   display: none;
+}
+
+.mobile-break {
+  display: none;
+}
+
+.task-description {
+  height: 22px;
+  font-size: 18px;
+}
+
+.estimate {
+  height: 22px;
+  font-size: 18px;
 }
 
 /* Button Animations */
@@ -400,10 +417,34 @@ button:disabled {
   background-color: var(--stop-color-hover);
 }
 
-/* Responsiveness WILL FIX */
-@media only screen and (max-width: 720px) {
+/* Responsiveness */
+@media only screen and (max-width: 1024px) {
+  /* Global */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  header {
+    height: 10vw;
+  }
+
+  .title {
+    font-size: max(22px, 15vw);
+    height: auto;
+  }
+
+  /* Table */
   table {
-    width: 75%;
+    width: calc(100% - 10vw);
+    margin: 10vw;
+    margin-top: 0;
   }
 
   table th {
@@ -415,15 +456,15 @@ button:disabled {
     padding: 0;
     position: absolute;
     width: 1px;
-    color: pink;
   }
 
   table tr {
-    border-bottom: 5px solid var(--table-border-bottom);
+    border-bottom: 15px solid var(--table-border-bottom);
     display: block;
-    margin-bottom: 15px;
-    padding-top: 15px;
+    margin-bottom: 10px;
+    padding-top: 10px;
     padding-bottom: 20px;
+    width: calc(100% - 10vw);
   }
 
   tr:nth-child(odd) {
@@ -438,9 +479,16 @@ button:disabled {
   }
 
   table td {
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid black;
     display: block;
-    padding-bottom: 10px;
+    padding-bottom: 13px;
+    width: 95%;
+  }
+
+  td:nth-of-type(1),
+  td:nth-of-type(7),
+  td:nth-of-type(8) {
+    padding-bottom: 2px;
   }
 
   td > p {
@@ -461,8 +509,7 @@ button:disabled {
     background-color: var(--go-color);
     width: 30%;
     margin-right: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     height: 300%;
   }
 
@@ -470,7 +517,6 @@ button:disabled {
     background-color: var(--go-color);
     width: 30%;
     margin-right: 0;
-    margin-top: 15px;
     margin-bottom: 5px;
     height: 300%;
   }
@@ -487,6 +533,7 @@ button:disabled {
     background-color: var(--main-color);
     color: #fff;
     padding: 8px 10px 8px 10px;
+    margin-top: 4px;
   }
 
   td:nth-of-type(2)::before {
@@ -545,15 +592,88 @@ button:disabled {
     padding: 8px 10px 8px 10px;
   }
 
+  /* Dialog Popouts */
+  .button-dialog {
+    width: 65%;
+  }
+
+  .button-dialog > p {
+    font-size: 8vw;
+  }
+
+  .dialog-no,
+  .dialog-yes {
+    width: 30%;
+    margin: 10px;
+    margin-top: 50px;
+    font-size: 7vw;
+  }
+
+  /* Timer Page */
+  .timer-page .timer {
+    width: 60%;
+    font-size: 25vw;
+    padding-right: 55px;
+    padding-left: 45px;
+  }
+
+  .timer-page .task-sect {
+    width: 80%;
+  }
+
+  .timer-page .task-sect > p {
+    font-size: 7vw;
+  }
+
+  .timer-page .buttons {
+    width: 70%;
+  }
+
+  .timer-page .buttons > button {
+    font-size: 6vw;
+  }
+
+  /* Break Timer */
+  .mobile-break {
+    display: inline;
+  }
+
   .break-screen {
+    width: 75%;
     position: relative;
     border-radius: 15px;
     margin: 0;
+    margin-top: 30px;
     padding: 5px;
     margin-bottom: 20px;
+    right: -11%;
   }
 
-  header {
-    margin-bottom: 20px;
+  .break-timer {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 9vw;
+  }
+
+  .break-timer-label {
+    color: fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--main-color);
+    font-size: 9vw;
+  }
+
+  .add-task-form {
+    width: calc(90% - 10vw);
+    margin: 10vw;
+    font-size: 18px;
+  }
+
+  .estimate {
+    width: 100%;
+  }
+
+  .task-description {
+    width: 100%;
   }
 }
