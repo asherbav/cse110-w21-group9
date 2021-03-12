@@ -6,7 +6,7 @@
   --stop-color: #751444;
   --stop-color-hover: #4e0f2e;
   --disable-color: #a3a3a3;
-  --disable-text-color: black
+  --disable-text-color: black;
   --table-border-bottom-color: dodgerblue;
   --shadow-intensity: rgba(0, 0, 0, 0.3);
 }
