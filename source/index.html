@@ -9,7 +9,7 @@
 
   <body>
       <header class="title">
-        PomoTimer
+        &#127813; PomoTimer
       </header>
 
     <main>
@@ -20,7 +20,6 @@
 
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
       <div id="main-page" class="main-page">
-        <table id="table" class="table"></table>
 
         <form id="add-task-form" class="add-task-form" onsubmit="addTask();">
           <label for="task-description">Task:</label>
@@ -42,6 +41,8 @@
           </select>
           <button type="submit" class="add-btn" id="add-btn">Add Task</button>
         </form>
+
+        <table id="table" class="table"></table>
       </div>
 
       <div class="timer-page" id="timer-page" style="display: none">
@@ -83,18 +84,6 @@
           Yes
         </button>
         <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">
-          No
-        </button>
-      </div>
-    </div>
-
-    <div class="dialog-blocker" id="finish-button-dialog">
-      <div class="button-dialog">
-        <p>Are you sure you want to finish this task?</p>
-        <button id="finish-yes" class="dialog-yes" onclick="finishTask()">
-          Yes
-        </button>
-        <button id="finish-no" class="dialog-no" onclick="closeFinishDialog()">
           No
         </button>
       </div>
