@@ -9,7 +9,7 @@
 
   <body>
       <header class="title">
-        &#127813; PomoTimer
+        PomoTimer
       </header>
 
     <main>
@@ -20,7 +20,7 @@
 
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
       <div id="main-page" class="main-page">
-
+        <table id="table" class="table"></table>
         <form id="add-task-form" class="add-task-form" onsubmit="addTask();">
           <label for="task-description">Task:</label>
           <input
@@ -41,8 +41,6 @@
           </select>
           <button type="submit" class="add-btn go-color-btn" id="add-btn">Add Task</button>
         </form>
-
-        <table id="table" class="table"></table>
       </div>
 
       <div class="timer-page" id="timer-page" style="display: none">
