@@ -433,7 +433,7 @@ button:disabled {
   }
 
   .title {
-    font-size: max(22px, 15vw);
+    font-size: 10vw;
     height: auto;
   }
 
