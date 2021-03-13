@@ -39,7 +39,7 @@
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-          <button type="submit" class="add-btn" id="add-btn">Add Task</button>
+          <button type="submit" class="add-btn go-color-btn" id="add-btn">Add Task</button>
         </form>
 
         <table id="table" class="table"></table>
@@ -54,7 +54,7 @@
         <section class="buttons">
           <button
             type="button"
-            class="distract-btn"
+            class="distract-btn go-color-btn"
             id="distract-btn"
             onclick="logDistraction(currentPomoID)"
           >
@@ -62,7 +62,7 @@
           </button>
           <button
             type="button"
-            class="cancel-btn"
+            class="cancel-btn stop-color-btn"
             id="cancel-btn"
             onclick="displayCancelDialog()"
           >
@@ -80,19 +80,19 @@
     <div class="dialog-blocker" id="cancel-button-dialog">
       <div class="button-dialog">
         <p>Are you sure you want to cancel this session?</p>
-        <button id="cancel-yes" class="dialog-yes" onclick="cancelPomo()">
+        <button id="cancel-yes" class="dialog-yes go-color-btn" onclick="cancelPomo()">
           Yes
         </button>
-        <button id="cancel-no" class="dialog-no" onclick="closeCancelDialog()">
+        <button id="cancel-no" class="dialog-no stop-color-btn" onclick="closeCancelDialog()">
           No
         </button>
       </div>
     </div>
-
+    
     <div class="dialog-blocker" id="break-button-dialog">
       <div class="button-dialog">
         <p>Your break is done!</p>
-        <button id="break-yes" class="dialog-yes" onclick="closeBreakDialog()">
+        <button id="break-yes" class="dialog-yes go-color-btn" onclick="closeBreakDialog()">
           Ok
         </button>
       </div>
@@ -101,7 +101,7 @@
     <div class="dialog-blocker" id="workdone-button-dialog">
       <div class="button-dialog">
         <p>Your work session is done!</p>
-        <button id="workdone-yes" class="dialog-yes" onclick="closeWorkDoneDialog()">
+        <button id="workdone-yes" class="dialog-yes go-color-btn" onclick="closeWorkDoneDialog()">
           Ok
         </button>
       </div>
@@ -110,10 +110,10 @@
     <div class="dialog-blocker" id="remove-button-dialog">
       <div class="button-dialog">
         <p>Are you sure you want to delete this task?</p>
-        <button id="remove-yes" class="dialog-yes" onclick="removeTaskButton()">
+        <button id="remove-yes" class="dialog-yes go-color-btn" onclick="removeTaskButton()">
           Yes
         </button>
-        <button id="remove-no" class="dialog-no" onclick="closeRemoveDialog()">
+        <button id="remove-no" class="dialog-no stop-color-btn" onclick="closeRemoveDialog()">
           No
         </button>
       </div>

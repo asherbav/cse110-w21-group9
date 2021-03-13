@@ -7,7 +7,7 @@ const UPDATE_TIMER_EVERY = 200;
 const LONG_BREAK_EVERY = 4;
 const INVALID_POMOID = -1;
 
-const RESPONSIVE_CUTOFF_PX = 720;
+const RESPONSIVE_CUTOFF_PX = 1024;
 
 let time, timerEnd;
 let breakCount = 0;
@@ -400,7 +400,7 @@ function updateTable(disableAllStarts = false) {
     //Column Content
     let btnCont = document.createElement("button");
     btnCont.innerHTML = "X";
-    btnCont.className = "remove-btn";
+    btnCont.className = "remove-btn stop-color-btn";
     btnCont.addEventListener("click", function () {
       taskToRemove = toDraw[i].id
       displayRemoveDialog();
@@ -443,7 +443,7 @@ function updateTable(disableAllStarts = false) {
     let newID = toDraw[i].id;
 
     let startCont = document.createElement("button");
-    startCont.className = "start-btn";
+    startCont.className = "start-btn go-color-btn";
     startCont.id = "start-btn-" + newID;
     startCont.innerHTML = "Start";
     startCont.setAttribute("onclick", "startPomo(" + newID + ")");
@@ -456,7 +456,7 @@ function updateTable(disableAllStarts = false) {
     }
 
     let finCont = document.createElement("button");
-    finCont.className = "finish-btn";
+    finCont.className = "finish-btn go-color-btn";
     finCont.id = "finish-btn-" + newID;
     finCont.innerHTML = "Finish";
     finCont.setAttribute("onclick", "displayFinishDialog(" + newID + ")");
