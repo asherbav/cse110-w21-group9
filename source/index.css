@@ -59,6 +59,12 @@ header {
   display: block;
 }
 
+.logo {
+  height: 2.75rem;
+  padding-left: 10px;
+  display: inline-block;
+}
+
 /* Footer */
 footer {
   position: sticky;
@@ -433,8 +439,13 @@ button:disabled {
   }
 
   .title {
-    font-size: max(22px, 15vw);
+    font-size: 10vw;
     height: auto;
+  }
+
+  .logo {
+    height: 10vw;
+    display: inline-block;
   }
 
   /* Table */
