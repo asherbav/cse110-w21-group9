@@ -21,7 +21,6 @@
 
       <audio id="timer-audio" src="./audio/timer-audio.mp3"></audio>
       <div id="main-page" class="main-page">
-        <table id="table" class="table"></table>
 
         <form id="add-task-form" class="add-task-form" onsubmit="addTask();">
           <label for="task-description">Task:</label>
@@ -43,6 +42,8 @@
           </select>
           <button type="submit" class="add-btn go-color-btn" id="add-btn">Add Task</button>
         </form>
+
+        <table id="table" class="table"></table>
       </div>
 
       <div class="timer-page" id="timer-page" style="display: none">
@@ -88,19 +89,7 @@
         </button>
       </div>
     </div>
-
-    <div class="dialog-blocker" id="finish-button-dialog">
-      <div class="button-dialog">
-        <p>Are you sure you want to finish this task?</p>
-        <button id="finish-yes" class="dialog-yes go-color-btn" onclick="finishTask()">
-          Yes
-        </button>
-        <button id="finish-no" class="dialog-no stop-color-btn" onclick="closeFinishDialog()">
-          No
-        </button>
-      </div>
-    </div>
-
+    
     <div class="dialog-blocker" id="break-button-dialog">
       <div class="button-dialog">
         <p>Your break is done!</p>
@@ -126,6 +115,18 @@
           Yes
         </button>
         <button id="remove-no" class="dialog-no stop-color-btn" onclick="closeRemoveDialog()">
+          No
+        </button>
+      </div>
+    </div>
+
+    <div class="dialog-blocker" id="finish-button-dialog">
+      <div class="button-dialog">
+        <p>Are you sure you want to finish this task? This cannot be undone</p>
+        <button id="finish-yes" class="dialog-yes go-color-btn">
+          Yes
+        </button>
+        <button id="finish-no" class="dialog-no stop-color-btn" onclick="closeFinishDialog()">
           No
         </button>
       </div>
