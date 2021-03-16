@@ -21,12 +21,27 @@
 
 - [1/30 Topics (Interest Matrix, Standups)](https://docs.google.com/document/d/1n7fTjOJ58OlBZyKOLE32hKvmJDQIBwU8GiiRyJ13a_I/edit?usp=sharing)
 
+## Discussion Slides
+- [1/25 Discussion Slides](https://docs.google.com/presentation/d/1Avexag7NbytLhP2ceNea0kj5YoxN4Gk1DQrVXvuJF1E/edit?usp=sharing)
+
+- [2/3 Discussion Slides](https://docs.google.com/presentation/d/1p4zPQxPZIFFlo-TwmU5y2ydOpVUlORY2kBtLEQocgLA/edit?usp=sharing)
+
+- [2/10 Discussion Slides](https://docs.google.com/presentation/d/1kj93C9msy9ifkVMOxYEhF3HbBUMCFrYGhmEIOGH9C7E/edit?usp=sharing)
+
+- [2/17 Discussion Slides](https://docs.google.com/presentation/d/1CJyFUiVoPI4AjdytxfFZquvsfLE6T6_TafXyLYqAIss/edit?usp=sharing)
+
+- [2/24 Discussion Slides](https://docs.google.com/presentation/d/1vPbRngVa-ItT8JZQNIknKLsLTYG8ZatCWgLTraCOQIw/edit?usp=sharing)
+
+- [3/3 Discussion Slides](https://docs.google.com/presentation/d/1Xhq2HPiZuOeu7MUnqm2Xe5B9URJ0RgC5Ar9EqOVGVH0/edit?usp=sharing)
+
 ## Design/Planning Meetings
 - [2/1 Topics (MSCW, User Stories, Diagramming, WBS)](https://docs.google.com/document/d/15joEdx28tPXOEgX7EhAQfnl7-ZMXj6mf2Y455jKdwlk/edit?usp=sharing)
 
 - [Miro Brainstorming Board](https://miro.com/app/board/o9J_lWzIaWg=/)
 
 - [2/5 Topics(Starting Pitch, CI/CD)](https://docs.google.com/document/d/1mWwP3E9k4CUcvAOoA_9DNCw-oV9FFi97uAiMdtcaFB4/edit)
+
+- [2/17 Design Proposal](https://docs.google.com/presentation/d/11k-jEtrdcGGKXCJjTqt_vGp3Z3FLSazAo0ADtJkHPfY/edit?usp=sharing)
 
 ## 1st Sprint Meetings
 - [2/8 Topics(1st Sprint Goals/Roles Week 1, HTML)](https://docs.google.com/document/d/162sz5hqgDLxxb03QXDt9DVJSLW5AGZykz4-yuJIyJqo/edit)
