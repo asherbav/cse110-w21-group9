@@ -1,15 +1,16 @@
+# PomoTimer
 [Link](https://asherbav.github.io/cse110-w21-group9/source/)
 
-# Project Structure
+## Project Structure
 
-## Admin
+### Admin
 
 - Google Doc Links
 - Meeting Notes
 - Team Rules
 - Team Videos
 
-## Source
+### Source
 
 - HTML
 - CSS
@@ -17,7 +18,7 @@
 - Testing
 - Code Dependencies
 
-## Specs
+### Specs
 
 - ADRs
 - Brainstorm Files
@@ -30,7 +31,7 @@
   - App Flow Diagram (Flowchart)
   - Figma Wireframes
 
-## Group Wiki
+### Group Wiki
 
 - Developer Guide
   - CI/CD Pipeline Overview and Video Explanation
