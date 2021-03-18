@@ -1,7 +1,7 @@
 // Time in milliseconds
-const SHORT_BREAK_DURATION = 3 * 1000;
-const LONG_BREAK_DURATION = 5 * 1000;
-const WORK_DURATION = 3 * 1000;
+const SHORT_BREAK_DURATION = 5 * 60 * 1000;
+const LONG_BREAK_DURATION = 15 * 60 * 1000;
+const WORK_DURATION = 25 * 60 * 1000;
 const UPDATE_TIMER_EVERY = 200;
 
 const LONG_BREAK_EVERY = 4;
